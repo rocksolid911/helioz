@@ -15,11 +15,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, deviceType) {
-      return MaterialApp(
-        theme: ThemeData(
-          
-        ),
-
+// <<<<<<< HEAD
+//       return MaterialApp(
+//         theme: ThemeData(
+//
+//         ),
+//
+// =======
+      return const MaterialApp(
+// >>>>>>> f51fb401ca4344849ce26d046e836ea5b4ff34ab
         debugShowCheckedModeBanner: false,
 
         // home: LoginScreen(),
