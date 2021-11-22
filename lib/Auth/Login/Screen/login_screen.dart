@@ -8,10 +8,8 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text("Deepak", style: TextStyle(fontSize: 50.sp)),
-      ),
+    return Center(
+      child: Text("Deepak", style: TextStyle(fontSize: 50.sp)),
     );
   }
 }
