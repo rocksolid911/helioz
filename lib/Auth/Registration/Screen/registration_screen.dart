@@ -71,17 +71,17 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         actions: [
-          Icon(Icons.share),
+          const Icon(Icons.share),
           SizedBox(
             width: 7.w,
           ),
         ],
       ),
-      drawer: Drawer(),
+      drawer: const Drawer(),
       body: ListView(
         children: [
           Center(
@@ -97,7 +97,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Country",
               style: heading,
@@ -108,7 +108,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
                 decoration: InputDecoration(
@@ -117,9 +117,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                 ),
                 focusColor: Colors.white,
-                hint: Text("Select Country"),
+                hint: const Text("Select Country"),
                 isExpanded: true,
-                icon: Align(
+                icon: const Align(
                     alignment: Alignment.centerRight,
                     child: Icon(Icons.arrow_drop_down)),
                 items: country.map((String dropDownStringItem) {
@@ -152,7 +152,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "State",
               style: heading,
@@ -163,7 +163,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
                 decoration: InputDecoration(
@@ -172,9 +172,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                 ),
                 focusColor: Colors.white,
-                hint: Text("Select State"),
+                hint: const Text("Select State"),
                 isExpanded: true,
-                icon: Align(
+                icon: const Align(
                     alignment: Alignment.centerRight,
                     child: Icon(Icons.arrow_drop_down)),
                 items: state.map((String dropDownStringItem) {
@@ -205,7 +205,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "District",
               style: heading,
@@ -216,7 +216,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
                 decoration: InputDecoration(
@@ -225,9 +225,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                 ),
                 focusColor: Colors.white,
-                hint: Text("Select District"),
+                hint: const Text("Select District"),
                 isExpanded: true,
-                icon: Align(
+                icon: const Align(
                     alignment: Alignment.centerRight,
                     child: Icon(Icons.arrow_drop_down)),
                 items: district.map((String dropDownStringItem) {
@@ -258,7 +258,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Tehsil",
               style: heading,
@@ -269,7 +269,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
                 decoration: InputDecoration(
@@ -278,9 +278,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                 ),
                 focusColor: Colors.white,
-                hint: Text("Select Tehsil"),
+                hint: const Text("Select Tehsil"),
                 isExpanded: true,
-                icon: Align(
+                icon: const Align(
                     alignment: Alignment.centerRight,
                     child: Icon(Icons.arrow_drop_down)),
                 items: tehsil.map((String dropDownStringItem) {
@@ -384,9 +384,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                 ),
                 focusColor: Colors.white,
-                hint: Text("Select Panchayat"),
+                hint: const Text("Select Panchayat"),
                 isExpanded: true,
-                icon: Align(
+                icon: const Align(
                     alignment: Alignment.centerRight,
                     child: Icon(Icons.arrow_drop_down)),
                 items: panchayat.map((String dropDownStringItem) {
@@ -437,9 +437,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                 ),
                 focusColor: Colors.white,
-                hint: Text("Select Village"),
+                hint: const Text("Select Village"),
                 isExpanded: true,
-                icon: Align(
+                icon: const Align(
                     alignment: Alignment.centerRight,
                     child: Icon(Icons.arrow_drop_down)),
                 items: village.map((String dropDownStringItem) {

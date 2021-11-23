@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:helioz/Auth/Login/Screen/login_screen.dart';
+import 'package:helioz/common/splash/screen/splash.dart';
 import 'package:sizer/sizer.dart';
 
 import 'Auth/Registration/Screen/registration_screen.dart';
@@ -15,19 +16,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, deviceType) {
-// <<<<<<< HEAD
-//       return MaterialApp(
-//         theme: ThemeData(
-//
-//         ),
-//
-// =======
+
       return const MaterialApp(
-// >>>>>>> f51fb401ca4344849ce26d046e836ea5b4ff34ab
+
         debugShowCheckedModeBanner: false,
 
         // home: LoginScreen(),
-        home: RegistrationScreen(),
+        home: SplashScreen(),
       );
     });
   }
