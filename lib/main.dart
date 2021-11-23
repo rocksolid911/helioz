@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:helioz/Auth/Login/Screen/login_screen.dart';
+
 import 'package:helioz/common/splash/screen/splash.dart';
+import 'package:helioz/route.dart';
 import 'package:sizer/sizer.dart';
 
 import 'Auth/Registration/Screen/registration_screen.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
 
         // home: LoginScreen(),
         home: SplashScreen(),
+        onGenerateRoute: RouteGenerator.generateRoute,
       );
     });
   }
