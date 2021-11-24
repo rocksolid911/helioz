@@ -311,7 +311,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Block",
               style: heading,
@@ -322,7 +322,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
                 decoration: InputDecoration(
@@ -331,9 +331,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                 ),
                 focusColor: Colors.white,
-                hint: Text("Select Block"),
+                hint: const Text("Select Block"),
                 isExpanded: true,
-                icon: Align(
+                icon: const Align(
                     alignment: Alignment.centerRight,
                     child: Icon(Icons.arrow_drop_down)),
                 items: block.map((String dropDownStringItem) {
@@ -364,7 +364,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Panchayat",
               style: heading,
@@ -375,7 +375,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
                 decoration: InputDecoration(
@@ -417,7 +417,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Village",
               style: heading,
@@ -428,7 +428,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
                 decoration: InputDecoration(
@@ -470,7 +470,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Gender:",
               style: heading,
@@ -479,7 +479,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           SizedBox(
             height: .5.h,
           ),
-          Container(
+          SizedBox(
             height: 7.h,
             // margin: EdgeInsets.only(left: 20, right: 20),
             child: Row(
@@ -489,7 +489,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 Expanded(
                   child: RadioListTile(
                     groupValue: radioItem,
-                    title: Text('Male'),
+                    title: const Text('Male'),
                     value: 'Male',
                     onChanged: (val) {
                       setState(() {
@@ -501,7 +501,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 Expanded(
                   child: RadioListTile(
                     groupValue: radioItem,
-                    title: Text('Female'),
+                    title: const Text('Female'),
                     value: 'Female',
                     onChanged: (val) {
                       setState(() {
@@ -517,7 +517,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Household Unique Identifier:",
               style: heading,
@@ -528,7 +528,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
               // validator: validateEmail(TexEd),
               decoration: InputDecoration(
@@ -550,7 +550,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Name of Beneficiary/Recipient/Customer:",
               style: heading,
@@ -561,7 +561,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
               // validator: validateEmail(TexEd),
               decoration: InputDecoration(
@@ -583,7 +583,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Education",
               style: heading,
@@ -594,7 +594,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
                 decoration: InputDecoration(
@@ -603,9 +603,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                 ),
                 focusColor: Colors.white,
-                hint: Text("Select Education"),
+                hint: const Text("Select Education"),
                 isExpanded: true,
-                icon: Align(
+                icon: const Align(
                     alignment: Alignment.centerRight,
                     child: Icon(Icons.arrow_drop_down)),
                 items: education.map((String dropDownStringItem) {
@@ -636,7 +636,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Primary Occupation :",
               style: heading,
@@ -647,7 +647,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
                 decoration: InputDecoration(
@@ -656,9 +656,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                 ),
                 focusColor: Colors.white,
-                hint: Text("Select Primary Occupation "),
+                hint: const Text("Select Primary Occupation "),
                 isExpanded: true,
-                icon: Align(
+                icon: const Align(
                     alignment: Alignment.centerRight,
                     child: Icon(Icons.arrow_drop_down)),
                 items: occupation.map((String dropDownStringItem) {
@@ -689,7 +689,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Number of Household Members:",
               style: heading,
@@ -700,7 +700,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
               // validator: validateEmail(TexEd),
               decoration: InputDecoration(
@@ -722,7 +722,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Phone Number:",
               style: heading,
@@ -733,7 +733,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
               // validator: validateEmail(TexEd),
               decoration: InputDecoration(
@@ -755,7 +755,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Aadhar Card:",
               style: heading,
@@ -766,7 +766,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
               // validator: validateEmail(TexEd),
               decoration: InputDecoration(
@@ -788,7 +788,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Category:",
               style: heading,
@@ -799,7 +799,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 10, right: 20),
+            margin: const EdgeInsets.only(left: 10, right: 20),
             child: Row(
               // mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -807,14 +807,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 Expanded(
                   // flex: 2,
                   child: RadioListTile(
-                    contentPadding: EdgeInsets.only(
+                    contentPadding: const EdgeInsets.only(
                         // Add this
                         left: 0,
                         right: 0,
                         bottom: 0,
                         top: 0),
                     groupValue: Category,
-                    title: Text(
+                    title: const Text(
                       'General',
                       maxLines: 1,
                       overflow: TextOverflow.fade,
@@ -834,14 +834,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 Expanded(
                   // flex: 1,
                   child: RadioListTile(
-                    contentPadding: EdgeInsets.only(
+                    contentPadding: const EdgeInsets.only(
                         // Add this
                         left: 0,
                         right: 0,
                         bottom: 0,
                         top: 0),
                     groupValue: Category,
-                    title: Text('OBC'),
+                    title: const Text('OBC'),
                     value: 'OBC',
                     onChanged: (val) {
                       setState(() {
@@ -852,14 +852,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ),
                 Expanded(
                   child: RadioListTile(
-                    contentPadding: EdgeInsets.only(
+                    contentPadding: const EdgeInsets.only(
                         // Add this
                         left: 0,
                         right: 0,
                         bottom: 0,
                         top: 0),
                     groupValue: Category,
-                    title: Text('SC'),
+                    title: const Text('SC'),
                     value: 'SC',
                     onChanged: (val) {
                       setState(() {
@@ -870,14 +870,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ),
                 Expanded(
                   child: RadioListTile(
-                    contentPadding: EdgeInsets.only(
+                    contentPadding: const EdgeInsets.only(
                         // Add this
                         left: 0,
                         right: 0,
                         bottom: 0,
                         top: 0),
                     groupValue: Category,
-                    title: Text('ST'),
+                    title: const Text('ST'),
                     value: 'ST',
                     onChanged: (val) {
                       setState(() {
@@ -893,7 +893,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Household Members with Disability:",
               style: heading,
@@ -904,7 +904,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: Row(
               // mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -912,14 +912,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 Expanded(
                   // flex: 2,
                   child: RadioListTile(
-                    contentPadding: EdgeInsets.only(
+                    contentPadding: const EdgeInsets.only(
                         // Add this
                         left: 0,
                         right: 0,
                         bottom: 0,
                         top: 0),
                     groupValue: Disability,
-                    title: Text('Yes'),
+                    title: const Text('Yes'),
                     value: 'Yes',
                     onChanged: (val) {
                       setState(() {
@@ -931,14 +931,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 Expanded(
                   // flex: 1,
                   child: RadioListTile(
-                    contentPadding: EdgeInsets.only(
+                    contentPadding: const EdgeInsets.only(
                         // Add this
                         left: 0,
                         right: 0,
                         bottom: 0,
                         top: 0),
                     groupValue: Disability,
-                    title: Text('NO'),
+                    title: const Text('NO'),
                     value: 'NO',
                     onChanged: (val) {
                       setState(() {
@@ -954,7 +954,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "If Yes Number of Households Members with Disability:",
               style: heading,
@@ -965,7 +965,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
               // validator: validateEmail(TexEd),
               decoration: InputDecoration(
@@ -987,7 +987,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Seasonal Migration:",
               style: heading,
@@ -998,7 +998,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: Row(
               // mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -1006,14 +1006,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 Expanded(
                   // flex: 2,
                   child: RadioListTile(
-                    contentPadding: EdgeInsets.only(
+                    contentPadding: const EdgeInsets.only(
                         // Add this
                         left: 0,
                         right: 0,
                         bottom: 0,
                         top: 0),
                     groupValue: Migration,
-                    title: Text('Yes'),
+                    title: const Text('Yes'),
                     value: 'Yes',
                     onChanged: (val) {
                       setState(() {
@@ -1025,14 +1025,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 Expanded(
                   // flex: 1,
                   child: RadioListTile(
-                    contentPadding: EdgeInsets.only(
+                    contentPadding: const EdgeInsets.only(
                         // Add this
                         left: 0,
                         right: 0,
                         bottom: 0,
                         top: 0),
                     groupValue: Migration,
-                    title: Text('NO'),
+                    title: const Text('NO'),
                     value: 'NO',
                     onChanged: (val) {
                       setState(() {
@@ -1048,7 +1048,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "If Yes Seasonal Migration:",
               style: heading,
@@ -1059,7 +1059,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
                 decoration: InputDecoration(
@@ -1068,9 +1068,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                 ),
                 focusColor: Colors.white,
-                hint: Text("Select If Yes Seasonal Migration: "),
+                hint: const Text("Select If Yes Seasonal Migration: "),
                 isExpanded: true,
-                icon: Align(
+                icon: const Align(
                     alignment: Alignment.centerRight,
                     child: Icon(Icons.arrow_drop_down)),
                 items: migration.map((String dropDownStringItem) {
@@ -1101,7 +1101,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Photograph of Household",
               style: heading,
@@ -1111,7 +1111,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: .5.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20, right: 40),
+            margin: const EdgeInsets.only(left: 20, right: 40),
             color: Colors.black12,
             height: 18.h,
             width: 200,
@@ -1125,7 +1125,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Distribution/Sale:",
               style: heading,
@@ -1136,7 +1136,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
                 decoration: InputDecoration(
@@ -1145,9 +1145,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                 ),
                 focusColor: Colors.white,
-                hint: Text("Select Distribution/Sale: "),
+                hint: const Text("Select Distribution/Sale: "),
                 isExpanded: true,
-                icon: Align(
+                icon: const Align(
                     alignment: Alignment.centerRight,
                     child: Icon(Icons.arrow_drop_down)),
                 items: distribution.map((String dropDownStringItem) {
@@ -1178,7 +1178,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Model of Project Technology:",
               style: heading,
@@ -1189,7 +1189,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
                 decoration: InputDecoration(
@@ -1198,9 +1198,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                 ),
                 focusColor: Colors.white,
-                hint: Text("Select Model of Project Technology: "),
+                hint: const Text("Select Model of Project Technology: "),
                 isExpanded: true,
-                icon: Align(
+                icon: const Align(
                     alignment: Alignment.centerRight,
                     child: Icon(Icons.arrow_drop_down)),
                 items: Model_of_Project_Technology.map(
@@ -1232,7 +1232,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Type of Project Technology:",
               style: heading,
@@ -1243,7 +1243,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
                 decoration: InputDecoration(
@@ -1252,9 +1252,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                 ),
                 focusColor: Colors.white,
-                hint: Text("Select Type of Project Technology "),
+                hint: const Text("Select Type of Project Technology "),
                 isExpanded: true,
-                icon: Align(
+                icon: const Align(
                     alignment: Alignment.centerRight,
                     child: Icon(Icons.arrow_drop_down)),
                 items:
@@ -1286,7 +1286,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Quantity of Project Technology received/sold:",
               style: heading,
@@ -1297,7 +1297,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
               // validator: validateEmail(TexEd),
               decoration: InputDecoration(
@@ -1319,7 +1319,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Quantity of equipment supplied (bottles/containers):",
               style: heading,
@@ -1330,7 +1330,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
               // validator: validateEmail(TexEd),
               decoration: InputDecoration(
@@ -1352,7 +1352,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Serial Number of Project Technology:",
               style: heading,
@@ -1363,7 +1363,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
               // validator: validateEmail(TexEd),
               decoration: InputDecoration(
@@ -1385,7 +1385,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Date of distribution/Sale:",
               style: heading,
@@ -1396,13 +1396,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
               controller: distributionDateController,
               onTap: _handerlDatePicker,
               // validator: validateEmail(TexEd),
               decoration: InputDecoration(
-                suffixIcon: Icon(Icons.calendar_today),
+                suffixIcon: const Icon(Icons.calendar_today),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 ),
@@ -1421,7 +1421,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             height: 2.h,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
               "Date of Technology Training:",
               style: heading,
@@ -1432,13 +1432,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Container(
             height: 7.h,
-            margin: EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
               controller: trainningDateController,
               onTap: _handerlDatePickerTraining,
               // validator: validateEmail(TexEd),
               decoration: InputDecoration(
-                suffixIcon: Icon(Icons.calendar_today),
+                suffixIcon: const Icon(Icons.calendar_today),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 ),
@@ -1456,7 +1456,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           Align(
             alignment: Alignment.centerRight,
             child: Container(
-              margin: EdgeInsets.only(right: 20, top: 20),
+              margin: const EdgeInsets.only(right: 20, top: 20),
               height: 6.h,
               width: 15.h,
               // alignment: Alignment.bottomRight,
@@ -1464,11 +1464,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 border: Border.all(),
                 color: Colors.black12,
                 shape: BoxShape.rectangle,
-                borderRadius: BorderRadius.all(
+                borderRadius: const BorderRadius.all(
                   Radius.circular(10.0),
                 ),
               ),
-              child: Center(child: Text("Submit")),
+              child: const Center(child: Text("Submit")),
             ),
           ),
           SizedBox(
