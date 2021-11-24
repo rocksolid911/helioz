@@ -6,7 +6,11 @@ import 'package:sizer/sizer.dart';
 
 import 'Auth/Registration/Screen/registration_screen.dart';
 import 'Home/Pre_registration/Screen/pre_registration_screen.dart';
-import 'Listing/Screen/listing_household_screen.dart';
+// <<<<<<< Updated upstream
+// import 'Listing/Screen/listing_household_screen.dart';
+// =======
+// import 'Home/Preference/Screen/preference_screen.dart';
+// >>>>>>> Stashed changes
 
 void main() {
   runApp(const MyApp());
@@ -23,8 +27,12 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
 
         // home: LoginScreen(),
+// <<<<<<< Updated upstream
         // home: ListHouseHoldScreen(),
         home: SplashScreen(),
+// =======
+//         home: PreferenceScreen(),
+// >>>>>>> Stashed changes
         onGenerateRoute: RouteGenerator.generateRoute,
       );
     });

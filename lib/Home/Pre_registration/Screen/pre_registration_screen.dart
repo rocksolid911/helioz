@@ -230,7 +230,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
                 value: mainFuelSourceValue,
                 onChanged: (valueSelected) {
                   setState(
-                    () {
+                        () {
                       mainFuelSourceValue = valueSelected as String?;
 
                       // debugPrint('User selected $mainFuelSourceValue');
@@ -272,7 +272,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
                 ),
                 focusColor: Colors.white,
                 hint:
-                    const Text("Select Main water source in use - Dry season"),
+                const Text("Select Main water source in use - Dry season"),
                 isExpanded: true,
                 icon: const Align(
                     alignment: Alignment.centerRight,
@@ -286,7 +286,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
                 value: mainWaterSourceDryValue,
                 onChanged: (valueSelected) {
                   setState(
-                    () {
+                        () {
                       mainWaterSourceDryValue = valueSelected as String?;
 
                       // debugPrint('User selected $CountryValue');
@@ -342,7 +342,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
                 value: mainWaterSourceRainyValue,
                 onChanged: (valueSelected) {
                   setState(
-                    () {
+                        () {
                       mainWaterSourceRainyValue = valueSelected as String?;
 
                       // debugPrint('User selected $CountryValue');
@@ -441,7 +441,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
                 value: treatmentWaterSourceDryValue,
                 onChanged: (valueSelected) {
                   setState(
-                    () {
+                        () {
                       treatmentWaterSourceDryValue = valueSelected as String?;
 
                       // debugPrint('User selected $treatmentWaterSourceDryValue');
@@ -540,7 +540,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
                 value: treatmentWaterSourceRainyValue,
                 onChanged: (valueSelected) {
                   setState(
-                    () {
+                        () {
                       treatmentWaterSourceRainyValue = valueSelected as String?;
 
                       // debugPrint('User selected $CountryValue');
