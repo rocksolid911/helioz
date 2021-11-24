@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:helioz/Auth/Login/Screen/loginscreen.dart';
 import 'package:helioz/Auth/Login/Screen/signupscreen.dart';
+import 'package:helioz/Auth/Registration/Screen/registration_screen.dart';
 import 'package:helioz/Home/Dashboard/screens/dashboard.dart';
 
 import 'common/splash/screen/splash.dart';
@@ -25,7 +26,11 @@ class RouteGenerator {
         );
       case '/dashboard':
         return MaterialPageRoute(
-          builder: (_) => const DashBoard(),
+          builder: (_) =>  const DashBoard(),
+        );
+      case '/reg':
+        return MaterialPageRoute(
+          builder: (_) =>  const RegistrationScreen(),
         );
 
         // If args is not of the correct type, return an error page.
@@ -41,9 +46,9 @@ class RouteGenerator {
     return MaterialPageRoute(builder: (_) {
       return Scaffold(
         appBar: AppBar(
-          title: Text('Error'),
+          title: const Text('Error'),
         ),
-        body: Center(
+        body: const Center(
           child: Text('ERROR'),
         ),
       );
