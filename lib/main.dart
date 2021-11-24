@@ -5,6 +5,7 @@ import 'package:helioz/route.dart';
 import 'package:sizer/sizer.dart';
 
 import 'Auth/Registration/Screen/registration_screen.dart';
+import 'Home/Pre_registration/Screen/pre_registration_screen.dart';
 
 void main() {
   runApp(const MyApp());
