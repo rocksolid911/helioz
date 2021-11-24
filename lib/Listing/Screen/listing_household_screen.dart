@@ -42,18 +42,7 @@ class _ListHouseHoldScreenState extends State<ListHouseHoldScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Center(
-              child: Text(
-                "Listing House hold",
-                style: TextStyle(
-                    fontSize: 19.sp,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black54),
-              ),
-            ),
-            SizedBox(
-              height: 3.h,
-            ),
+
             Row(
               children: [
                 Expanded(
