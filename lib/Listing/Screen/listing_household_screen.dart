@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:helioz/Auth/Registration/Widget/text_style.dart';
 import 'package:helioz/Listing/Widget/house_Hold_Widget.dart';
+import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:sizer/sizer.dart';
 
 class ListHouseHoldScreen extends StatefulWidget {
@@ -11,10 +12,31 @@ class ListHouseHoldScreen extends StatefulWidget {
 }
 
 class _ListHouseHoldScreenState extends State<ListHouseHoldScreen> {
+  final GlobalKey<ScaffoldState> _drawerkey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        key: _drawerkey,
+        drawer: const myDrawer(),
+        appBar: AppBar(
+          title: Text(
+            "Listing House Hold",
+            style: TextStyle(
+                fontSize: 17.sp,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF5B81E8)),
+          ),
+          iconTheme: const IconThemeData(color: Color(0xFF5B81E8)),
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          actions: [
+            const Icon(Icons.reply),
+            SizedBox(
+              width: 7.w,
+            ),
+          ],
+        ),
         body: ListView(
           children: [
             SizedBox(

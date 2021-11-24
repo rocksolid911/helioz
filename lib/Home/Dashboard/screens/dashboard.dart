@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:helioz/common/Drawer/widgets/drawer.dart';
 
 import 'package:sizer/sizer.dart';
-final  menuScreenKey = GlobalKey(debugLabel: 'MenuScreen');
+
 class DashBoard extends StatefulWidget {
    const DashBoard({Key? key}) : super(key: key);
 
@@ -18,12 +18,12 @@ class _DashBoardState extends State<DashBoard> {
     return Scaffold(
       key: _drawerkey,
       appBar: AppBar(
-        title: const Text("Dashboard",style: TextStyle(color: Colors.black),),
-        iconTheme: const IconThemeData(color: Colors.black),
+        title: const Text("Dashboard",style: TextStyle(color: Color(0xFF5B81E8)),),
+        iconTheme: const IconThemeData(color: Color(0xFF5B81E8)),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         actions: [
-          const Icon(Icons.reply,color: Colors.black,),
+          const Icon(Icons.reply,color: Color(0xFF5B81E8),),
           SizedBox(
             width: 7.w,
           ),

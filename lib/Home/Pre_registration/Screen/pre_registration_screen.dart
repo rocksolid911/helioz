@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:helioz/Auth/Registration/Widget/text_style.dart';
 import 'package:helioz/Home/Pre_registration/Data/pre_reg_data.dart';
+import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:sizer/sizer.dart';
 
 class PreRegistrationScreen extends StatefulWidget {
@@ -11,6 +12,7 @@ class PreRegistrationScreen extends StatefulWidget {
 }
 
 class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
+  final GlobalKey<ScaffoldState> _drawerkey = GlobalKey();
   String? genderItem = "";
   String? waterTreatmentRadioDry = "";
   String? waterTreatmentRadioRainy = "";
@@ -23,639 +25,641 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _drawerkey,
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
+        title: Text(
+          "Pre-Registration",
+          style: TextStyle(
+              fontSize: 17.sp,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF5B81E8)),
+        ),
+        iconTheme: const IconThemeData(color: Color(0xFF5B81E8)),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         actions: [
-          const Icon(Icons.share),
+          const Icon(Icons.reply),
           SizedBox(
             width: 7.w,
           ),
         ],
       ),
-      drawer: const Drawer(),
-      body: ListView(
-        children: [
-          Center(
-            child: Text(
-              "Pre-Registration",
-              style: TextStyle(
-                  fontSize: 17.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black38),
+      drawer:  const myDrawer(),
+      body: Scrollbar(
+        child: ListView(
+          children: [
+
+            SizedBox(
+              height: 2.h,
             ),
-          ),
-          SizedBox(
-            height: 4.h,
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 20),
-            child: Text(
-              "Name of beneficiary:",
-              style: heading,
-            ),
-          ),
-          SizedBox(
-            height: .5.h,
-          ),
-          Container(
-            height: 7.h,
-            margin: const EdgeInsets.only(left: 20, right: 20),
-            child: TextFormField(
-              // validator: validateEmail(TexEd),
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                // labelText: 'Full Name',
-                hintText: 'Name of beneficiary',
+            Container(
+              margin: const EdgeInsets.only(left: 20),
+              child: Text(
+                "Name of beneficiary:",
+                style: heading,
               ),
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return 'Enter Name of beneficiary';
-                }
-                return null;
-              },
             ),
-          ),
-          SizedBox(
-            height: 2.h,
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 20),
-            child: Text(
-              "Gender:",
-              style: heading,
+            SizedBox(
+              height: .5.h,
             ),
-          ),
-          SizedBox(
-            height: .5.h,
-          ),
-          SizedBox(
-            height: 5.h,
-            // margin: EdgeInsets.only(left: 20, right: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: RadioListTile(
-                    groupValue: genderItem,
-                    title: const Text('Male'),
-                    value: 'Male',
-                    onChanged: (val) {
-                      setState(() {
-                        genderItem = val as String;
-                      });
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: RadioListTile(
-                    groupValue: genderItem,
-                    title: const Text('Female'),
-                    value: 'Female',
-                    onChanged: (val) {
-                      setState(() {
-                        genderItem = val as String;
-                      });
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 2.h,
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 20),
-            child: Text(
-              "Address:",
-              style: heading,
-            ),
-          ),
-          SizedBox(
-            height: .5.h,
-          ),
-          Container(
-            height: 7.h,
-            margin: const EdgeInsets.only(left: 20, right: 20),
-            child: TextFormField(
-              // validator: validateEmail(TexEd),
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                // labelText: 'Full Name',
-                hintText: 'Enter Address',
-              ),
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return 'Enter Address';
-                }
-                return null;
-              },
-            ),
-          ),
-          SizedBox(
-            height: 2.h,
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 20),
-            child: Text(
-              "Phone Number:",
-              style: heading,
-            ),
-          ),
-          SizedBox(
-            height: .5.h,
-          ),
-          Container(
-            height: 7.h,
-            margin: const EdgeInsets.only(left: 20, right: 20),
-            child: TextFormField(
-              // validator: validateEmail(TexEd),
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                // labelText: 'Full Name',
-                hintText: 'Enter Phone Number',
-              ),
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return 'Enter Phone Number';
-                }
-                return null;
-              },
-            ),
-          ),
-          SizedBox(
-            height: 2.h,
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 20),
-            child: Text(
-              "Main fuel source in use:",
-              style: heading,
-            ),
-          ),
-          SizedBox(
-            height: .5.h,
-          ),
-          Container(
-            height: 7.h,
-            margin: const EdgeInsets.only(left: 20, right: 20),
-            child: DropdownButtonHideUnderline(
-              child: DropdownButtonFormField(
+            Container(
+              height: 7.h,
+              margin: const EdgeInsets.only(left: 20, right: 20),
+              child: TextFormField(
+                // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
+                  // labelText: 'Full Name',
+                  hintText: 'Name of beneficiary',
                 ),
-                focusColor: Colors.white,
-                hint: const Text("Select Main fuel source in use"),
-                isExpanded: true,
-                icon: const Align(
-                    alignment: Alignment.centerRight,
-                    child: Icon(Icons.arrow_drop_down)),
-                items: mainFuelSource.map((String dropDownStringItem) {
-                  return DropdownMenuItem<String>(
-                    value: dropDownStringItem,
-                    child: Text(dropDownStringItem),
-                  );
-                }).toList(),
-                value: mainFuelSourceValue,
-                onChanged: (valueSelected) {
-                  setState(
-                    () {
-                      mainFuelSourceValue = valueSelected as String?;
-
-                      // debugPrint('User selected $mainFuelSourceValue');
-                    },
-                  );
-                },
                 validator: (value) {
-                  if (value == null) {
-                    return 'Select Main fuel source in use';
+                  if (value!.isEmpty) {
+                    return 'Enter Name of beneficiary';
                   }
-
                   return null;
                 },
               ),
             ),
-          ),
-          SizedBox(
-            height: 2.h,
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 20),
-            child: Text(
-              "Main water source in use - Dry season:",
-              style: heading,
+            SizedBox(
+              height: 2.h,
             ),
-          ),
-          SizedBox(
-            height: .5.h,
-          ),
-          Container(
-            height: 7.h,
-            margin: const EdgeInsets.only(left: 20, right: 20),
-            child: DropdownButtonHideUnderline(
-              child: DropdownButtonFormField(
+            Container(
+              margin: const EdgeInsets.only(left: 20),
+              child: Text(
+                "Gender:",
+                style: heading,
+              ),
+            ),
+            SizedBox(
+              height: .5.h,
+            ),
+            SizedBox(
+              height: 5.h,
+              // margin: EdgeInsets.only(left: 20, right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: RadioListTile(
+                      groupValue: genderItem,
+                      title: const Text('Male'),
+                      value: 'Male',
+                      onChanged: (val) {
+                        setState(() {
+                          genderItem = val as String;
+                        });
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    child: RadioListTile(
+                      groupValue: genderItem,
+                      title: const Text('Female'),
+                      value: 'Female',
+                      onChanged: (val) {
+                        setState(() {
+                          genderItem = val as String;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 2.h,
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 20),
+              child: Text(
+                "Address:",
+                style: heading,
+              ),
+            ),
+            SizedBox(
+              height: .5.h,
+            ),
+            Container(
+              height: 7.h,
+              margin: const EdgeInsets.only(left: 20, right: 20),
+              child: TextFormField(
+                // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
+                  // labelText: 'Full Name',
+                  hintText: 'Enter Address',
                 ),
-                focusColor: Colors.white,
-                hint:
-                    const Text("Select Main water source in use - Dry season"),
-                isExpanded: true,
-                icon: const Align(
-                    alignment: Alignment.centerRight,
-                    child: Icon(Icons.arrow_drop_down)),
-                items: waterSourceDry.map((String dropDownStringItem) {
-                  return DropdownMenuItem<String>(
-                    value: dropDownStringItem,
-                    child: Text(dropDownStringItem),
-                  );
-                }).toList(),
-                value: mainWaterSourceDryValue,
-                onChanged: (valueSelected) {
-                  setState(
-                    () {
-                      mainWaterSourceDryValue = valueSelected as String?;
-
-                      // debugPrint('User selected $CountryValue');
-                    },
-                  );
-                },
                 validator: (value) {
-                  if (value == null) {
-                    return 'Select Main water source in use - Dry season';
+                  if (value!.isEmpty) {
+                    return 'Enter Address';
                   }
-
                   return null;
                 },
               ),
             ),
-          ),
-          SizedBox(
-            height: 2.h,
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 20),
-            child: Text(
-              "Main water source in use - Rainy season:",
-              style: heading,
+            SizedBox(
+              height: 2.h,
             ),
-          ),
-          SizedBox(
-            height: .5.h,
-          ),
-          Container(
-            height: 7.h,
-            margin: const EdgeInsets.only(left: 20, right: 20),
-            child: DropdownButtonHideUnderline(
-              child: DropdownButtonFormField(
+            Container(
+              margin: const EdgeInsets.only(left: 20),
+              child: Text(
+                "Phone Number:",
+                style: heading,
+              ),
+            ),
+            SizedBox(
+              height: .5.h,
+            ),
+            Container(
+              height: 7.h,
+              margin: const EdgeInsets.only(left: 20, right: 20),
+              child: TextFormField(
+                // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
+                  // labelText: 'Full Name',
+                  hintText: 'Enter Phone Number',
                 ),
-                focusColor: Colors.white,
-                hint: const Text(
-                    "Select Main water source in use - Rainy season"),
-                isExpanded: true,
-                icon: const Align(
-                    alignment: Alignment.centerRight,
-                    child: Icon(Icons.arrow_drop_down)),
-                items: waterSourceRainy.map((String dropDownStringItem) {
-                  return DropdownMenuItem<String>(
-                    value: dropDownStringItem,
-                    child: Text(dropDownStringItem),
-                  );
-                }).toList(),
-                value: mainWaterSourceRainyValue,
-                onChanged: (valueSelected) {
-                  setState(
-                    () {
-                      mainWaterSourceRainyValue = valueSelected as String?;
-
-                      // debugPrint('User selected $CountryValue');
-                    },
-                  );
-                },
                 validator: (value) {
-                  if (value == null) {
-                    return 'Select Main water source in use - Rainy season;';
+                  if (value!.isEmpty) {
+                    return 'Enter Phone Number';
                   }
-
                   return null;
                 },
               ),
             ),
-          ),
-          SizedBox(
-            height: 2.h,
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 20),
-            child: Text(
-              "water treatment method in use - Dry season:",
-              style: heading,
+            SizedBox(
+              height: 2.h,
             ),
-          ),
-          SizedBox(
-            height: 5.h,
-            // margin: EdgeInsets.only(left: 20, right: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: RadioListTile(
-                    groupValue: waterTreatmentRadioDry,
-                    title: const Text('Yes'),
-                    value: 'Yes',
-                    onChanged: (val) {
-                      setState(() {
-                        waterTreatmentRadioDry = val as String;
-                      });
-                    },
+            Container(
+              margin: const EdgeInsets.only(left: 20),
+              child: Text(
+                "Main fuel source in use:",
+                style: heading,
+              ),
+            ),
+            SizedBox(
+              height: .5.h,
+            ),
+            Container(
+              height: 7.h,
+              margin: const EdgeInsets.only(left: 20, right: 20),
+              child: DropdownButtonHideUnderline(
+                child: DropdownButtonFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
                   ),
+                  focusColor: Colors.white,
+                  hint: const Text("Select Main fuel source in use"),
+                  isExpanded: true,
+                  icon: const Align(
+                      alignment: Alignment.centerRight,
+                      child: Icon(Icons.arrow_drop_down)),
+                  items: mainFuelSource.map((String dropDownStringItem) {
+                    return DropdownMenuItem<String>(
+                      value: dropDownStringItem,
+                      child: Text(dropDownStringItem),
+                    );
+                  }).toList(),
+                  value: mainFuelSourceValue,
+                  onChanged: (valueSelected) {
+                    setState(
+                      () {
+                        mainFuelSourceValue = valueSelected as String?;
+
+                        // debugPrint('User selected $mainFuelSourceValue');
+                      },
+                    );
+                  },
+                  validator: (value) {
+                    if (value == null) {
+                      return 'Select Main fuel source in use';
+                    }
+
+                    return null;
+                  },
                 ),
-                Expanded(
-                  child: RadioListTile(
-                    groupValue: waterTreatmentRadioDry,
-                    title: const Text('No'),
-                    value: 'No',
-                    onChanged: (val) {
-                      setState(() {
-                        waterTreatmentRadioDry = val as String;
-                      });
-                    },
+              ),
+            ),
+            SizedBox(
+              height: 2.h,
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 20),
+              child: Text(
+                "Main water source in use - Dry season:",
+                style: heading,
+              ),
+            ),
+            SizedBox(
+              height: .5.h,
+            ),
+            Container(
+              height: 7.h,
+              margin: const EdgeInsets.only(left: 20, right: 20),
+              child: DropdownButtonHideUnderline(
+                child: DropdownButtonFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
                   ),
+                  focusColor: Colors.white,
+                  hint:
+                      const Text("Select Main water source in use - Dry season"),
+                  isExpanded: true,
+                  icon: const Align(
+                      alignment: Alignment.centerRight,
+                      child: Icon(Icons.arrow_drop_down)),
+                  items: waterSourceDry.map((String dropDownStringItem) {
+                    return DropdownMenuItem<String>(
+                      value: dropDownStringItem,
+                      child: Text(dropDownStringItem),
+                    );
+                  }).toList(),
+                  value: mainWaterSourceDryValue,
+                  onChanged: (valueSelected) {
+                    setState(
+                      () {
+                        mainWaterSourceDryValue = valueSelected as String?;
+
+                        // debugPrint('User selected $CountryValue');
+                      },
+                    );
+                  },
+                  validator: (value) {
+                    if (value == null) {
+                      return 'Select Main water source in use - Dry season';
+                    }
+
+                    return null;
+                  },
                 ),
-              ],
+              ),
             ),
-          ),
-          SizedBox(
-            height: 2.h,
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 20),
-            child: Text(
-              "IF YES, water treatment method in use. Main type of water Treatment method in use - Dry Season:",
-              style: heading,
+            SizedBox(
+              height: 2.h,
             ),
-          ),
-          SizedBox(
-            height: .5.h,
-          ),
-          Container(
-            height: 7.h,
-            margin: const EdgeInsets.only(left: 20, right: 20),
-            child: DropdownButtonHideUnderline(
-              child: DropdownButtonFormField(
+            Container(
+              margin: const EdgeInsets.only(left: 20),
+              child: Text(
+                "Main water source in use - Rainy season:",
+                style: heading,
+              ),
+            ),
+            SizedBox(
+              height: .5.h,
+            ),
+            Container(
+              height: 7.h,
+              margin: const EdgeInsets.only(left: 20, right: 20),
+              child: DropdownButtonHideUnderline(
+                child: DropdownButtonFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                  ),
+                  focusColor: Colors.white,
+                  hint: const Text(
+                      "Select Main water source in use - Rainy season"),
+                  isExpanded: true,
+                  icon: const Align(
+                      alignment: Alignment.centerRight,
+                      child: Icon(Icons.arrow_drop_down)),
+                  items: waterSourceRainy.map((String dropDownStringItem) {
+                    return DropdownMenuItem<String>(
+                      value: dropDownStringItem,
+                      child: Text(dropDownStringItem),
+                    );
+                  }).toList(),
+                  value: mainWaterSourceRainyValue,
+                  onChanged: (valueSelected) {
+                    setState(
+                      () {
+                        mainWaterSourceRainyValue = valueSelected as String?;
+
+                        // debugPrint('User selected $CountryValue');
+                      },
+                    );
+                  },
+                  validator: (value) {
+                    if (value == null) {
+                      return 'Select Main water source in use - Rainy season;';
+                    }
+
+                    return null;
+                  },
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 2.h,
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 20),
+              child: Text(
+                "water treatment method in use - Dry season:",
+                style: heading,
+              ),
+            ),
+            SizedBox(
+              height: 5.h,
+              // margin: EdgeInsets.only(left: 20, right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: RadioListTile(
+                      groupValue: waterTreatmentRadioDry,
+                      title: const Text('Yes'),
+                      value: 'Yes',
+                      onChanged: (val) {
+                        setState(() {
+                          waterTreatmentRadioDry = val as String;
+                        });
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    child: RadioListTile(
+                      groupValue: waterTreatmentRadioDry,
+                      title: const Text('No'),
+                      value: 'No',
+                      onChanged: (val) {
+                        setState(() {
+                          waterTreatmentRadioDry = val as String;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 2.h,
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 20),
+              child: Text(
+                "IF YES, water treatment method in use. Main type of water Treatment method in use - Dry Season:",
+                style: heading,
+              ),
+            ),
+            SizedBox(
+              height: .5.h,
+            ),
+            Container(
+              height: 7.h,
+              margin: const EdgeInsets.only(left: 20, right: 20),
+              child: DropdownButtonHideUnderline(
+                child: DropdownButtonFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                  ),
+                  focusColor: Colors.white,
+                  hint: const Text("Select water treatment method "),
+                  isExpanded: true,
+                  icon: const Align(
+                      alignment: Alignment.centerRight,
+                      child: Icon(Icons.arrow_drop_down)),
+                  items: waterTreatmentDry.map((String dropDownStringItem) {
+                    return DropdownMenuItem<String>(
+                      value: dropDownStringItem,
+                      child: Text(dropDownStringItem),
+                    );
+                  }).toList(),
+                  value: treatmentWaterSourceDryValue,
+                  onChanged: (valueSelected) {
+                    setState(
+                      () {
+                        treatmentWaterSourceDryValue = valueSelected as String?;
+
+                        // debugPrint('User selected $treatmentWaterSourceDryValue');
+                      },
+                    );
+                  },
+                  validator: (value) {
+                    if (value == null) {
+                      return 'Select water treatment method ';
+                    }
+
+                    return null;
+                  },
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 2.h,
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 20),
+              child: Text(
+                "water treatment method in use - Rainy season:",
+                style: heading,
+              ),
+            ),
+            SizedBox(
+              height: 5.h,
+              // margin: EdgeInsets.only(left: 20, right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: RadioListTile(
+                      groupValue: waterTreatmentRadioRainy,
+                      title: const Text('Yes'),
+                      value: 'Yes',
+                      onChanged: (val) {
+                        setState(() {
+                          waterTreatmentRadioRainy = val as String;
+                        });
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    child: RadioListTile(
+                      groupValue: waterTreatmentRadioRainy,
+                      title: const Text('No'),
+                      value: 'No',
+                      onChanged: (val) {
+                        setState(() {
+                          waterTreatmentRadioRainy = val as String;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 2.h,
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 20),
+              child: Text(
+                "IF YES, water treatment method in use. Main Type of water Treatment method in use - Rainy Season",
+                style: heading,
+              ),
+            ),
+            SizedBox(
+              height: .5.h,
+            ),
+            Container(
+              height: 7.h,
+              margin: const EdgeInsets.only(left: 20, right: 20),
+              child: DropdownButtonHideUnderline(
+                child: DropdownButtonFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                  ),
+                  focusColor: Colors.white,
+                  hint: const Text("Select Water Treatment method"),
+                  isExpanded: true,
+                  icon: const Align(
+                      alignment: Alignment.centerRight,
+                      child: Icon(Icons.arrow_drop_down)),
+                  items: waterTreatmentRainy.map((String dropDownStringItem) {
+                    return DropdownMenuItem<String>(
+                      value: dropDownStringItem,
+                      child: Text(dropDownStringItem),
+                    );
+                  }).toList(),
+                  value: treatmentWaterSourceRainyValue,
+                  onChanged: (valueSelected) {
+                    setState(
+                      () {
+                        treatmentWaterSourceRainyValue = valueSelected as String?;
+
+                        // debugPrint('User selected $CountryValue');
+                      },
+                    );
+                  },
+                  validator: (value) {
+                    if (value == null) {
+                      return 'Select Your Country';
+                    }
+
+                    return null;
+                  },
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 2.h,
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 20),
+              child: Text(
+                "Requested type of Project technolology:",
+                style: heading,
+              ),
+            ),
+            SizedBox(
+              height: 5.h,
+              // margin: EdgeInsets.only(left: 20, right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: RadioListTile(
+                      groupValue: genderItem,
+                      title: const Text('WADI'),
+                      value: 'WADI',
+                      onChanged: (val) {
+                        setState(() {
+                          genderItem = val as String;
+                        });
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    child: RadioListTile(
+                      groupValue: genderItem,
+                      title: const Text('Other'),
+                      value: 'Other',
+                      onChanged: (val) {
+                        setState(() {
+                          genderItem = val as String;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 2.h,
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 20),
+              child: Text(
+                "Requested number of project technogy:",
+                style: heading,
+              ),
+            ),
+            SizedBox(
+              height: .5.h,
+            ),
+            Container(
+              height: 7.h,
+              margin: const EdgeInsets.only(left: 20, right: 20),
+              child: TextFormField(
+                // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
+                  // labelText: 'Full Name',
+                  hintText: 'Requested number of project technogy',
                 ),
-                focusColor: Colors.white,
-                hint: const Text("Select water treatment method "),
-                isExpanded: true,
-                icon: const Align(
-                    alignment: Alignment.centerRight,
-                    child: Icon(Icons.arrow_drop_down)),
-                items: waterTreatmentDry.map((String dropDownStringItem) {
-                  return DropdownMenuItem<String>(
-                    value: dropDownStringItem,
-                    child: Text(dropDownStringItem),
-                  );
-                }).toList(),
-                value: treatmentWaterSourceDryValue,
-                onChanged: (valueSelected) {
-                  setState(
-                    () {
-                      treatmentWaterSourceDryValue = valueSelected as String?;
-
-                      // debugPrint('User selected $treatmentWaterSourceDryValue');
-                    },
-                  );
-                },
                 validator: (value) {
-                  if (value == null) {
-                    return 'Select water treatment method ';
+                  if (value!.isEmpty) {
+                    return 'Enter Requested number of project technogy';
                   }
-
                   return null;
                 },
               ),
             ),
-          ),
-          SizedBox(
-            height: 2.h,
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 20),
-            child: Text(
-              "water treatment method in use - Rainy season:",
-              style: heading,
-            ),
-          ),
-          SizedBox(
-            height: 5.h,
-            // margin: EdgeInsets.only(left: 20, right: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: RadioListTile(
-                    groupValue: waterTreatmentRadioRainy,
-                    title: const Text('Yes'),
-                    value: 'Yes',
-                    onChanged: (val) {
-                      setState(() {
-                        waterTreatmentRadioRainy = val as String;
-                      });
-                    },
+            Align(
+              alignment: Alignment.centerRight,
+              child: Container(
+                margin: const EdgeInsets.only(right: 20, top: 20),
+                height: 6.h,
+                width: 15.h,
+                // alignment: Alignment.bottomRight,
+                decoration: BoxDecoration(
+                  border: Border.all(),
+                  color: Colors.black12,
+                  shape: BoxShape.rectangle,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(10.0),
                   ),
                 ),
-                Expanded(
-                  child: RadioListTile(
-                    groupValue: waterTreatmentRadioRainy,
-                    title: const Text('No'),
-                    value: 'No',
-                    onChanged: (val) {
-                      setState(() {
-                        waterTreatmentRadioRainy = val as String;
-                      });
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 2.h,
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 20),
-            child: Text(
-              "IF YES, water treatment method in use. Main Type of water Treatment method in use - Rainy Season",
-              style: heading,
-            ),
-          ),
-          SizedBox(
-            height: .5.h,
-          ),
-          Container(
-            height: 7.h,
-            margin: const EdgeInsets.only(left: 20, right: 20),
-            child: DropdownButtonHideUnderline(
-              child: DropdownButtonFormField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                  ),
-                ),
-                focusColor: Colors.white,
-                hint: const Text("Select Water Treatment method"),
-                isExpanded: true,
-                icon: const Align(
-                    alignment: Alignment.centerRight,
-                    child: Icon(Icons.arrow_drop_down)),
-                items: waterTreatmentRainy.map((String dropDownStringItem) {
-                  return DropdownMenuItem<String>(
-                    value: dropDownStringItem,
-                    child: Text(dropDownStringItem),
-                  );
-                }).toList(),
-                value: treatmentWaterSourceRainyValue,
-                onChanged: (valueSelected) {
-                  setState(
-                    () {
-                      treatmentWaterSourceRainyValue = valueSelected as String?;
-
-                      // debugPrint('User selected $CountryValue');
-                    },
-                  );
-                },
-                validator: (value) {
-                  if (value == null) {
-                    return 'Select Your Country';
-                  }
-
-                  return null;
-                },
+                child: const Center(child: Text("Submit")),
               ),
             ),
-          ),
-          SizedBox(
-            height: 2.h,
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 20),
-            child: Text(
-              "Requested type of Project technolology:",
-              style: heading,
-            ),
-          ),
-          SizedBox(
-            height: 5.h,
-            // margin: EdgeInsets.only(left: 20, right: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: RadioListTile(
-                    groupValue: genderItem,
-                    title: const Text('WADI'),
-                    value: 'WADI',
-                    onChanged: (val) {
-                      setState(() {
-                        genderItem = val as String;
-                      });
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: RadioListTile(
-                    groupValue: genderItem,
-                    title: const Text('Other'),
-                    value: 'Other',
-                    onChanged: (val) {
-                      setState(() {
-                        genderItem = val as String;
-                      });
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 2.h,
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 20),
-            child: Text(
-              "Requested number of project technogy:",
-              style: heading,
-            ),
-          ),
-          SizedBox(
-            height: .5.h,
-          ),
-          Container(
-            height: 7.h,
-            margin: const EdgeInsets.only(left: 20, right: 20),
-            child: TextFormField(
-              // validator: validateEmail(TexEd),
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                // labelText: 'Full Name',
-                hintText: 'Requested number of project technogy',
-              ),
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return 'Enter Requested number of project technogy';
-                }
-                return null;
-              },
-            ),
-          ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Container(
-              margin: const EdgeInsets.only(right: 20, top: 20),
-              height: 6.h,
-              width: 15.h,
-              // alignment: Alignment.bottomRight,
-              decoration: BoxDecoration(
-                border: Border.all(),
-                color: Colors.black12,
-                shape: BoxShape.rectangle,
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(10.0),
-                ),
-              ),
-              child: const Center(child: Text("Submit")),
-            ),
-          ),
-          SizedBox(
-            height: 2.h,
-          )
-        ],
+            SizedBox(
+              height: 2.h,
+            )
+          ],
+        ),
       ),
     );
   }

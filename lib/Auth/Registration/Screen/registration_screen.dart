@@ -77,12 +77,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     return Scaffold(
       key: _drawerkey,
       appBar: AppBar(
-        title: const Text("Registration",style: TextStyle(color: Colors.black),),
-        iconTheme: const IconThemeData(color: Colors.black),
+        title: const Text("Registration",style: TextStyle(color: Color(0xFF5B81E8)),),
+        iconTheme: const IconThemeData(color: Color(0xFF5B81E8)),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         actions: [
-          const Icon(Icons.reply,color: Colors.black,),
+          const Icon(Icons.reply,color: Color(0xFF5B81E8),),
           SizedBox(
             width: 7.w,
           ),
@@ -92,15 +92,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       body: Scrollbar(
         child: ListView(
           children: [
-            // Center(
-            //   child: Text(
-            //     "Registration",
-            //     style: TextStyle(
-            //         fontSize: 17.sp,
-            //         fontWeight: FontWeight.bold,
-            //         color: Colors.black38),
-            //   ),
-            // ),
             SizedBox(
               height: 2.h,
             ),

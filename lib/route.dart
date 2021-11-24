@@ -3,6 +3,8 @@ import 'package:helioz/Auth/Login/Screen/loginscreen.dart';
 import 'package:helioz/Auth/Login/Screen/signupscreen.dart';
 import 'package:helioz/Auth/Registration/Screen/registration_screen.dart';
 import 'package:helioz/Home/Dashboard/screens/dashboard.dart';
+import 'package:helioz/Home/Pre_registration/Screen/pre_registration_screen.dart';
+import 'package:helioz/Listing/Screen/listing_household_screen.dart';
 
 import 'common/splash/screen/splash.dart';
 
@@ -32,7 +34,14 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (_) =>  const RegistrationScreen(),
         );
-
+      case '/list':
+        return MaterialPageRoute(
+          builder: (_) =>  const ListHouseHoldScreen(),
+        );
+      case '/pre-reg':
+        return MaterialPageRoute(
+          builder: (_) =>  const PreRegistrationScreen(),
+        );
         // If args is not of the correct type, return an error page.
         // You can also throw an exception while in development.
         return _errorRoute();

@@ -18,7 +18,7 @@ class myDrawer extends StatelessWidget {
           height: 50,
           width: 50,
         ),
-        title: const Text('Dashboard'),
+        title:  Text('Dashboard',style: TextStyle(fontSize: 13.sp,color: const Color(0xFF5B81E8)),),
         onTap: () {
           Navigator.pop(context);
           Navigator.pushNamed(context, '/dashboard');
@@ -31,7 +31,7 @@ class myDrawer extends StatelessWidget {
           width: 50,
         ),
         //title: Text('TimeTable_Teacher'),
-        title: const Text("Pre-Registration"),
+        title:  Text("Pre-Registration",style: TextStyle(fontSize: 13.sp,color: const Color(0xFF5B81E8)),),
         onTap: () {
           Navigator.pop(context);
           Navigator.pushNamed(context, '/pre-reg');
@@ -44,7 +44,7 @@ class myDrawer extends StatelessWidget {
           width: 50,
         ),
         //title: Text('TimeTable_Teacher'),
-        title: const Text("Registration"),
+        title: Text("Registration",style: TextStyle(fontSize: 13.sp,color: const Color(0xFF5B81E8)),),
         onTap: () {
           Navigator.pop(context);
          Navigator.pushNamed(context, "/reg");
@@ -56,7 +56,7 @@ class myDrawer extends StatelessWidget {
           height: 50,
           width: 50,
         ),
-        title: const Text('Monitoring'),
+        title: Text('Monitoring',style: TextStyle(fontSize: 13.sp,color: const Color(0xFF5B81E8)),),
         onTap: () {
           Navigator.pop(context);
           Navigator.pushNamed(context, '/assignment_teacher_main');
@@ -68,10 +68,10 @@ class myDrawer extends StatelessWidget {
           height: 50,
           width: 50,
         ),
-        title: const Text('List'),
+        title:  Text('List',style: TextStyle(fontSize: 13.sp,color: const Color(0xFF5B81E8)),),
         onTap: () {
           Navigator.pop(context);
-          Navigator.pushNamed(context, '/test');
+          Navigator.pushNamed(context, '/list');
         },
       ),
       ListTile(
@@ -80,21 +80,20 @@ class myDrawer extends StatelessWidget {
           height: 50,
           width: 50,
         ),
-        title: const Text('Preference'),
+        title:  Text('Preference',style: TextStyle(fontSize: 13.sp,color: const Color(0xFF5B81E8)),),
         onTap: () {
           Navigator.pop(context);
           Navigator.pushNamed(context, '/circular');
         },
       ),
 
-      
       ListTile(
         leading: Image.asset(
           "assets/helioz-menu-icons/help.png",
           height: 50,
           width: 50,
         ),
-        title: const Text('Help'),
+        title:  Text('Help',style: TextStyle(fontSize: 13.sp,color: const Color(0xFF5B81E8)),),
         onTap: () {
           Navigator.pop(context);
           Navigator.pushNamed(context, "/assmain");
@@ -106,10 +105,10 @@ class myDrawer extends StatelessWidget {
           height: 50,
           width: 50,
         ),
-        title: const Text('Logout'),
+        title:  Text('Logout',style: TextStyle(fontSize: 13.sp,color: const Color(0xFF5B81E8)),),
         onTap: () {
           Navigator.pop(context);
-          Navigator.pushNamed(context, "/studentAssignment");
+          Navigator.pushNamed(context, "/login");
         },
       ),
 
@@ -121,12 +120,12 @@ class myDrawer extends StatelessWidget {
             Container(
               height: 135,
               width: double.infinity,
-             // color: Colors.pinkAccent,
+             color: Color(0xFF5B81E8),
               child: Padding(
                 padding: EdgeInsets.only(left: 8),
                 child: Row(
-                  children: const [
-                    CircleAvatar(
+                  children: [
+                    const CircleAvatar(
                       //backgroundColor: Colors.pinkAccent,
                       radius: 35,
                       backgroundImage: NetworkImage(
@@ -138,7 +137,7 @@ class myDrawer extends StatelessWidget {
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 8),
-                      child: Text("Naina Saini"),
+                      child: Text("Naina Saini",style: TextStyle(fontSize: 14.sp,color: Colors.white),),
                     ),
                   ],
                 ),
