@@ -6,6 +6,7 @@ import 'package:sizer/sizer.dart';
 
 import 'Auth/Registration/Screen/registration_screen.dart';
 import 'Home/Pre_registration/Screen/pre_registration_screen.dart';
+import 'Listing/Screen/listing_household_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
 
         // home: LoginScreen(),
+        // home: ListHouseHoldScreen(),
         home: SplashScreen(),
         onGenerateRoute: RouteGenerator.generateRoute,
       );
