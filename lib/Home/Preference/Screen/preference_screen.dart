@@ -14,6 +14,13 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text(
+          "Preference",
+          style: TextStyle(
+              fontSize: 18.sp,
+              fontWeight: FontWeight.bold,
+              color: const Color(0xff5b81e8)),
+        ),
         iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
@@ -27,30 +34,20 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
       drawer: const Drawer(),
       body: ListView(
         children: [
+
+
           SizedBox(
-            height: 5.h,
-          ),
-          Center(
-            child: Text(
-              "Preference",
-              style: TextStyle(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black38),
-            ),
-          ),
-          SizedBox(
-            height: 9.h,
+            height: 14.h,
           ),
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
             height: 8.h,
-            decoration: BoxDecoration(
-              border: Border.all(),
-              color: const Color(0xff5b81e8),
+            decoration: const BoxDecoration(
+              // border: Border.all(),
+              color: Color(0xff5b81e8),
               shape: BoxShape.rectangle,
-              borderRadius: const BorderRadius.all(
-                Radius.circular(15.0),
+              borderRadius: BorderRadius.all(
+                Radius.circular(25.0),
               ),
             ),
             child: const Center(
@@ -70,12 +67,12 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
             height: 8.h,
-            decoration: BoxDecoration(
-              border: Border.all(),
-              color: const Color(0xff5b81e8),
+            decoration: const BoxDecoration(
+              // border: Border.all(),
+              color: Color(0xff5b81e8),
               shape: BoxShape.rectangle,
-              borderRadius: const BorderRadius.all(
-                Radius.circular(15.0),
+              borderRadius: BorderRadius.all(
+                Radius.circular(25.0),
               ),
             ),
             child: const Center(
@@ -102,7 +99,7 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
                 // fillColor: const Color(0xff5b81e8),
                   border: OutlineInputBorder(
                     borderSide: BorderSide(width: 1, color: Colors.black),
-                    borderRadius: BorderRadius.circular(15.0),
+                    borderRadius: BorderRadius.circular(25.0),
                   ),
                   // labelText: 'Full Name',
                   hintText: 'Enter OTP',
@@ -128,14 +125,14 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
             child: Container(
               margin: const EdgeInsets.only(right: 20, top: 20),
               height: 6.h,
-              width: 15.h,
+              width: 20.h,
               // alignment: Alignment.bottomRight,
               decoration: BoxDecoration(
                 border: Border.all(),
                 color: const Color(0xff5b81e8),
                 shape: BoxShape.rectangle,
                 borderRadius: const BorderRadius.all(
-                  Radius.circular(5.0),
+                  Radius.circular(25.0),
                 ),
               ),
               child: const Center(

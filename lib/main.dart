@@ -5,8 +5,7 @@ import 'package:helioz/route.dart';
 import 'package:sizer/sizer.dart';
 
 import 'Auth/Registration/Screen/registration_screen.dart';
-import 'Home/House_ Hold/Screen/house_hold_details.dart';
-import 'Home/Pre_registration/Screen/pre_registration_screen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -21,8 +20,10 @@ class MyApp extends StatelessWidget {
     return Sizer(builder: (context, orientation, deviceType) {
       return const MaterialApp(
         debugShowCheckedModeBanner: false,
-        // home: SplashScreen(),
-        home: HouseHoldDetailsScreen(),
+
+        home: SplashScreen(),
+
+
         onGenerateRoute: RouteGenerator.generateRoute,
       );
     });
