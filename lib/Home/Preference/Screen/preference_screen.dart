@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helioz/Auth/Registration/Widget/text_style.dart';
+import 'package:helioz/common/widgets/text_style.dart';
 import 'package:sizer/sizer.dart';
 
 class PreferenceScreen extends StatefulWidget {

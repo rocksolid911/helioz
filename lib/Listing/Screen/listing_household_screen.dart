@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helioz/Auth/Registration/Widget/text_style.dart';
+import 'package:helioz/common/widgets/text_style.dart';
 import 'package:helioz/Listing/Widget/house_Hold_Widget.dart';
 import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:sizer/sizer.dart';

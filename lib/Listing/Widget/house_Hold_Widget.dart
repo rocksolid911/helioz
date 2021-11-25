@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:helioz/Auth/Registration/Widget/text_style.dart';
+import 'package:helioz/common/widgets/text_style.dart';
+import 'package:helioz/Home/House_%20Hold/Screen/house_hold_details.dart';
 import 'package:sizer/sizer.dart';
 
 Widget HouseHoldContainer() {
@@ -100,27 +101,28 @@ Widget HouseHoldContainer() {
                 )),
               ),
             ),
-            Expanded(
-              flex: 2,
-              child: Container(
-                margin: const EdgeInsets.only(right: 5),
-                height: 6.h,
-                // width: 15.h,
-                // alignment: Alignment.bottomRight,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                  color: Colors.grey,
-                  shape: BoxShape.rectangle,
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(10.0),
+            InkWell(
+              child: Expanded(
+                flex: 2,
+                child: Container(
+                  margin: const EdgeInsets.only(right: 5),
+                  height: 6.h,
+                  decoration: BoxDecoration(
+                    border: Border.all(),
+                    color: Colors.grey,
+                    shape: BoxShape.rectangle,
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(10.0),
+                    ),
                   ),
+                  child: Center(
+                      child: Text(
+                    "View",
+                    style: heading,
+                  )),
                 ),
-                child: Center(
-                    child: Text(
-                  "View",
-                  style: heading,
-                )),
               ),
+              onTap: () {},
             ),
             Expanded(
               flex: 2,

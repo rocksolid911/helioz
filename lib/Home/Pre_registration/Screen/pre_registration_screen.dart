@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:helioz/Auth/Registration/Widget/text_style.dart';
+import 'package:helioz/common/widgets/text_style.dart';
 import 'package:helioz/Home/Pre_registration/Data/pre_reg_data.dart';
 import 'package:helioz/common/Drawer/widgets/drawer.dart';
+import 'package:helioz/common/colorsres.dart';
 import 'package:sizer/sizer.dart';
 
 class PreRegistrationScreen extends StatefulWidget {
@@ -44,11 +45,10 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
           ),
         ],
       ),
-      drawer:  const myDrawer(),
+      drawer: const myDrawer(),
       body: Scrollbar(
         child: ListView(
           children: [
-
             SizedBox(
               height: 2.h,
             ),
@@ -223,7 +223,10 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
                   isExpanded: true,
                   icon: const Align(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.arrow_drop_down)),
+                      child: Icon(
+                        Icons.arrow_drop_down,
+                        color: ColorsRes.buttoncolor,
+                      )),
                   items: mainFuelSource.map((String dropDownStringItem) {
                     return DropdownMenuItem<String>(
                       value: dropDownStringItem,
@@ -274,12 +277,15 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
                     ),
                   ),
                   focusColor: Colors.white,
-                  hint:
-                      const Text("Select Main water source in use - Dry season"),
+                  hint: const Text(
+                      "Select Main water source in use - Dry season"),
                   isExpanded: true,
                   icon: const Align(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.arrow_drop_down)),
+                      child: Icon(
+                        Icons.arrow_drop_down,
+                        color: ColorsRes.buttoncolor,
+                      )),
                   items: waterSourceDry.map((String dropDownStringItem) {
                     return DropdownMenuItem<String>(
                       value: dropDownStringItem,
@@ -335,7 +341,10 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
                   isExpanded: true,
                   icon: const Align(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.arrow_drop_down)),
+                      child: Icon(
+                        Icons.arrow_drop_down,
+                        color: ColorsRes.buttoncolor,
+                      )),
                   items: waterSourceRainy.map((String dropDownStringItem) {
                     return DropdownMenuItem<String>(
                       value: dropDownStringItem,
@@ -434,7 +443,10 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
                   isExpanded: true,
                   icon: const Align(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.arrow_drop_down)),
+                      child: Icon(
+                        Icons.arrow_drop_down,
+                        color: ColorsRes.buttoncolor,
+                      )),
                   items: waterTreatmentDry.map((String dropDownStringItem) {
                     return DropdownMenuItem<String>(
                       value: dropDownStringItem,
@@ -533,7 +545,10 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
                   isExpanded: true,
                   icon: const Align(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.arrow_drop_down)),
+                      child: Icon(
+                        Icons.arrow_drop_down,
+                        color: ColorsRes.buttoncolor,
+                      )),
                   items: waterTreatmentRainy.map((String dropDownStringItem) {
                     return DropdownMenuItem<String>(
                       value: dropDownStringItem,
@@ -544,7 +559,8 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
                   onChanged: (valueSelected) {
                     setState(
                       () {
-                        treatmentWaterSourceRainyValue = valueSelected as String?;
+                        treatmentWaterSourceRainyValue =
+                            valueSelected as String?;
 
                         // debugPrint('User selected $CountryValue');
                       },
@@ -624,7 +640,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
                 // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
+                    borderRadius: BorderRadius.circular(25.0),
                   ),
                   // labelText: 'Full Name',
                   hintText: 'Requested number of project technogy',
@@ -642,17 +658,20 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               child: Container(
                 margin: const EdgeInsets.only(right: 20, top: 20),
                 height: 6.h,
-                width: 15.h,
+                width: 20.h,
                 // alignment: Alignment.bottomRight,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                  color: Colors.black12,
+                decoration: const BoxDecoration(
+                  color: ColorsRes.buttoncolor,
                   shape: BoxShape.rectangle,
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(10.0),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(25.0),
                   ),
                 ),
-                child: const Center(child: Text("Submit")),
+                child: Center(
+                    child: Text(
+                  "Submit",
+                  style: buttonTextStyle,
+                )),
               ),
             ),
             SizedBox(
