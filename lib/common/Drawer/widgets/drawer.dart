@@ -83,7 +83,7 @@ class myDrawer extends StatelessWidget {
         title:  Text('Preference',style: TextStyle(fontSize: 13.sp,color: const Color(0xFF5B81E8)),),
         onTap: () {
           Navigator.pop(context);
-          Navigator.pushNamed(context, '/circular');
+          Navigator.pushNamed(context, '/preference');
         },
       ),
 
@@ -96,7 +96,7 @@ class myDrawer extends StatelessWidget {
         title:  Text('Help',style: TextStyle(fontSize: 13.sp,color: const Color(0xFF5B81E8)),),
         onTap: () {
           Navigator.pop(context);
-          Navigator.pushNamed(context, "/assmain");
+          Navigator.pushNamed(context, "/help");
         },
       ),
       ListTile(

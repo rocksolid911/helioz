@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:helioz/common/colorsres.dart';
+import 'package:helioz/common/widgets/text_style.dart';
 import 'package:sizer/sizer.dart';
 
 class HelpScreen extends StatefulWidget {
@@ -62,7 +63,7 @@ class _HelpScreenState extends State<HelpScreen> {
                           "assets/helioz-menu-icons/help.png",
                         ),
                         const Text(
-                          "Frequently Asked Questions",
+                          "Frequently Asked Questions ?",
                           style: TextStyle(color: Colors.white),
                         ),
                       ],
@@ -76,7 +77,7 @@ class _HelpScreenState extends State<HelpScreen> {
               Container(
                 margin: EdgeInsets.only(left: 7.w),
                 child: const Text(
-                  "How to Register",
+                  "How to Register ?",
                   style: TextStyle(fontSize: 18, color: ColorsRes.buttoncolor),
                 ),
               ),
@@ -125,7 +126,7 @@ class _HelpScreenState extends State<HelpScreen> {
               Container(
                 margin: EdgeInsets.only(left: 7.w),
                 child: const Text(
-                  "How to Change Password",
+                  "How to Change Password ?",
                   style: TextStyle(fontSize: 18, color: ColorsRes.buttoncolor),
                 ),
               ),
@@ -183,7 +184,12 @@ class _HelpScreenState extends State<HelpScreen> {
               ),
               Container(
                 margin: EdgeInsets.only(left: 7.w, right: 2.w),
-                child: Text("Contact Us at: "),
+                child: const Text(
+                  "Contact Us at: ",
+                  style: TextStyle(
+                      color: ColorsRes.buttoncolor,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
               Container(
                 margin: EdgeInsets.only(left: 4.w, right: 2.w),

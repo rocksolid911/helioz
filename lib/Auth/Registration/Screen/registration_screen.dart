@@ -5,7 +5,6 @@ import 'package:helioz/Auth/Registration/Data/drop_down_data.dart';
 import 'package:helioz/common/widgets/text_style.dart';
 import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:helioz/common/colorsres.dart';
-
 import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 
@@ -116,7 +115,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -130,7 +128,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isExpanded: true,
                   icon: const Align(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.arrow_drop_down,color: ColorsRes.buttoncolor)),
+                      child: Icon(Icons.arrow_drop_down,
+                          color: ColorsRes.buttoncolor)),
                   items: country.map((String dropDownStringItem) {
                     return DropdownMenuItem<String>(
                       value: dropDownStringItem,
@@ -171,7 +170,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -185,7 +183,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isExpanded: true,
                   icon: const Align(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.arrow_drop_down,color: ColorsRes.buttoncolor)),
+                      child: Icon(Icons.arrow_drop_down,
+                          color: ColorsRes.buttoncolor)),
                   items: state.map((String dropDownStringItem) {
                     return DropdownMenuItem<String>(
                       value: dropDownStringItem,
@@ -224,7 +223,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -238,7 +236,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isExpanded: true,
                   icon: const Align(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.arrow_drop_down,color: ColorsRes.buttoncolor)),
+                      child: Icon(Icons.arrow_drop_down,
+                          color: ColorsRes.buttoncolor)),
                   items: district.map((String dropDownStringItem) {
                     return DropdownMenuItem<String>(
                       value: dropDownStringItem,
@@ -277,7 +276,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -291,7 +289,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isExpanded: true,
                   icon: const Align(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.arrow_drop_down,color: ColorsRes.buttoncolor)),
+                      child: Icon(Icons.arrow_drop_down,
+                          color: ColorsRes.buttoncolor)),
                   items: tehsil.map((String dropDownStringItem) {
                     return DropdownMenuItem<String>(
                       value: dropDownStringItem,
@@ -330,7 +329,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -344,7 +342,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isExpanded: true,
                   icon: const Align(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.arrow_drop_down,color: ColorsRes.buttoncolor)),
+                      child: Icon(Icons.arrow_drop_down,
+                          color: ColorsRes.buttoncolor)),
                   items: block.map((String dropDownStringItem) {
                     return DropdownMenuItem<String>(
                       value: dropDownStringItem,
@@ -383,7 +382,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -397,7 +395,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isExpanded: true,
                   icon: const Align(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.arrow_drop_down,color: ColorsRes.buttoncolor)),
+                      child: Icon(Icons.arrow_drop_down,
+                          color: ColorsRes.buttoncolor)),
                   items: panchayat.map((String dropDownStringItem) {
                     return DropdownMenuItem<String>(
                       value: dropDownStringItem,
@@ -436,7 +435,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -450,7 +448,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isExpanded: true,
                   icon: const Align(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.arrow_drop_down,color: ColorsRes.buttoncolor)),
+                      child: Icon(Icons.arrow_drop_down,
+                          color: ColorsRes.buttoncolor)),
                   items: village.map((String dropDownStringItem) {
                     return DropdownMenuItem<String>(
                       value: dropDownStringItem,
@@ -489,7 +488,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               // margin: EdgeInsets.only(left: 20, right: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -498,7 +496,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   Expanded(
                     child: RadioListTile(
                       groupValue: radioItem,
-                      title: Text('Male'),
+                      title: const Text('Male'),
                       value: 'Male',
                       onChanged: (val) {
                         setState(() {
@@ -536,7 +534,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
                 // validator: validateEmail(TexEd),
@@ -569,7 +566,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
                 // validator: validateEmail(TexEd),
@@ -602,7 +598,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -616,7 +611,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isExpanded: true,
                   icon: const Align(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.arrow_drop_down,color: ColorsRes.buttoncolor)),
+                      child: Icon(Icons.arrow_drop_down,
+                          color: ColorsRes.buttoncolor)),
                   items: education.map((String dropDownStringItem) {
                     return DropdownMenuItem<String>(
                       value: dropDownStringItem,
@@ -655,7 +651,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -669,7 +664,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isExpanded: true,
                   icon: const Align(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.arrow_drop_down,color: ColorsRes.buttoncolor)),
+                      child: Icon(Icons.arrow_drop_down,
+                          color: ColorsRes.buttoncolor)),
                   items: occupation.map((String dropDownStringItem) {
                     return DropdownMenuItem<String>(
                       value: dropDownStringItem,
@@ -708,7 +704,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
                 // validator: validateEmail(TexEd),
@@ -741,7 +736,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
                 // validator: validateEmail(TexEd),
@@ -774,7 +768,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
                 // validator: validateEmail(TexEd),
@@ -807,7 +800,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 10, right: 20),
               child: Row(
                 // mainAxisAlignment: MainAxisAlignment.start,
@@ -912,7 +904,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: Row(
                 // mainAxisAlignment: MainAxisAlignment.start,
@@ -973,7 +964,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
                 // validator: validateEmail(TexEd),
@@ -1006,7 +996,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: Row(
                 // mainAxisAlignment: MainAxisAlignment.start,
@@ -1067,7 +1056,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -1081,7 +1069,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isExpanded: true,
                   icon: const Align(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.arrow_drop_down,color: ColorsRes.buttoncolor,)),
+                      child: Icon(
+                        Icons.arrow_drop_down,
+                        color: ColorsRes.buttoncolor,
+                      )),
                   items: migration.map((String dropDownStringItem) {
                     return DropdownMenuItem<String>(
                       value: dropDownStringItem,
@@ -1164,7 +1155,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -1178,7 +1168,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isExpanded: true,
                   icon: const Align(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.arrow_drop_down,color: ColorsRes.buttoncolor,)),
+                      child: Icon(
+                        Icons.arrow_drop_down,
+                        color: ColorsRes.buttoncolor,
+                      )),
                   items: distribution.map((String dropDownStringItem) {
                     return DropdownMenuItem<String>(
                       value: dropDownStringItem,
@@ -1217,7 +1210,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -1231,7 +1223,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isExpanded: true,
                   icon: const Align(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.arrow_drop_down,color: ColorsRes.buttoncolor,)),
+                      child: Icon(
+                        Icons.arrow_drop_down,
+                        color: ColorsRes.buttoncolor,
+                      )),
                   items: Model_of_Project_Technology.map(
                       (String dropDownStringItem) {
                     return DropdownMenuItem<String>(
@@ -1271,7 +1266,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -1285,7 +1279,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isExpanded: true,
                   icon: const Align(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.arrow_drop_down,color: ColorsRes.buttoncolor,)),
+                      child: Icon(
+                        Icons.arrow_drop_down,
+                        color: ColorsRes.buttoncolor,
+                      )),
                   items: Type_of_Project_Technology.map(
                       (String dropDownStringItem) {
                     return DropdownMenuItem<String>(
@@ -1325,7 +1322,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
                 // validator: validateEmail(TexEd),
@@ -1358,7 +1354,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
                 // validator: validateEmail(TexEd),
@@ -1391,7 +1386,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
                 // validator: validateEmail(TexEd),
@@ -1424,14 +1418,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
                 controller: distributionDateController,
                 onTap: _handerlDatePicker,
                 // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
-                  suffixIcon: const Icon(Icons.calendar_today,color: ColorsRes.buttoncolor,),
+                  suffixIcon: const Icon(
+                    Icons.calendar_today,
+                    color: ColorsRes.buttoncolor,
+                  ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
@@ -1460,14 +1456,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
                 controller: trainningDateController,
                 onTap: _handerlDatePickerTraining,
                 // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
-                  suffixIcon: const Icon(Icons.calendar_today,color: ColorsRes.buttoncolor,),
+                  suffixIcon: const Icon(
+                    Icons.calendar_today,
+                    color: ColorsRes.buttoncolor,
+                  ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),

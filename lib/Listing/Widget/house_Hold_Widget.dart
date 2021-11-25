@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:helioz/common/colorsres.dart';
 import 'package:helioz/common/widgets/text_style.dart';
-import 'package:helioz/Home/House_%20Hold/Screen/house_hold_details.dart';
+
 import 'package:sizer/sizer.dart';
 
-Widget HouseHoldContainer() {
+Widget HouseHoldContainer(BuildContext context) {
   return Container(
     margin: EdgeInsets.symmetric(horizontal: 2.h),
     child: Column(
@@ -43,8 +44,7 @@ Widget HouseHoldContainer() {
                 // width: 15.h,
                 // alignment: Alignment.bottomRight,
                 decoration: BoxDecoration(
-                  border: Border.all(),
-                  color: Colors.grey,
+                  color: ColorsRes.buttoncolor,
                   shape: BoxShape.rectangle,
                   borderRadius: const BorderRadius.all(
                     Radius.circular(10.0),
@@ -53,63 +53,20 @@ Widget HouseHoldContainer() {
                 child: Center(
                     child: Text(
                   "AI",
-                  style: heading,
+                  style: buttonTextStyle,
                 )),
               ),
             ),
             Expanded(
               flex: 2,
-              child: Container(
-                margin: const EdgeInsets.only(right: 5),
-                height: 6.h,
-                // width: 15.h,
-                // alignment: Alignment.bottomRight,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                  color: Colors.grey,
-                  shape: BoxShape.rectangle,
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(10.0),
-                  ),
-                ),
-                child: Center(
-                    child: Text(
-                  "RT",
-                  style: heading,
-                )),
-              ),
-            ),
-            Expanded(
-              flex: 2,
-              child: Container(
-                margin: const EdgeInsets.only(right: 5),
-                height: 6.h,
-                // width: 15.h,
-                // alignment: Alignment.bottomRight,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                  color: Colors.grey,
-                  shape: BoxShape.rectangle,
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(10.0),
-                  ),
-                ),
-                child: Center(
-                    child: Text(
-                  "RE",
-                  style: heading,
-                )),
-              ),
-            ),
-            InkWell(
-              child: Expanded(
-                flex: 2,
+              child: InkWell(
                 child: Container(
                   margin: const EdgeInsets.only(right: 5),
                   height: 6.h,
+                  // width: 15.h,
+                  // alignment: Alignment.bottomRight,
                   decoration: BoxDecoration(
-                    border: Border.all(),
-                    color: Colors.grey,
+                    color: ColorsRes.buttoncolor,
                     shape: BoxShape.rectangle,
                     borderRadius: const BorderRadius.all(
                       Radius.circular(10.0),
@@ -117,12 +74,62 @@ Widget HouseHoldContainer() {
                   ),
                   child: Center(
                       child: Text(
-                    "View",
-                    style: heading,
+                    "RT",
+                    style: buttonTextStyle,
                   )),
                 ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, '/replace_techno');
+                },
               ),
-              onTap: () {},
+            ),
+            Expanded(
+              flex: 2,
+              child: InkWell(
+                child: Container(
+                  margin: const EdgeInsets.only(right: 5),
+                  height: 6.h,
+                  // width: 15.h,
+                  // alignment: Alignment.bottomRight,
+                  decoration: BoxDecoration(
+                    color: ColorsRes.buttoncolor,
+                    shape: BoxShape.rectangle,
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(10.0),
+                    ),
+                  ),
+                  child: Center(
+                      child: Text(
+                    "RE",
+                    style: buttonTextStyle,
+                  )),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, '/replace_equip');
+                },
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Container(
+                margin: const EdgeInsets.only(right: 5),
+                height: 6.h,
+                decoration: BoxDecoration(
+                  // ,
+                  color: ColorsRes.buttoncolor,
+                  shape: BoxShape.rectangle,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(10.0),
+                  ),
+                ),
+                child: Center(
+                    child: Text(
+                  "View",
+                  style: buttonTextStyle,
+                )),
+              ),
             ),
             Expanded(
               flex: 2,
@@ -132,8 +139,7 @@ Widget HouseHoldContainer() {
                 // width: 15.h,
                 // alignment: Alignment.bottomRight,
                 decoration: BoxDecoration(
-                  border: Border.all(),
-                  color: Colors.grey,
+                  color: ColorsRes.buttoncolor,
                   shape: BoxShape.rectangle,
                   borderRadius: const BorderRadius.all(
                     Radius.circular(10.0),
@@ -142,7 +148,7 @@ Widget HouseHoldContainer() {
                 child: Center(
                     child: Text(
                   "Dropout",
-                  style: heading,
+                  style: buttonTextStyle,
                 )),
               ),
             ),
@@ -155,7 +161,7 @@ Widget HouseHoldContainer() {
           margin: EdgeInsets.symmetric(horizontal: 2.w),
           child: const Divider(
             thickness: 2,
-            color: Colors.black,
+            color: ColorsRes.buttoncolor,
           ),
         ),
       ],

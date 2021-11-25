@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:helioz/common/widgets/text_style.dart';
 import 'package:sizer/sizer.dart';
 
@@ -10,34 +11,41 @@ class PreferenceScreen extends StatefulWidget {
 }
 
 class _PreferenceScreenState extends State<PreferenceScreen> {
+  final GlobalKey<ScaffoldState> _drawerkey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _drawerkey,
+      drawer: const myDrawer(),
       appBar: AppBar(
         title: Text(
           "Preference",
           style: TextStyle(
-              fontSize: 18.sp,
+              fontSize: 17.sp,
               fontWeight: FontWeight.bold,
-              color: const Color(0xff5b81e8)),
+              color: Color(0xFF5B81E8)),
         ),
-        iconTheme: const IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Color(0xFF5B81E8)),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         actions: [
-          const Icon(Icons.share),
+          const Icon(Icons.reply),
           SizedBox(
             width: 7.w,
           ),
         ],
       ),
-      drawer: const Drawer(),
       body: ListView(
         children: [
-
-
           SizedBox(
-            height: 14.h,
+            height: 8.h,
+          ),
+          Container(
+            height: 12.h,
+            child: Image.asset("assets/helioz-menu-icons/preference.png"),
+          ),
+          SizedBox(
+            height: 4.h,
           ),
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
@@ -54,10 +62,9 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
               child: Text(
                 "Change Password",
                 style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white
-                ),
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
               ),
             ),
           ),
@@ -79,10 +86,9 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
               child: Text(
                 "Change Mobile Number (OTP required)",
                 style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white
-                ),
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
               ),
             ),
           ),
@@ -90,13 +96,11 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
             height: 2.5.h,
           ),
           Container(
-
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
-
               textAlign: TextAlign.center,
               decoration: InputDecoration(
-                // fillColor: const Color(0xff5b81e8),
+                  // fillColor: const Color(0xff5b81e8),
                   border: OutlineInputBorder(
                     borderSide: BorderSide(width: 1, color: Colors.black),
                     borderRadius: BorderRadius.circular(25.0),
@@ -127,11 +131,10 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
               height: 6.h,
               width: 20.h,
               // alignment: Alignment.bottomRight,
-              decoration: BoxDecoration(
-                border: Border.all(),
-                color: const Color(0xff5b81e8),
+              decoration: const BoxDecoration(
+                color: Color(0xff5b81e8),
                 shape: BoxShape.rectangle,
-                borderRadius: const BorderRadius.all(
+                borderRadius: BorderRadius.all(
                   Radius.circular(25.0),
                 ),
               ),

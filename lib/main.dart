@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:helioz/common/splash/screen/splash.dart';
 import 'package:helioz/route.dart';
 import 'package:sizer/sizer.dart';
 
-import 'Auth/Registration/Screen/registration_screen.dart';
-
+import 'common/splash/screen/splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,10 +18,7 @@ class MyApp extends StatelessWidget {
     return Sizer(builder: (context, orientation, deviceType) {
       return const MaterialApp(
         debugShowCheckedModeBanner: false,
-
         home: SplashScreen(),
-
-
         onGenerateRoute: RouteGenerator.generateRoute,
       );
     });

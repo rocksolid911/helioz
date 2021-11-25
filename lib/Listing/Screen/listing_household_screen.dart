@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helioz/common/colorsres.dart';
 import 'package:helioz/common/widgets/text_style.dart';
 import 'package:helioz/Listing/Widget/house_Hold_Widget.dart';
 import 'package:helioz/common/Drawer/widgets/drawer.dart';
@@ -42,7 +43,6 @@ class _ListHouseHoldScreenState extends State<ListHouseHoldScreen> {
             SizedBox(
               height: 2.h,
             ),
-
             Row(
               children: [
                 Expanded(
@@ -76,8 +76,7 @@ class _ListHouseHoldScreenState extends State<ListHouseHoldScreen> {
                     // width: 15.h,
                     // alignment: Alignment.bottomRight,
                     decoration: BoxDecoration(
-                      border: Border.all(),
-                      color: Colors.grey,
+                      color: ColorsRes.buttoncolor,
                       shape: BoxShape.rectangle,
                       borderRadius: const BorderRadius.all(
                         Radius.circular(10.0),
@@ -85,9 +84,9 @@ class _ListHouseHoldScreenState extends State<ListHouseHoldScreen> {
                     ),
                     child: Center(
                         child: Text(
-                          "Search",
-                          style: heading,
-                        )),
+                      "Search",
+                      style: buttonTextStyle,
+                    )),
                   ),
                 ),
               ],
@@ -99,14 +98,13 @@ class _ListHouseHoldScreenState extends State<ListHouseHoldScreen> {
               margin: EdgeInsets.symmetric(horizontal: 2.h),
               child: const Divider(
                 thickness: 2,
-                color: Colors.black54,
+                color: ColorsRes.buttoncolor,
               ),
             ),
-            HouseHoldContainer(),
-            HouseHoldContainer(),
-            HouseHoldContainer(),
-            HouseHoldContainer(),
-
+            HouseHoldContainer(context),
+            HouseHoldContainer(context),
+            HouseHoldContainer(context),
+            HouseHoldContainer(context),
           ],
         ),
       ),

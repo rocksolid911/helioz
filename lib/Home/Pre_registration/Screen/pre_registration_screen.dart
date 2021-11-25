@@ -63,7 +63,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
+              
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
                 // validator: validateEmail(TexEd),
@@ -143,7 +143,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
+              
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
                 // validator: validateEmail(TexEd),
@@ -176,7 +176,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
+              
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
                 // validator: validateEmail(TexEd),
@@ -209,7 +209,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
+              
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -267,7 +267,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
+              
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -326,7 +326,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
+              
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -429,7 +429,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
+              
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -531,7 +531,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
+              
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -634,7 +634,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              height: 7.h,
+              
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
                 // validator: validateEmail(TexEd),

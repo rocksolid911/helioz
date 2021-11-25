@@ -6,14 +6,14 @@ import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 
-class HouseHoldDetailsScreen extends StatefulWidget {
-  const HouseHoldDetailsScreen({Key? key}) : super(key: key);
+class ReplaceEquipmentScreen extends StatefulWidget {
+  const ReplaceEquipmentScreen({Key? key}) : super(key: key);
 
   @override
-  _HouseHoldDetailsScreenState createState() => _HouseHoldDetailsScreenState();
+  _ReplaceEquipmentScreenState createState() => _ReplaceEquipmentScreenState();
 }
 
-class _HouseHoldDetailsScreenState extends State<HouseHoldDetailsScreen> {
+class _ReplaceEquipmentScreenState extends State<ReplaceEquipmentScreen> {
   final GlobalKey<ScaffoldState> _drawerkey = GlobalKey();
   TextEditingController replacedateController = TextEditingController();
   DateTime _date = DateTime.now();
@@ -105,7 +105,7 @@ class _HouseHoldDetailsScreenState extends State<HouseHoldDetailsScreen> {
             margin: EdgeInsets.symmetric(horizontal: 3.w),
             child: const Divider(
               thickness: 1.5,
-              color: Colors.black,
+              color: ColorsRes.buttoncolor,
             ),
           ),
           SizedBox(
@@ -154,7 +154,7 @@ class _HouseHoldDetailsScreenState extends State<HouseHoldDetailsScreen> {
             height: .5.h,
           ),
           Container(
-            height: 7.h,
+            
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
               // validator: validateEmail(TexEd),
@@ -188,7 +188,7 @@ class _HouseHoldDetailsScreenState extends State<HouseHoldDetailsScreen> {
             height: .5.h,
           ),
           Container(
-            height: 7.h,
+            
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
@@ -242,7 +242,7 @@ class _HouseHoldDetailsScreenState extends State<HouseHoldDetailsScreen> {
             height: .5.h,
           ),
           Container(
-            height: 7.h,
+            
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
               controller: replacedateController,
@@ -281,7 +281,7 @@ class _HouseHoldDetailsScreenState extends State<HouseHoldDetailsScreen> {
             height: .5.h,
           ),
           Container(
-            height: 7.h,
+            
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
               // validator: validateEmail(TexEd),
