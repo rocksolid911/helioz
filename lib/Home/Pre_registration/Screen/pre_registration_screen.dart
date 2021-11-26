@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:helioz/common/widgets/text_style.dart';
 import 'package:helioz/Home/Pre_registration/Data/pre_reg_data.dart';
+
 import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:helioz/common/colorsres.dart';
 import 'package:sizer/sizer.dart';
@@ -13,6 +14,7 @@ class PreRegistrationScreen extends StatefulWidget {
 }
 
 class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
+
   final GlobalKey<ScaffoldState> _drawerkey = GlobalKey();
   String? genderItem = "";
   String? waterTreatmentRadioDry = "";
@@ -681,5 +683,41 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
         ),
       ),
     );
+    // return  DrawerScaffold(
+    //     percentage: 0.6,
+    //     appBar: AppBarProps(backgroundColor: Color(0xFFf9f9f9),iconTheme: IconThemeData(
+    //       color: Colors.black,
+    //     ),brightness: Brightness.light,
+    //         title: Text("Navigation Scaler", style: TextStyle(color: Colors.black)),
+    //         actions: [IconButton(icon: Icon(Icons.add), onPressed: () {
+    //           ScaffoldMessenger.of(context)
+    //               .showSnackBar(SnackBar(content: Text('Add'),duration: Duration(microseconds: 100),));
+    //         })]),
+    //     menuView:  MenuView(
+    //       menu: menu,
+    //       animation: true,
+    //       selectorColor: const Color(0xffFF7479),
+    //       // color: Theme.of(context).primaryColor,
+    //       selectedItemId: selectedMenuItemId,
+    //       onMenuItemSelected: (String? itemId) {
+    //         selectedMenuItemId = itemId!;
+    //         if (itemId == 'dash') {
+    //           // setState(() => _widget = Text("The Paddock"));
+    //           Navigator.pushNamed(context, "/dashboard");
+    //         } else if (itemId == 'prereg') {
+    //           Navigator.pushNamed(context, "/prereg");
+    //         } else if (itemId == 'reg') {
+    //           Navigator.pushNamed(context, "/reg");
+    //         } else {
+    //           Navigator.pushNamed(context, "/list");
+    //         }
+    //       },
+    //     ),
+    //     contentView: Screen(
+    //       contentBuilder: (context) => LayoutBuilder(
+    //         builder: (context, constraint) => Container(),
+    //       ),
+    //       color: Colors.white,
+    //     ));
   }
 }

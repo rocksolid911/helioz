@@ -18,7 +18,7 @@ class myDrawer extends StatelessWidget {
           height: 50,
           width: 50,
         ),
-        title:  Text('Dashboard',style: TextStyle(fontSize: 13.sp,color: const Color(0xFF5B81E8)),),
+        title:  Text('mainmenu',style: TextStyle(fontSize: 13.sp,color: const Color(0xFF5B81E8)),),
         onTap: () {
           Navigator.pop(context);
           Navigator.pushNamed(context, '/dashboard');
@@ -83,7 +83,7 @@ class myDrawer extends StatelessWidget {
         title:  Text('Preference',style: TextStyle(fontSize: 13.sp,color: const Color(0xFF5B81E8)),),
         onTap: () {
           Navigator.pop(context);
-          Navigator.pushNamed(context, '/preference');
+          Navigator.pushNamed(context, '/circular');
         },
       ),
 
