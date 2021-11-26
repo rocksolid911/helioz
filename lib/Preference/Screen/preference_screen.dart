@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
 import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:helioz/common/widgets/text_style.dart';
 import 'package:sizer/sizer.dart';
@@ -16,20 +17,23 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _drawerkey,
-      drawer: const myDrawer(),
+      drawer: const MainMenu(),
       appBar: AppBar(
         title: Text(
           "Preference",
           style: TextStyle(
               fontSize: 17.sp,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF5B81E8)),
+              color: const Color(0xFF5B81E8)),
         ),
         iconTheme: const IconThemeData(color: Color(0xFF5B81E8)),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         actions: [
-          const Icon(Icons.reply),
+          GestureDetector(
+              child: const Icon(Icons.reply),
+            onTap: ()=>Navigator.pop(context),
+          ),
           SizedBox(
             width: 7.w,
           ),

@@ -3,6 +3,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
 import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:helioz/common/colorsres.dart';
 import 'package:helioz/common/widgets/text_style.dart';
@@ -28,19 +29,22 @@ class _HelpScreenState extends State<HelpScreen> {
             style: TextStyle(
                 fontSize: 17.sp,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF5B81E8)),
+                color: const Color(0xFF5B81E8)),
           ),
           iconTheme: const IconThemeData(color: Color(0xFF5B81E8)),
           backgroundColor: Colors.transparent,
           elevation: 0.0,
           actions: [
-            const Icon(Icons.reply),
+            GestureDetector(
+              child: const Icon(Icons.reply),
+              onTap: ()=>Navigator.pop(context),
+            ),
             SizedBox(
               width: 7.w,
             ),
           ],
         ),
-        drawer: const myDrawer(),
+        drawer: const MainMenu(),
         body: SafeArea(
           child: Container(
             margin: const EdgeInsets.only(left: 17.0, top: 10.0, right: 17.0),

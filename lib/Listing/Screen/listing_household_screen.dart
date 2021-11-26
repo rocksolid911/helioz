@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
+
 import 'package:helioz/common/colorsres.dart';
 import 'package:helioz/common/widgets/text_style.dart';
 import 'package:helioz/Listing/Widget/householdwidget.dart';
@@ -19,7 +21,7 @@ class _ListHouseHoldScreenState extends State<ListHouseHoldScreen> {
     return SafeArea(
       child: Scaffold(
         key: _drawerkey,
-        drawer: const myDrawer(),
+        drawer:const MainMenu(),
         appBar: AppBar(
           title: Text(
             "Listing House Hold",
@@ -32,7 +34,10 @@ class _ListHouseHoldScreenState extends State<ListHouseHoldScreen> {
           backgroundColor: Colors.transparent,
           elevation: 0.0,
           actions: [
-            const Icon(Icons.reply),
+            GestureDetector(
+              child: const Icon(Icons.reply),
+              onTap: ()=>Navigator.pop(context),
+            ),
             SizedBox(
               width: 7.w,
             ),
@@ -75,10 +80,10 @@ class _ListHouseHoldScreenState extends State<ListHouseHoldScreen> {
                     height: 7.h,
                     // width: 15.h,
                     // alignment: Alignment.bottomRight,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: ColorsRes.buttoncolor,
                       shape: BoxShape.rectangle,
-                      borderRadius: const BorderRadius.all(
+                      borderRadius: BorderRadius.all(
                         Radius.circular(10.0),
                       ),
                     ),

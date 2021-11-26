@@ -22,6 +22,10 @@ class _MainMenuState extends State<MainMenu> {
       child: Scaffold(
         key: _drawerkey,
         appBar: AppBar(
+        // shape: const RoundedRectangleBorder(
+        // borderRadius: BorderRadius.vertical(
+        // bottom: Radius.circular(30),
+        // )),
           elevation:5,
           centerTitle: true,
           title: const Text(
@@ -29,7 +33,7 @@ class _MainMenuState extends State<MainMenu> {
             style: TextStyle(color: Color(0xFF5B81E8)),
           ),
           iconTheme: const IconThemeData(color: Color(0xFF5B81E8)),
-          backgroundColor: Colors.transparent,
+         backgroundColor: Colors.white,
          // elevation: 0.0,
          //  actions: [
          //    const Icon(
@@ -42,65 +46,61 @@ class _MainMenuState extends State<MainMenu> {
          //  ],
         ),
         //drawer: const myDrawer(),
-        body: GridView.extent(
-          childAspectRatio: (2 / 2),
-          crossAxisSpacing: 24,
-          mainAxisSpacing: 24,
-          padding: const EdgeInsets.all(10.0),
-          maxCrossAxisExtent: 200.0,
+        body: Scrollbar(
+          child: GridView.extent(
+            childAspectRatio: (2 / 2),
+            crossAxisSpacing: 24,
+            mainAxisSpacing: 24,
+            padding: const EdgeInsets.all(10.0),
+            maxCrossAxisExtent: 200.0,
 
-          children: const [
-            GridMenu(
-              img: 'assets/helioz-menu-icons/pre-registration.png',
-              path: '/pre-reg',
-              title: 'Pre-Registration',
-            ),
-            GridMenu(
-              img: 'assets/helioz-menu-icons/registration-distribution.png',
-              path: '/reg',
-              title: 'Registration',
-            ),
-            GridMenu(
-              img: 'assets/helioz-menu-icons/list.png',
-              path: '/list',
-              title: 'List',
-            ),
-            GridMenu(
-              img: 'assets/helioz-menu-icons/monitoring.png',
-              path: '/pre-reg',
-              title: 'Pre-Registration',
-            ),
-            GridMenu(
-              img: 'assets/helioz-menu-icons/dashboard.png',
-              path: '/dash',
-              title: 'Dashboard',
-            ),
-            GridMenu(
-              img: 'assets/helioz-menu-icons/preference.png',
-              path: '/preference',
-              title: 'Preferences',
-            ),
-            GridMenu(
-              img: 'assets/helioz-menu-icons/help.png',
-              path: '/help',
-              title: 'Help',
-            ),
-            GridMenu(
-              img: 'assets/helioz-menu-icons/logout.png',
-              path: '/login',
-              title: 'Logout',
-            ),
-          ],
+            children: const [
+              GridMenu(
+                img: 'assets/helioz-menu-icons/pre-registration.png',
+                path: '/pre-reg',
+                title: 'Pre-Registration',
+              ),
+              GridMenu(
+                img: 'assets/helioz-menu-icons/registration-distribution.png',
+                path: '/reg',
+                title: 'Registration',
+              ),
+              GridMenu(
+                img: 'assets/helioz-menu-icons/list.png',
+                path: '/list',
+                title: 'List',
+              ),
+              GridMenu(
+                img: 'assets/helioz-menu-icons/monitoring.png',
+                path: '/pre-reg',
+                title: 'Monitoring',
+              ),
+              GridMenu(
+                img: 'assets/helioz-menu-icons/dashboard.png',
+                path: '/dash',
+                title: 'Dashboard',
+              ),
+              GridMenu(
+                img: 'assets/helioz-menu-icons/preference.png',
+                path: '/preference',
+                title: 'Preferences',
+              ),
+              GridMenu(
+                img: 'assets/helioz-menu-icons/help.png',
+                path: '/help',
+                title: 'Help',
+              ),
+              GridMenu(
+                img: 'assets/helioz-menu-icons/logout.png',
+                path: '/login',
+                title: 'Logout',
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 }
 
-class RandomColorModel {
-  Random random = Random();
-  Color getColor() {
-    return Color.fromARGB(random.nextInt(300), random.nextInt(300),
-        random.nextInt(300), random.nextInt(300));
-  }
-}
+

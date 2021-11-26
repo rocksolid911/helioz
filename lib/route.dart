@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:helioz/Auth/Login/Screen/loginscreen.dart';
 import 'package:helioz/Auth/Login/Screen/signupscreen.dart';
-import 'package:helioz/Auth/Registration/Screen/registration_screen.dart';
+
 
 import 'package:helioz/Home/Help/Screen/help_screen.dart';
 
-import 'package:helioz/Home/Pre_registration/Screen/pre_registration_screen.dart';
-import 'package:helioz/Home/Preference/Screen/preference_screen.dart';
+
+
 import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
 import 'package:helioz/Listing/Screen/listing_household_screen.dart';
 
 import 'Listing/Replace_of_Equipment /Screen/replace_equipment.dart';
 import 'Listing/Replace_of_Technology/Screen/replace_technology.dart';
+import 'Pre_registration/Screen/pre_registration_screen.dart';
+import 'Preference/Screen/preference_screen.dart';
+import 'Registration/Screen/registration_screen.dart';
 import 'common/splash/screen/splash.dart';
 
 class RouteGenerator {
