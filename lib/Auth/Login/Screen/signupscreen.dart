@@ -51,113 +51,96 @@ class _WRSingup1State extends State<WRSingup1>
   Widget build(BuildContext context) {
     return Scaffold(
         body: Stack(
-          children: [
-            Container(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height,
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width,
-              child: GestureDetector(
-                onTap: () {
-                  FocusScope.of(context).unfocus();
-                },
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        // margin: EdgeInsets.only(top: MediaQuery.of(context).size.width / 8),
-                        height: MediaQuery
-                            .of(context)
-                            .size
-                            .width / 1.4,
-                        child: Stack(
-                          children: [
-                            SvgPicture.asset(
-                              "assets/images/shape.svg",
-                              color: ColorsRes.newAppColor,
-                              fit: BoxFit.cover,
-                              width: MediaQuery
-                                  .of(context)
-                                  .size
-                                  .width,
-                              height: MediaQuery
-                                  .of(context)
-                                  .size
-                                  .width / 1.4,
-                            ),
-                            Center(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    "assets/images/Helioz_logo_blau_claim_RGB_-2.png",
-                                    // fit: BoxFit.cover,
-                                    color: ColorsRes.logoColor,
-                                    width: MediaQuery
-                                        .of(context)
-                                        .size
-                                        .width / 3.8,
-                                  ),
-                                  SizedBox(height: 10.0),
-                                  // Text(
-                                  //   "Music",
-                                  //   style: TextStyle(
-                                  //       color: Colors.white,
-                                  //       fontSize: 28,
-                                  //       fontWeight: FontWeight.bold),
-                                  // ),
-                                ],
-                              ),
-                            ),
-                          ],
+      children: [
+        Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: GestureDetector(
+            onTap: () {
+              FocusScope.of(context).unfocus();
+            },
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    // margin: EdgeInsets.only(top: MediaQuery.of(context).size.width / 8),
+                    height: MediaQuery.of(context).size.width / 1.4,
+                    child: Stack(
+                      children: [
+                        SvgPicture.asset(
+                          "assets/images/shape.svg",
+                          color: ColorsRes.newAppColor,
+                          fit: BoxFit.cover,
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.width / 1.4,
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          left: 30,
-                          right: 30,
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 20.0),
-                            SlideAnimation(
-                              position: 1,
-                              itemCount: 8,
-                              slideDirection: SlideDirection.fromLeft,
-                              animationController: _animationController,
-                              child: Text(
-                                "Sign Up",
-                                style: TextStyle(
-                                    color: ColorsRes.newAppColor,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold),
+                        Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                "assets/images/Helioz_logo_blau_claim_RGB_-2.png",
+                                // fit: BoxFit.cover,
+                                color: ColorsRes.logoColor,
+                                width: MediaQuery.of(context).size.width / 3.8,
                               ),
-                            ),
-                            SizedBox(
-                              height: 25.0,
-                            ),
-                            Container(
-                              child: SingleChildScrollView(
-                                child: buildSignUpTextFieldSection(),
-                              ),
-                            ),
-                            buildSingUpBottomSection(),
-                          ],
+                              SizedBox(height: 10.0),
+                              // Text(
+                              //   "Music",
+                              //   style: TextStyle(
+                              //       color: Colors.white,
+                              //       fontSize: 28,
+                              //       fontWeight: FontWeight.bold),
+                              // ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: 30,
+                      right: 30,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: 20.0),
+                        SlideAnimation(
+                          position: 1,
+                          itemCount: 8,
+                          slideDirection: SlideDirection.fromLeft,
+                          animationController: _animationController,
+                          child: Text(
+                            "Sign Up",
+                            style: TextStyle(
+                                color: ColorsRes.newAppColor,
+                                fontSize: 18,
+                                fontFamily: "Futura",
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 25.0,
+                        ),
+                        Container(
+                          child: SingleChildScrollView(
+                            child: buildSignUpTextFieldSection(),
+                          ),
+                        ),
+                        buildSingUpBottomSection(),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ));
+          ),
+        ),
+      ],
+    ));
   }
 
   Container buildSingUpBottomSection() {
@@ -185,9 +168,10 @@ class _WRSingup1State extends State<WRSingup1>
                   Text(
                     "SING UP",
                     style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
-                    ),
+                        fontSize: 17,
+                        color: Colors.white,
+                        fontFamily: "Futura",
+                        fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
                     width: 5,
@@ -213,10 +197,10 @@ class _WRSingup1State extends State<WRSingup1>
                         text: "Log in",
                         recognizer: _tapGestureRecognizer,
                         style: TextStyle(
-                          decoration: TextDecoration.underline,
-                          color: ColorsRes.newAppColor,
-                          fontWeight: FontWeight.bold,
-                        ))
+                            decoration: TextDecoration.underline,
+                            color: ColorsRes.newAppColor,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Futura"))
                   ]),
             ),
           ),
@@ -239,7 +223,10 @@ class _WRSingup1State extends State<WRSingup1>
           animationController: _animationController,
           // child: buildTextField("USERNAME", "Demo", false),
           child: const BuildTextField(
-            labelText: "USERNAME", placeholder: "Demo", isPassword: false,),
+            labelText: "USERNAME",
+            placeholder: "Demo",
+            isPassword: false,
+          ),
         ),
         SizedBox(
           height: 10,
@@ -250,9 +237,11 @@ class _WRSingup1State extends State<WRSingup1>
           slideDirection: SlideDirection.fromRight,
           animationController: _animationController,
           //child: buildTextField("EMAIL ADDRESS", "test123@demo.com", false),
-          child: const BuildTextField(labelText: "EMAIL ADDRESS",
+          child: const BuildTextField(
+            labelText: "EMAIL ADDRESS",
             placeholder: "test123@demo.com",
-            isPassword: false,),
+            isPassword: false,
+          ),
         ),
         SizedBox(
           height: 10,
@@ -264,7 +253,10 @@ class _WRSingup1State extends State<WRSingup1>
           animationController: _animationController,
           // child: buildTextField("PASSWORD", "*******", true),
           child: const BuildTextField(
-            labelText: "PASSWORD", placeholder: "*******", isPassword: true,),
+            labelText: "PASSWORD",
+            placeholder: "*******",
+            isPassword: true,
+          ),
         ),
         SlideAnimation(
           position: 5,
@@ -283,11 +275,15 @@ class _WRSingup1State extends State<WRSingup1>
                   }),
               Text(
                 "I agree with",
-                style: TextStyle(fontSize: 12),
+                style: TextStyle(fontSize: 13, fontFamily: "Futura"),
               ),
               Text(
                 " Private Policy",
-                style: TextStyle(fontSize: 12, color: ColorsRes.newAppColor,fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 12,
+                    color: ColorsRes.newAppColor,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Futura"),
               ),
             ],
           ),
@@ -295,5 +291,4 @@ class _WRSingup1State extends State<WRSingup1>
       ],
     );
   }
-
 }

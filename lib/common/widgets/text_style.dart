@@ -20,7 +20,8 @@ TextStyle houseHoldDetailsStyle = TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 12.5.sp,
     color: Colors.black87,
-    fontFamily: "Futura");
+    fontFamily: "Futura"
+);
 
 TextStyle houseHoldDetailsStyleTwo = TextStyle(
     fontWeight: FontWeight.w500,

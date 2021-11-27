@@ -76,7 +76,6 @@ class _WRLogin1State extends State<WRLogin1>
                                 "assets/images/shape.svg",
                                 fit: BoxFit.cover,
                                 color: ColorsRes.newAppColor,
-
                                 width: MediaQuery.of(context).size.width,
                                 height: MediaQuery.of(context).size.width / 1.4,
                               ),
@@ -123,7 +122,8 @@ class _WRLogin1State extends State<WRLogin1>
                                   "Sign In",
                                   style: TextStyle(
                                       color: ColorsRes.newAppColor,
-                                      fontSize: 18,
+                                      fontSize: 19,
+                                      fontFamily: "Futura",
                                       fontWeight: FontWeight.bold),
                                 ),
                               ),
@@ -180,7 +180,9 @@ class _WRLogin1State extends State<WRLogin1>
                     "LOGIN",
                     style: TextStyle(
                       fontSize: 18,
+                      fontWeight: FontWeight.bold,
                       color: Colors.white,
+                        fontFamily: "Futura"
                     ),
                   ),
                   SizedBox(
@@ -201,16 +203,16 @@ class _WRLogin1State extends State<WRLogin1>
             child: RichText(
               text: TextSpan(
                   text: "Don't have an account? ",
-                  style: const TextStyle(color: Colors.black),
+                  style: const TextStyle(color: Colors.black,fontFamily: "Futura"),
                   children: [
                     TextSpan(
                         text: "Sign Up",
                         recognizer: _tapGestureRecognizer,
                         style: const TextStyle(
-                          decoration: TextDecoration.underline,
-                          color: ColorsRes.newAppColor,
-                          fontWeight: FontWeight.bold,
-                        ))
+                            decoration: TextDecoration.underline,
+                            color: ColorsRes.newAppColor,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Futura"))
                   ]),
             ),
           ),
@@ -279,7 +281,7 @@ class _WRLogin1State extends State<WRLogin1>
                       }),
                   Text(
                     "Remember me",
-                    style: TextStyle(fontSize: 12),
+                    style: TextStyle(fontSize: 12,fontFamily: "Futura",fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -290,7 +292,7 @@ class _WRLogin1State extends State<WRLogin1>
                 slideDirection: SlideDirection.fromRight,
                 animationController: _animationController,
                 child: Text("Forgot your password?",
-                    style: TextStyle(fontSize: 12)))
+                    style: TextStyle(fontSize: 13,fontFamily: "Futura")))
           ],
         )
       ],
