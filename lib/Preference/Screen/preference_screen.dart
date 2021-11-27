@@ -49,6 +49,7 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
                 style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
+                    fontFamily: "Futura",
                     color: Colors.white),
               ),
             ),
@@ -73,6 +74,7 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
                 style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
+                    fontFamily: "Futura",
                     color: Colors.white),
               ),
             ),
@@ -92,7 +94,7 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
                   ),
                   // labelText: 'Full Name',
                   hintText: 'Enter OTP',
-                  hintStyle: TextStyle(color: Colors.black38)),
+                  hintStyle: TextStyle(color: Colors.black38,fontFamily: "Futura")),
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Enter OTP';

@@ -34,7 +34,7 @@ class GridMenu extends StatelessWidget {
           children: [
             Image.asset(
               img,
-              height: 15.h,
+              height: 14.h,
               width: 16.w,
             ),
             Text(
@@ -42,7 +42,9 @@ class GridMenu extends StatelessWidget {
               style: TextStyle(
                   fontSize: 14.sp,
                   color: Colors.black,
-                  fontWeight: FontWeight.bold),
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Futura"
+              ),
             ),
           ],
         ),

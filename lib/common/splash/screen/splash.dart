@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:helioz/common/colorsres.dart';
 import 'package:helioz/common/splash/widgets/introslideractivity.dart';
 import 'package:helioz/common/widgets/designconfig.dart';
 
@@ -45,11 +46,13 @@ class SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
-          gradient: DesignConfig.gradient,
+          color: ColorsRes.newAppColor,
+          // gradient: DesignConfig.gradient,
         ),
         child: Center(
           child: Image.asset(
             'assets/images/Helioz_logo_blau_claim_RGB_-2.png',
+            color: ColorsRes.logoColor,
             width: MediaQuery.of(context).size.width / 2,
           ),
         ),

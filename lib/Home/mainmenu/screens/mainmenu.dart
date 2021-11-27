@@ -23,6 +23,9 @@ class _MainMenuState extends State<MainMenu> {
             "MAIN MENU",
             style: TextStyle(
               color: ColorsRes.newAppColor,
+                fontFamily: "Futura",
+              fontWeight: FontWeight.bold
+
             ),
           ),
           leading: Icon(Icons.menu),

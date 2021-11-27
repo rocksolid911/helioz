@@ -22,7 +22,9 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
         style: TextStyle(
             fontSize: 17.sp,
             fontWeight: FontWeight.bold,
-            color: ColorsRes.buttoncolor),
+            color: ColorsRes.buttoncolor,
+            fontFamily: "Futura"
+        ),
       ),
       iconTheme: const IconThemeData(color: ColorsRes.buttoncolor),
       backgroundColor: Colors.transparent,

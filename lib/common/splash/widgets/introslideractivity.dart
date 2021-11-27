@@ -66,7 +66,7 @@ class IntroSliderState extends State<IntroSliderActivity> {
       ),
       child: Scaffold(
         //constraints: BoxConstraints.expand(),
-        backgroundColor: ColorsRes.introbackcolor,
+        backgroundColor: ColorsRes.buttoncolor,
         /*decoration: BoxDecoration(
           gradient: new RadialGradient(
             colors: [
@@ -172,7 +172,7 @@ class IntroSliderState extends State<IntroSliderActivity> {
                     _introsubtext[currentpage],
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.subtitle1!.merge(
-                           TextStyle(
+                          TextStyle(
                             color: ColorsRes.white,
                             decoration: TextDecoration.none,
                             height: 1.3,

@@ -51,7 +51,6 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
 
     return Scaffold(
       appBar: CustomAppBar("Project Technology"),
-
       drawer: const MainMenu(),
       body: ListView(
         children: <Widget>[
@@ -69,7 +68,6 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
             height: .5.h,
           ),
           Container(
-            height: 7.h,
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
@@ -176,7 +174,6 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
             height: .5.h,
           ),
           Container(
-            height: 7.h,
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
@@ -236,7 +233,6 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
             height: .5.h,
           ),
           Container(
-            height: 7.h,
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
@@ -297,7 +293,6 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
             height: .5.h,
           ),
           Container(
-            height: 7.h,
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
@@ -357,7 +352,6 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
             height: .5.h,
           ),
           Container(
-            height: 7.h,
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
@@ -415,7 +409,6 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
             height: .5.h,
           ),
           Container(
-            height: 7.h,
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
               // validator: validateEmail(TexEd),
@@ -449,7 +442,6 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
             height: .5.h,
           ),
           Container(
-            height: 7.h,
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
               // validator: validateEmail(TexEd),
@@ -526,7 +518,6 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
             height: .5.h,
           ),
           Container(
-            height: 7.h,
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
@@ -585,7 +576,6 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
             height: .5.h,
           ),
           Container(
-            height: 7.h,
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
@@ -643,7 +633,6 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
             height: .5.h,
           ),
           Container(
-            height: 7.h,
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
@@ -701,7 +690,6 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
             height: .5.h,
           ),
           Container(
-            height: 7.h,
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
@@ -759,7 +747,6 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
             height: .5.h,
           ),
           Container(
-            height: 7.h,
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
@@ -817,7 +804,6 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
             height: .5.h,
           ),
           Container(
-            height: 7.h,
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
@@ -875,7 +861,6 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
             height: .5.h,
           ),
           Container(
-            height: 7.h,
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
@@ -979,7 +964,6 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
             height: .5.h,
           ),
           Container(
-            height: 7.h,
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
@@ -1082,7 +1066,6 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
             height: .5.h,
           ),
           Container(
-            height: 7.h,
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField(
@@ -1141,7 +1124,6 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
             height: .5.h,
           ),
           Container(
-            height: 7.h,
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
               // validator: validateEmail(TexEd),
