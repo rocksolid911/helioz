@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:helioz/common/Drawer/widgets/drawer.dart';
+import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
+import 'package:helioz/common/AppBar/my_appBar.dart';
+import 'package:helioz/common/colorsres.dart';
 import 'package:helioz/common/widgets/text_style.dart';
 import 'package:sizer/sizer.dart';
 
@@ -16,25 +18,8 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _drawerkey,
-      drawer: const myDrawer(),
-      appBar: AppBar(
-        title: Text(
-          "Preference",
-          style: TextStyle(
-              fontSize: 17.sp,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF5B81E8)),
-        ),
-        iconTheme: const IconThemeData(color: Color(0xFF5B81E8)),
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        actions: [
-          const Icon(Icons.reply),
-          SizedBox(
-            width: 7.w,
-          ),
-        ],
-      ),
+      drawer: const MainMenu(),
+      appBar: CustomAppBar("Preference"),
       body: ListView(
         children: [
           SizedBox(
@@ -52,7 +37,7 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
             height: 8.h,
             decoration: const BoxDecoration(
               // border: Border.all(),
-              color: Color(0xff5b81e8),
+              color: ColorsRes.newAppColor,
               shape: BoxShape.rectangle,
               borderRadius: BorderRadius.all(
                 Radius.circular(25.0),
@@ -62,7 +47,7 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
               child: Text(
                 "Change Password",
                 style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
@@ -76,7 +61,7 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
             height: 8.h,
             decoration: const BoxDecoration(
               // border: Border.all(),
-              color: Color(0xff5b81e8),
+              color: ColorsRes.newAppColor,
               shape: BoxShape.rectangle,
               borderRadius: BorderRadius.all(
                 Radius.circular(25.0),
@@ -132,16 +117,16 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
               width: 20.h,
               // alignment: Alignment.bottomRight,
               decoration: const BoxDecoration(
-                color: Color(0xff5b81e8),
+                color: ColorsRes.newAppColor,
                 shape: BoxShape.rectangle,
                 borderRadius: BorderRadius.all(
                   Radius.circular(25.0),
                 ),
               ),
-              child: const Center(
+              child: Center(
                   child: Text(
                 "Submit",
-                style: TextStyle(color: Colors.white),
+                style: buttonTextStyle,
               )),
             ),
           ),

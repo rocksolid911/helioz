@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:helioz/common/colorsres.dart';
 import 'package:sizer/sizer.dart';
 
 class myDrawer extends StatelessWidget {
@@ -18,7 +19,7 @@ class myDrawer extends StatelessWidget {
           height: 50,
           width: 50,
         ),
-        title:  Text('Dashboard',style: TextStyle(fontSize: 13.sp,color: const Color(0xFF5B81E8)),),
+        title:  Text('Main Menu',style: TextStyle(fontSize: 13.sp,color: ColorsRes.newAppColor),),
         onTap: () {
           Navigator.pop(context);
           Navigator.pushNamed(context, '/dashboard');
@@ -31,7 +32,7 @@ class myDrawer extends StatelessWidget {
           width: 50,
         ),
         //title: Text('TimeTable_Teacher'),
-        title:  Text("Pre-Registration",style: TextStyle(fontSize: 13.sp,color: const Color(0xFF5B81E8)),),
+        title:  Text("Pre-Registration",style: TextStyle(fontSize: 13.sp,color: ColorsRes.newAppColor),),
         onTap: () {
           Navigator.pop(context);
           Navigator.pushNamed(context, '/pre-reg');
@@ -44,7 +45,7 @@ class myDrawer extends StatelessWidget {
           width: 50,
         ),
         //title: Text('TimeTable_Teacher'),
-        title: Text("Registration",style: TextStyle(fontSize: 13.sp,color: const Color(0xFF5B81E8)),),
+        title: Text("Registration",style: TextStyle(fontSize: 13.sp,color: ColorsRes.newAppColor),),
         onTap: () {
           Navigator.pop(context);
          Navigator.pushNamed(context, "/reg");
@@ -56,7 +57,7 @@ class myDrawer extends StatelessWidget {
           height: 50,
           width: 50,
         ),
-        title: Text('Monitoring',style: TextStyle(fontSize: 13.sp,color: const Color(0xFF5B81E8)),),
+        title: Text('Monitoring',style: TextStyle(fontSize: 13.sp,color: ColorsRes.newAppColor),),
         onTap: () {
           Navigator.pop(context);
           Navigator.pushNamed(context, '/assignment_teacher_main');
@@ -68,7 +69,7 @@ class myDrawer extends StatelessWidget {
           height: 50,
           width: 50,
         ),
-        title:  Text('List',style: TextStyle(fontSize: 13.sp,color: const Color(0xFF5B81E8)),),
+        title:  Text('List',style: TextStyle(fontSize: 13.sp,color: ColorsRes.newAppColor),),
         onTap: () {
           Navigator.pop(context);
           Navigator.pushNamed(context, '/list');
@@ -80,10 +81,10 @@ class myDrawer extends StatelessWidget {
           height: 50,
           width: 50,
         ),
-        title:  Text('Preference',style: TextStyle(fontSize: 13.sp,color: const Color(0xFF5B81E8)),),
+        title:  Text('Preference',style: TextStyle(fontSize: 13.sp,color: ColorsRes.newAppColor),),
         onTap: () {
           Navigator.pop(context);
-          Navigator.pushNamed(context, '/preference');
+          Navigator.pushNamed(context, '/circular');
         },
       ),
 
@@ -93,7 +94,7 @@ class myDrawer extends StatelessWidget {
           height: 50,
           width: 50,
         ),
-        title:  Text('Help',style: TextStyle(fontSize: 13.sp,color: const Color(0xFF5B81E8)),),
+        title:  Text('Help',style: TextStyle(fontSize: 13.sp,color: ColorsRes.newAppColor),),
         onTap: () {
           Navigator.pop(context);
           Navigator.pushNamed(context, "/help");
@@ -105,7 +106,7 @@ class myDrawer extends StatelessWidget {
           height: 50,
           width: 50,
         ),
-        title:  Text('Logout',style: TextStyle(fontSize: 13.sp,color: const Color(0xFF5B81E8)),),
+        title:  Text('Logout',style: TextStyle(fontSize: 13.sp,color: ColorsRes.newAppColor),),
         onTap: () {
           Navigator.pop(context);
           Navigator.pushNamed(context, "/login");

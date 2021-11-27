@@ -3,6 +3,8 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
+import 'package:helioz/common/AppBar/my_appBar.dart';
 import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:helioz/common/colorsres.dart';
 import 'package:helioz/common/widgets/text_style.dart';
@@ -22,25 +24,9 @@ class _HelpScreenState extends State<HelpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         key: _drawerkey,
-        appBar: AppBar(
-          title: Text(
-            "Help",
-            style: TextStyle(
-                fontSize: 17.sp,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF5B81E8)),
-          ),
-          iconTheme: const IconThemeData(color: Color(0xFF5B81E8)),
-          backgroundColor: Colors.transparent,
-          elevation: 0.0,
-          actions: [
-            const Icon(Icons.reply),
-            SizedBox(
-              width: 7.w,
-            ),
-          ],
-        ),
-        drawer: const myDrawer(),
+        appBar: CustomAppBar("Help"),
+
+        drawer: const MainMenu(),
         body: SafeArea(
           child: Container(
             margin: const EdgeInsets.only(left: 17.0, top: 10.0, right: 17.0),
@@ -51,7 +37,7 @@ class _HelpScreenState extends State<HelpScreen> {
               Container(
                 height: 50,
                 decoration: const BoxDecoration(
-                  color: Color(0xFF5B81E8),
+                  color: ColorsRes.newAppColor,
                   // border: Border.all(),
                 ),
                 child: Center(

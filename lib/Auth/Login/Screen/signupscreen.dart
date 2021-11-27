@@ -1,7 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:helioz/Auth/Login/widgets/buildtextfield.dart';
+import 'package:helioz/common/colorsres.dart';
 import 'package:helioz/common/widgets/slideanimation.dart';
 
 import 'loginscreen.dart';
@@ -77,6 +79,7 @@ class _WRSingup1State extends State<WRSingup1>
                           children: [
                             SvgPicture.asset(
                               "assets/images/shape.svg",
+                              color: ColorsRes.newAppColor,
                               fit: BoxFit.cover,
                               width: MediaQuery
                                   .of(context)
@@ -94,7 +97,7 @@ class _WRSingup1State extends State<WRSingup1>
                                   Image.asset(
                                     "assets/images/Helioz_logo_blau_claim_RGB_-2.png",
                                     // fit: BoxFit.cover,
-                                    color: Colors.white,
+                                    color: ColorsRes.logoColor,
                                     width: MediaQuery
                                         .of(context)
                                         .size
@@ -131,7 +134,7 @@ class _WRSingup1State extends State<WRSingup1>
                               child: Text(
                                 "Sign Up",
                                 style: TextStyle(
-                                    color: Color(0xFF5B81E8),
+                                    color: ColorsRes.newAppColor,
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold),
                               ),
@@ -171,7 +174,7 @@ class _WRSingup1State extends State<WRSingup1>
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
                 ),
-                primary: Color(0xFF5B81E8),
+                primary: ColorsRes.newAppColor,
                 elevation: 1.0,
                 padding: EdgeInsets.symmetric(horizontal: 70, vertical: 12),
               ),
@@ -211,7 +214,7 @@ class _WRSingup1State extends State<WRSingup1>
                         recognizer: _tapGestureRecognizer,
                         style: TextStyle(
                           decoration: TextDecoration.underline,
-                          color: Color(0xFF5B81E8),
+                          color: ColorsRes.newAppColor,
                           fontWeight: FontWeight.bold,
                         ))
                   ]),
@@ -284,7 +287,7 @@ class _WRSingup1State extends State<WRSingup1>
               ),
               Text(
                 " Private Policy",
-                style: TextStyle(fontSize: 12, color: Color(0xFFacb9f4)),
+                style: TextStyle(fontSize: 12, color: ColorsRes.newAppColor,fontWeight: FontWeight.bold),
               ),
             ],
           ),

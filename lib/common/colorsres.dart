@@ -2,6 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ColorsRes{
+  static const Color logoColor = Color(0xfff2a41e);
+  static const Color newAppColor = Color(0xff173e6d);
+  static const Color borderColor = Color(0xff2f527d);
+
   static const Color appcolor = Color(0xff838aea);
   static const Color introTitlecolor = Color(0xff333333);
   static const Color introMessagecolor = Color(0xff98a1af);
@@ -10,7 +14,7 @@ class ColorsRes{
   static const Color black = Color(0xFF000000);
   static const Color bgPage = Color(0xfff8f9fb);
   static const Color lightgraycolor = Color(0xff959294);
-  static const Color buttoncolor = Color(0xff838aea);
+  static const Color buttoncolor = Color(0xff173e6d);
   static const Color black12 = Color(0x1F000000);
   static const Color bgcolor = Color(0xFFF5F5F5);
   static const Color applightcolor = Color(0xffc8c8f6);

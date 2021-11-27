@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:helioz/Auth/Login/Screen/signupscreen.dart';
 import 'package:helioz/Auth/Login/widgets/buildtextfield.dart';
+import 'package:helioz/common/colorsres.dart';
 import 'package:helioz/common/widgets/slideanimation.dart';
 
 String? groupValue = '';
@@ -74,6 +75,8 @@ class _WRLogin1State extends State<WRLogin1>
                               SvgPicture.asset(
                                 "assets/images/shape.svg",
                                 fit: BoxFit.cover,
+                                color: ColorsRes.newAppColor,
+
                                 width: MediaQuery.of(context).size.width,
                                 height: MediaQuery.of(context).size.width / 1.4,
                               ),
@@ -84,7 +87,7 @@ class _WRLogin1State extends State<WRLogin1>
                                     Image.asset(
                                       "assets/images/Helioz_logo_blau_claim_RGB_-2.png",
                                       // fit: BoxFit.cover,
-                                      color: Colors.white,
+                                      color: ColorsRes.logoColor,
                                       width: MediaQuery.of(context).size.width /
                                           3.8,
                                     ),
@@ -119,7 +122,7 @@ class _WRLogin1State extends State<WRLogin1>
                                 child: const Text(
                                   "Sign In",
                                   style: TextStyle(
-                                      color: Color(0xFF5B81E8),
+                                      color: ColorsRes.newAppColor,
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -163,7 +166,7 @@ class _WRLogin1State extends State<WRLogin1>
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
                 ),
-                primary: const Color(0xFF5B81E8),
+                primary: ColorsRes.newAppColor,
                 elevation: 1.0,
                 padding: EdgeInsets.symmetric(horizontal: 70, vertical: 12),
               ),
@@ -205,7 +208,7 @@ class _WRLogin1State extends State<WRLogin1>
                         recognizer: _tapGestureRecognizer,
                         style: const TextStyle(
                           decoration: TextDecoration.underline,
-                          color: Color(0xFF5B81E8),
+                          color: ColorsRes.newAppColor,
                           fontWeight: FontWeight.bold,
                         ))
                   ]),

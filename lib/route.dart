@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:helioz/Auth/Login/Screen/loginscreen.dart';
 import 'package:helioz/Auth/Login/Screen/signupscreen.dart';
-import 'package:helioz/Auth/Registration/Screen/registration_screen.dart';
-import 'package:helioz/Home/Dashboard/screens/dashboard.dart';
 import 'package:helioz/Home/Help/Screen/help_screen.dart';
-import 'package:helioz/Replace_of_Equipment%20/Screen/replace_equipment.dart';
-import 'package:helioz/Replace_of_Technology/Screen/replace_technology.dart';
-import 'package:helioz/Home/Pre_registration/Screen/pre_registration_screen.dart';
-import 'package:helioz/Home/Preference/Screen/preference_screen.dart';
+import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
 import 'package:helioz/Listing/Screen/listing_household_screen.dart';
+import 'Home/Monitoring/Screen/project_technology_screen.dart';
+import 'Listing/Replace_of_Equipment /Screen/replace_equipment.dart';
+import 'Listing/Replace_of_Technology/Screen/replace_technology.dart';
+import 'Pre_registration/Screen/pre_registration_screen.dart';
+import 'Preference/Screen/preference_screen.dart';
+import 'Registration/Screen/registration_screen.dart';
 import 'common/splash/screen/splash.dart';
 
 class RouteGenerator {
@@ -30,7 +31,7 @@ class RouteGenerator {
         );
       case '/dashboard':
         return MaterialPageRoute(
-          builder: (_) => const DashBoard(),
+          builder: (_) => const MainMenu(),
         );
       case '/reg':
         return MaterialPageRoute(
@@ -51,6 +52,10 @@ class RouteGenerator {
       case '/replace_techno':
         return MaterialPageRoute(
           builder: (_) => const ReplaceTechnologyScreen(),
+        );
+      case '/project-tech':
+        return MaterialPageRoute(
+          builder: (_) => const TechnologyScreen(),
         );
       case '/preference':
         return MaterialPageRoute(

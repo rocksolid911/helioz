@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:helioz/Replace_of_Equipment%20/Widget/drop_down.dart';
+import 'package:helioz/common/AppBar/my_appBar.dart';
 import 'package:helioz/common/colorsres.dart';
 import 'package:helioz/common/widgets/text_style.dart';
-import 'package:helioz/Listing/Widget/house_Hold_Widget.dart';
+
 import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
@@ -42,24 +43,7 @@ class _ReplaceEquipmentScreenState extends State<ReplaceEquipmentScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _drawerkey,
-      appBar: AppBar(
-        title: Text(
-          "Household Details ",
-          style: TextStyle(
-              fontSize: 17.sp,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF5B81E8)),
-        ),
-        iconTheme: const IconThemeData(color: Color(0xFF5B81E8)),
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        actions: [
-          const Icon(Icons.reply),
-          SizedBox(
-            width: 7.w,
-          ),
-        ],
-      ),
+      appBar: CustomAppBar("Household Details"),
       drawer: const myDrawer(),
       body: ListView(
         children: [
@@ -178,7 +162,7 @@ class _ReplaceEquipmentScreenState extends State<ReplaceEquipmentScreen> {
             height: 2.h,
           ),
           Container(
-            margin: const EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: Text(
               "Reason for replacement:",
               style: heading,
@@ -231,7 +215,7 @@ class _ReplaceEquipmentScreenState extends State<ReplaceEquipmentScreen> {
             height: 2.h,
           ),
           Container(
-            margin: const EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: Text(
               "Date of distribution/Sale:",
               style: heading,

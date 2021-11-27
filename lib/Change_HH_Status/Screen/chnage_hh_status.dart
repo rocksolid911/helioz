@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helioz/common/AppBar/my_appBar.dart';
 import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:helioz/common/colorsres.dart';
 import 'package:helioz/common/widgets/text_style.dart';
@@ -39,24 +40,8 @@ class _ChangeHHStatusScreenState extends State<ChangeHHStatusScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _drawerkey,
-      appBar: AppBar(
-        title: Text(
-          "Change of household status ",
-          style: TextStyle(
-              fontSize: 17.sp,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF5B81E8)),
-        ),
-        iconTheme: const IconThemeData(color: Color(0xFF5B81E8)),
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        actions: [
-          const Icon(Icons.reply),
-          SizedBox(
-            width: 7.w,
-          ),
-        ],
-      ),
+      appBar: CustomAppBar("Change of household status "),
+
       drawer: const myDrawer(),
       body: ListView(
         children: [

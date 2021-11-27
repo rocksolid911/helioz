@@ -1,7 +1,12 @@
 import 'dart:io';
+//import 'package:helioz/Pre_registration/Data/pre_reg_data.dart';
+
+import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
+import 'package:helioz/Registration/Data/drop_down_data.dart';
+import 'package:helioz/common/AppBar/my_appBar.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:helioz/Auth/Registration/Data/drop_down_data.dart';
+
 import 'package:helioz/common/widgets/text_style.dart';
 import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:helioz/common/colorsres.dart';
@@ -79,25 +84,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _drawerkey,
-      appBar: AppBar(
-        title: const Text(
-          "Registration",
-          style: TextStyle(color: Color(0xFF5B81E8)),
-        ),
-        iconTheme: const IconThemeData(color: Color(0xFF5B81E8)),
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        actions: [
-          const Icon(
-            Icons.reply,
-            color: Color(0xFF5B81E8),
-          ),
-          SizedBox(
-            width: 7.w,
-          ),
-        ],
-      ),
-      drawer: const myDrawer(),
+      appBar: CustomAppBar("Registration"),
+
+      drawer:const MainMenu(),
       body: Scrollbar(
         child: ListView(
           children: [
@@ -105,7 +94,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Country",
                 style: heading,
@@ -160,7 +149,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "State",
                 style: heading,
@@ -213,7 +202,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "District",
                 style: heading,
@@ -266,7 +255,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Tehsil",
                 style: heading,
@@ -319,7 +308,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Block",
                 style: heading,
@@ -372,7 +361,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Panchayat",
                 style: heading,
@@ -425,7 +414,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Village",
                 style: heading,
@@ -478,7 +467,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Gender:",
                 style: heading,
@@ -524,7 +513,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Household Unique Identifier:",
                 style: heading,
@@ -556,7 +545,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Name of Beneficiary/Recipient/Customer:",
                 style: heading,
@@ -641,7 +630,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Primary Occupation :",
                 style: heading,
@@ -694,7 +683,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Number of Household Members:",
                 style: heading,
@@ -726,7 +715,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Phone Number:",
                 style: heading,
@@ -758,7 +747,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Aadhar Card:",
                 style: heading,
@@ -790,7 +779,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Category:",
                 style: heading,
@@ -894,7 +883,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Household Members with Disability:",
                 style: heading,
@@ -954,7 +943,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "If Yes Number of Households Members with Disability:",
                 style: heading,
@@ -986,7 +975,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Seasonal Migration:",
                 style: heading,
@@ -1046,7 +1035,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "If Yes Seasonal Migration:",
                 style: heading,
@@ -1145,7 +1134,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Distribution/Sale:",
                 style: heading,
@@ -1200,7 +1189,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Model of Project Technology:",
                 style: heading,
@@ -1256,7 +1245,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Type of Project Technology:",
                 style: heading,
@@ -1312,7 +1301,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Quantity of Project Technology received/sold:",
                 style: heading,
@@ -1344,7 +1333,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Quantity of equipment supplied (bottles/containers):",
                 style: heading,
@@ -1376,7 +1365,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Serial Number of Project Technology:",
                 style: heading,
@@ -1408,7 +1397,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Date of distribution/Sale:",
                 style: heading,
@@ -1446,7 +1435,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Date of Technology Training:",
                 style: heading,

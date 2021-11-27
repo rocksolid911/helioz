@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helioz/common/AppBar/my_appBar.dart';
 import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:helioz/common/colorsres.dart';
 import 'package:helioz/common/widgets/text_style.dart';
@@ -42,24 +43,8 @@ class _ReplaceTechnologyScreenState extends State<ReplaceTechnologyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _drawerkey,
-      appBar: AppBar(
-        title: Text(
-          "Household Details ",
-          style: TextStyle(
-              fontSize: 17.sp,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF5B81E8)),
-        ),
-        iconTheme: const IconThemeData(color: Color(0xFF5B81E8)),
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        actions: [
-          const Icon(Icons.reply),
-          SizedBox(
-            width: 7.w,
-          ),
-        ],
-      ),
+      appBar: CustomAppBar("Household Details"),
+
       drawer: const myDrawer(),
       body: ListView(
         children: [
@@ -158,7 +143,7 @@ class _ReplaceTechnologyScreenState extends State<ReplaceTechnologyScreen> {
             height: 2.h,
           ),
           Container(
-            margin: const EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: Text(
               "Date of replacement:",
               style: heading,
@@ -196,7 +181,7 @@ class _ReplaceTechnologyScreenState extends State<ReplaceTechnologyScreen> {
             height: 2.h,
           ),
           Container(
-            margin: const EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: Text(
               "Reason for replacement:",
               style: heading,

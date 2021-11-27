@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helioz/common/colorsres.dart';
 
 
 
@@ -45,7 +46,7 @@ class _BuildTextFieldState extends State<BuildTextField> {
                 ? GestureDetector(
                     child: Icon(
                       _obscureText ? Icons.visibility : Icons.visibility_off,
-                      color: const Color(0xFF5B81E8),
+                      color: ColorsRes.newAppColor,
                     ),
                     onTap: () {
                       setState(

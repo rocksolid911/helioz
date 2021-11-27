@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
+import 'package:helioz/Pre_registration/Data/pre_reg_data.dart';
+import 'package:helioz/common/AppBar/my_appBar.dart';
 import 'package:helioz/common/widgets/text_style.dart';
-import 'package:helioz/Home/Pre_registration/Data/pre_reg_data.dart';
+
 import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:helioz/common/colorsres.dart';
 import 'package:sizer/sizer.dart';
@@ -27,25 +30,8 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _drawerkey,
-      appBar: AppBar(
-        title: Text(
-          "Pre-Registration",
-          style: TextStyle(
-              fontSize: 17.sp,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF5B81E8)),
-        ),
-        iconTheme: const IconThemeData(color: Color(0xFF5B81E8)),
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        actions: [
-          const Icon(Icons.reply),
-          SizedBox(
-            width: 7.w,
-          ),
-        ],
-      ),
-      drawer: const myDrawer(),
+      appBar: CustomAppBar("Pre-Registration"),
+      drawer: const MainMenu(),
       body: Scrollbar(
         child: ListView(
           children: [
@@ -53,7 +39,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Name of beneficiary:",
                 style: heading,
@@ -63,7 +49,6 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
                 // validator: validateEmail(TexEd),
@@ -86,7 +71,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Gender:",
                 style: heading,
@@ -133,7 +118,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Address:",
                 style: heading,
@@ -143,7 +128,6 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
                 // validator: validateEmail(TexEd),
@@ -166,7 +150,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Phone Number:",
                 style: heading,
@@ -176,7 +160,6 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
                 // validator: validateEmail(TexEd),
@@ -199,7 +182,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Main fuel source in use:",
                 style: heading,
@@ -209,7 +192,6 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -257,7 +239,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Main water source in use - Dry season:",
                 style: heading,
@@ -267,7 +249,6 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -316,7 +297,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Main water source in use - Rainy season:",
                 style: heading,
@@ -326,7 +307,6 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -375,9 +355,9 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
-                "water treatment method in use - Dry season:",
+                "Water treatment method in use - Dry season:",
                 style: heading,
               ),
             ),
@@ -419,7 +399,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "IF YES, water treatment method in use. Main type of water Treatment method in use - Dry Season:",
                 style: heading,
@@ -429,7 +409,6 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -477,9 +456,9 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
-                "water treatment method in use - Rainy season:",
+                "Water treatment method in use - Rainy season:",
                 style: heading,
               ),
             ),
@@ -521,7 +500,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "IF YES, water treatment method in use. Main Type of water Treatment method in use - Rainy Season",
                 style: heading,
@@ -531,7 +510,6 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: DropdownButtonHideUnderline(
                 child: DropdownButtonFormField(
@@ -580,7 +558,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Requested type of Project technolology:",
                 style: heading,
@@ -624,7 +602,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: 2.h,
             ),
             Container(
-              margin: const EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Requested number of project technogy:",
                 style: heading,
@@ -634,7 +612,6 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               height: .5.h,
             ),
             Container(
-              
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
                 // validator: validateEmail(TexEd),
@@ -681,5 +658,41 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
         ),
       ),
     );
+    // return  DrawerScaffold(
+    //     percentage: 0.6,
+    //     appBar: AppBarProps(backgroundColor: Color(0xFFf9f9f9),iconTheme: IconThemeData(
+    //       color: Colors.black,
+    //     ),brightness: Brightness.light,
+    //         title: Text("Navigation Scaler", style: TextStyle(color: Colors.black)),
+    //         actions: [IconButton(icon: Icon(Icons.add), onPressed: () {
+    //           ScaffoldMessenger.of(context)
+    //               .showSnackBar(SnackBar(content: Text('Add'),duration: Duration(microseconds: 100),));
+    //         })]),
+    //     menuView:  MenuView(
+    //       menu: menu,
+    //       animation: true,
+    //       selectorColor: const Color(0xffFF7479),
+    //       // color: Theme.of(context).primaryColor,
+    //       selectedItemId: selectedMenuItemId,
+    //       onMenuItemSelected: (String? itemId) {
+    //         selectedMenuItemId = itemId!;
+    //         if (itemId == 'dash') {
+    //           // setState(() => _widget = Text("The Paddock"));
+    //           Navigator.pushNamed(context, "/dashboard");
+    //         } else if (itemId == 'prereg') {
+    //           Navigator.pushNamed(context, "/prereg");
+    //         } else if (itemId == 'reg') {
+    //           Navigator.pushNamed(context, "/reg");
+    //         } else {
+    //           Navigator.pushNamed(context, "/list");
+    //         }
+    //       },
+    //     ),
+    //     contentView: Screen(
+    //       contentBuilder: (context) => LayoutBuilder(
+    //         builder: (context, constraint) => Container(),
+    //       ),
+    //       color: Colors.white,
+    //     ));
   }
 }
