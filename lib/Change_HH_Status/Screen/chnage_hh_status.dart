@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:helioz/Replace_of_Equipment%20/Widget/drop_down.dart';
+import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:helioz/common/colorsres.dart';
 import 'package:helioz/common/widgets/text_style.dart';
-import 'package:helioz/Listing/Widget/house_Hold_Widget.dart';
-import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 
-class ReplaceEquipmentScreen extends StatefulWidget {
-  const ReplaceEquipmentScreen({Key? key}) : super(key: key);
+class ChangeHHStatusScreen extends StatefulWidget {
+  const ChangeHHStatusScreen({Key? key}) : super(key: key);
 
   @override
-  _ReplaceEquipmentScreenState createState() => _ReplaceEquipmentScreenState();
+  _ChangeHHStatusScreenState createState() => _ChangeHHStatusScreenState();
 }
 
-class _ReplaceEquipmentScreenState extends State<ReplaceEquipmentScreen> {
+class _ChangeHHStatusScreenState extends State<ChangeHHStatusScreen> {
   final GlobalKey<ScaffoldState> _drawerkey = GlobalKey();
-  TextEditingController replacedateController = TextEditingController();
+  TextEditingController dropPutdateController = TextEditingController();
   DateTime _date = DateTime.now();
   final DateFormat dateFormat = DateFormat("dd/MM/yyyy");
+  String? resonForDropPutValue;
+  var ResonForDropOut = ['a', "b", "c"];
 
   _handerlDatePicker() async {
     final DateTime? date = await showDatePicker(
@@ -31,20 +31,17 @@ class _ReplaceEquipmentScreenState extends State<ReplaceEquipmentScreen> {
       setState(() {
         _date = date;
       });
-      replacedateController.text = dateFormat.format(date);
+      dropPutdateController.text = dateFormat.format(date);
     }
   }
 
-  var reasonForReplace = ["A", "b", 'c'];
-  String? reasonForReplaceValue;
-  bool checkedValue = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _drawerkey,
       appBar: AppBar(
         title: Text(
-          "Household Details ",
+          "Change of household status ",
           style: TextStyle(
               fontSize: 17.sp,
               fontWeight: FontWeight.bold,
@@ -63,91 +60,13 @@ class _ReplaceEquipmentScreenState extends State<ReplaceEquipmentScreen> {
       drawer: const myDrawer(),
       body: ListView(
         children: [
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 3.h, vertical: 1.h),
-            child: Column(
-              // mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 10,
-                ),
-                Text("Name: Kedar Dash",
-                    textAlign: TextAlign.start, style: houseHoldDetailsStyle),
-                const SizedBox(
-                  height: 5,
-                ),
-                Text("Village: Tal",
-                    textAlign: TextAlign.start, style: houseHoldDetailsStyle),
-                const SizedBox(
-                  height: 5,
-                ),
-                Text("Post Office: Diptipur, District: Bargarh, Odisha",
-                    textAlign: TextAlign.start, style: houseHoldDetailsStyle),
-                const SizedBox(
-                  height: 30,
-                ),
-                Text("Technology Given On: November 15, 2021",
-                    textAlign: TextAlign.start,
-                    style: houseHoldDetailsStyleTwo),
-                const SizedBox(
-                  height: 5,
-                ),
-                Text("Monitored on : December 12, 2021",
-                    textAlign: TextAlign.start,
-                    style: houseHoldDetailsStyleTwo),
-                const SizedBox(
-                  height: 12,
-                ),
-              ],
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 3.w),
-            child: const Divider(
-              thickness: 1.5,
-              color: ColorsRes.buttoncolor,
-            ),
-          ),
           SizedBox(
-            height: 1.h,
-          ),
-          Center(
-            child: Text(
-              "Replacement of equipment",
-              style: TextStyle(
-                  color: ColorsRes.buttoncolor,
-                  fontSize: 17.sp,
-                  fontWeight: FontWeight.bold),
-            ),
+            height: 8.h,
           ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 2.h, vertical: 1.h),
-            child: CheckboxListTile(
-              activeColor: ColorsRes.buttoncolor,
-              title: Text(
-                "Replacement of equipment (bottles/containers) required",
-                style: TextStyle(
-                  fontSize: 12.5.sp,
-                ),
-              ),
-              value: checkedValue,
-              onChanged: (newValue) {
-                setState(() {
-                  checkedValue = newValue!;
-                });
-              },
-              controlAffinity:
-                  ListTileControlAffinity.trailing, //  <-- leading Checkbox
-            ),
-          ),
-          SizedBox(
-            height: 2.h,
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 20, right: 20),
+            margin: const EdgeInsets.only(left: 20),
             child: Text(
-              "Quantity of equipment (bottles/containers) to be replaced:",
+              "Date of drop-put:",
               style: heading,
             ),
           ),
@@ -157,18 +76,23 @@ class _ReplaceEquipmentScreenState extends State<ReplaceEquipmentScreen> {
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
+              controller: dropPutdateController,
+              onTap: _handerlDatePicker,
               // validator: validateEmail(TexEd),
               decoration: InputDecoration(
+                suffixIcon: const Icon(
+                  Icons.calendar_today,
+                  color: ColorsRes.buttoncolor,
+                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 ),
                 // labelText: 'Full Name',
-                hintText:
-                    'Enter Quantity of equipment (bottles/containers) to be replaced',
+                hintText: 'Select Date of drop-put',
               ),
               validator: (value) {
                 if (value!.isEmpty) {
-                  return 'Enter Quantity of equipment (bottles/containers) to be replaced';
+                  return 'Select Date of drop-put';
                 }
                 return null;
               },
@@ -180,7 +104,7 @@ class _ReplaceEquipmentScreenState extends State<ReplaceEquipmentScreen> {
           Container(
             margin: const EdgeInsets.only(left: 20),
             child: Text(
-              "Reason for replacement:",
+              "Reason for household drop-out:",
               style: heading,
             ),
           ),
@@ -197,23 +121,23 @@ class _ReplaceEquipmentScreenState extends State<ReplaceEquipmentScreen> {
                   ),
                 ),
                 focusColor: Colors.white,
-                hint: const Text("Select Reason for replacement:"),
+                hint: const Text("Select Reason for household drop-out:"),
                 isExpanded: true,
                 icon: const Align(
                     alignment: Alignment.centerRight,
                     child: Icon(Icons.arrow_drop_down,
                         color: ColorsRes.buttoncolor)),
-                items: reasonForReplace.map((String dropDownStringItem) {
+                items: ResonForDropOut.map((String dropDownStringItem) {
                   return DropdownMenuItem<String>(
                     value: dropDownStringItem,
                     child: Text(dropDownStringItem),
                   );
                 }).toList(),
-                value: reasonForReplaceValue,
+                value: resonForDropPutValue,
                 onChanged: (valueSelected) {
                   setState(
                     () {
-                      reasonForReplaceValue = valueSelected as String?;
+                      resonForDropPutValue = valueSelected as String?;
                     },
                   );
                 },
@@ -231,9 +155,9 @@ class _ReplaceEquipmentScreenState extends State<ReplaceEquipmentScreen> {
             height: 2.h,
           ),
           Container(
-            margin: const EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             child: Text(
-              "Date of distribution/Sale:",
+              "Address:",
               style: heading,
             ),
           ),
@@ -243,23 +167,17 @@ class _ReplaceEquipmentScreenState extends State<ReplaceEquipmentScreen> {
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
-              controller: replacedateController,
-              onTap: _handerlDatePicker,
               // validator: validateEmail(TexEd),
               decoration: InputDecoration(
-                suffixIcon: const Icon(
-                  Icons.calendar_today,
-                  color: ColorsRes.buttoncolor,
-                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 ),
                 // labelText: 'Full Name',
-                hintText: 'Enter Date of replacement',
+                hintText: 'Enter Address:',
               ),
               validator: (value) {
                 if (value!.isEmpty) {
-                  return 'Enter Date of replacement';
+                  return 'Enter Address:';
                 }
                 return null;
               },
@@ -271,7 +189,7 @@ class _ReplaceEquipmentScreenState extends State<ReplaceEquipmentScreen> {
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: Text(
-              "Number of replaced equipment (bottles/containers):",
+              "Phone Number:",
               style: heading,
             ),
           ),
@@ -287,12 +205,75 @@ class _ReplaceEquipmentScreenState extends State<ReplaceEquipmentScreen> {
                   borderRadius: BorderRadius.circular(15.0),
                 ),
                 // labelText: 'Full Name',
-                hintText:
-                    'Enter Number of replaced equipment (bottles/containers)',
+                hintText: 'Enter Phone Number',
               ),
               validator: (value) {
                 if (value!.isEmpty) {
-                  return 'Enter Number of replaced equipment (bottles/containers)';
+                  return 'Enter Phone Number';
+                }
+                return null;
+              },
+            ),
+          ),
+          SizedBox(
+            height: 2.h,
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 20, right: 20),
+            child: Text(
+              "Number of Household Members:",
+              style: heading,
+            ),
+          ),
+          SizedBox(
+            height: .5.h,
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 20, right: 20),
+            child: TextFormField(
+              // validator: validateEmail(TexEd),
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+                // labelText: 'Full Name',
+                hintText: 'Enter Number of Household Members:',
+              ),
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Enter Number of Household Members:';
+                }
+                return null;
+              },
+            ),
+          ),
+          SizedBox(
+            height: 2.h,
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 20, right: 20),
+            child: Text(
+              "ANumber of Households Members with Disability:",
+              style: heading,
+            ),
+          ),
+          SizedBox(
+            height: .5.h,
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 20, right: 20),
+            child: TextFormField(
+              // validator: validateEmail(TexEd),
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+                // labelText: 'Full Name',
+                hintText: 'Enter Number of Households Members with Disability:',
+              ),
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Enter Number of Households Members with Disability:';
                 }
                 return null;
               },

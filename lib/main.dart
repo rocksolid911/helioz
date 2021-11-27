@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:helioz/route.dart';
 import 'package:sizer/sizer.dart';
-
+import 'Change_HH_Status/Screen/chnage_hh_status.dart';
 import 'common/splash/screen/splash.dart';
 
 void main() {
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
     return Sizer(builder: (context, orientation, deviceType) {
       return const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: SplashScreen(),
+        home: ChangeHHStatusScreen(),
         onGenerateRoute: RouteGenerator.generateRoute,
       );
     });

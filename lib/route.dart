@@ -9,7 +9,6 @@ import 'package:helioz/Replace_of_Technology/Screen/replace_technology.dart';
 import 'package:helioz/Home/Pre_registration/Screen/pre_registration_screen.dart';
 import 'package:helioz/Home/Preference/Screen/preference_screen.dart';
 import 'package:helioz/Listing/Screen/listing_household_screen.dart';
-
 import 'common/splash/screen/splash.dart';
 
 class RouteGenerator {
