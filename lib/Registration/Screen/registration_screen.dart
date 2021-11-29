@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
 import 'package:helioz/Registration/Data/drop_down_data.dart';
+import 'package:helioz/Registration/Widget/formtitle.dart';
 import 'package:helioz/common/AppBar/my_appBar.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ import 'package:helioz/common/colorsres.dart';
 import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 
-final menuScreenKey = GlobalKey(debugLabel: 'MenuScreen');
+//final menuScreenKey = GlobalKey(debugLabel: 'MenuScreen');
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
@@ -544,13 +545,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Name of Beneficiary/Recipient/Customer:",
-                style: heading,
-              ),
-            ),
+            FormTitle( formtitle: "Name of Beneficiary/Recipient/Customer:",),
             SizedBox(
               height: .5.h,
             ),
@@ -1562,3 +1557,4 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     }
   }
 }
+
