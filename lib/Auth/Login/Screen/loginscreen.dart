@@ -6,6 +6,7 @@ import 'package:helioz/Auth/Login/Screen/signupscreen.dart';
 import 'package:helioz/Auth/Login/widgets/buildtextfield.dart';
 import 'package:helioz/common/colorsres.dart';
 import 'package:helioz/common/widgets/slideanimation.dart';
+import 'package:sizer/sizer.dart';
 
 String? groupValue = '';
 
@@ -179,11 +180,10 @@ class _WRLogin1State extends State<WRLogin1>
                   Text(
                     "LOGIN",
                     style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                        fontFamily: "Futura"
-                    ),
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontFamily: "Futura"),
                   ),
                   SizedBox(
                     width: 10,
@@ -203,7 +203,8 @@ class _WRLogin1State extends State<WRLogin1>
             child: RichText(
               text: TextSpan(
                   text: "Don't have an account? ",
-                  style: const TextStyle(color: Colors.black,fontFamily: "Futura"),
+                  style: const TextStyle(
+                      color: Colors.black, fontFamily: "Futura"),
                   children: [
                     TextSpan(
                         text: "Sign Up",
@@ -281,7 +282,10 @@ class _WRLogin1State extends State<WRLogin1>
                       }),
                   Text(
                     "Remember me",
-                    style: TextStyle(fontSize: 12,fontFamily: "Futura",fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: 9.sp,
+                        fontFamily: "Futura",
+                        fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -292,7 +296,7 @@ class _WRLogin1State extends State<WRLogin1>
                 slideDirection: SlideDirection.fromRight,
                 animationController: _animationController,
                 child: Text("Forgot your password?",
-                    style: TextStyle(fontSize: 13,fontFamily: "Futura")))
+                    style: TextStyle(fontSize: 9.sp, fontFamily: "Futura")))
           ],
         )
       ],

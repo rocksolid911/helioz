@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:helioz/common/colorsres.dart';
 
-
-
 class BuildTextField extends StatefulWidget {
   final String labelText;
   final String placeholder;
   final bool isPassword;
+
   const BuildTextField(
       {Key? key,
       required this.labelText,
       required this.placeholder,
-      required this.isPassword})
+      required this.isPassword,
+
+      })
       : super(key: key);
 
   @override
@@ -19,10 +20,9 @@ class BuildTextField extends StatefulWidget {
 }
 
 class _BuildTextFieldState extends State<BuildTextField> {
-  bool  _obscureText = true;
+  bool _obscureText = true;
   @override
   Widget build(BuildContext context) {
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -31,9 +31,10 @@ class _BuildTextFieldState extends State<BuildTextField> {
           style: TextStyle(color: Colors.grey.shade500, fontSize: 12),
         ),
         TextField(
-         // obscuringCharacter: "*",
+
+          // obscuringCharacter: "*",
           style: const TextStyle(color: Color(0xFF5B81E8)),
-          obscureText: widget.isPassword==true?_obscureText:false,
+          obscureText: widget.isPassword == true ? _obscureText : false,
           decoration: InputDecoration(
             hintText: widget.placeholder,
             focusedBorder: const UnderlineInputBorder(
@@ -57,7 +58,7 @@ class _BuildTextFieldState extends State<BuildTextField> {
                     },
                   )
                 //: Container(),
-            :null,
+                : null,
           ),
         ),
       ],

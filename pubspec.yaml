@@ -37,7 +37,7 @@ dependencies:
   sizer: ^2.0.15
   intl: ^0.17.0
   flutter_lints: ^1.0.4
-
+  sqflite: ^2.0.0+4
   image_picker: ^0.8.4+4
 
   font_awesome_flutter: ^9.2.0

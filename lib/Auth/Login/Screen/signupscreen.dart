@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:helioz/Auth/Login/widgets/buildtextfield.dart';
+import 'package:helioz/LocalDataBase/DatabaseHelper/db_helper.dart';
 import 'package:helioz/common/colorsres.dart';
 import 'package:helioz/common/widgets/slideanimation.dart';
 
@@ -24,10 +25,12 @@ class _WRSingup1State extends State<WRSingup1>
   TapGestureRecognizer? _tapGestureRecognizer;
 
   // bool _showSignIn;
+  DatabaseHelper? databaseHelper;
 
   @override
   void initState() {
     super.initState();
+    this.databaseHelper = DatabaseHelper();
     _animationController = AnimationController(
         vsync: this, duration: Duration(milliseconds: 2000));
     // _showSignIn = true;
@@ -251,10 +254,10 @@ class _WRSingup1State extends State<WRSingup1>
           itemCount: 8,
           slideDirection: SlideDirection.fromLeft,
           animationController: _animationController,
-          // child: buildTextField("PASSWORD", "*******", true),
+          // child: buildTextField("PASSWORD", "***", true),
           child: const BuildTextField(
             labelText: "PASSWORD",
-            placeholder: "*******",
+            placeholder: "***",
             isPassword: true,
           ),
         ),
