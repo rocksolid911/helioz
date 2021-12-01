@@ -86,20 +86,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     return Scaffold(
       key: _drawerkey,
       appBar: CustomAppBar("Registration"),
-
-      drawer:const MainMenu(),
+      drawer: const MainMenu(),
       body: Scrollbar(
         child: ListView(
           children: [
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Country",
-                style: heading,
-              ),
+            FormTitle(
+              formtitle: 'Country:',
             ),
             SizedBox(
               height: .5.h,
@@ -149,13 +144,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "State",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "State:"),
             SizedBox(
               height: .5.h,
             ),
@@ -202,13 +191,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "District",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "District:"),
             SizedBox(
               height: .5.h,
             ),
@@ -255,13 +238,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Tehsil",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "Tehsil:"),
             SizedBox(
               height: .5.h,
             ),
@@ -308,13 +285,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Block",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "Block:"),
             SizedBox(
               height: .5.h,
             ),
@@ -361,13 +332,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Panchayat",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "Panchayat:"),
             SizedBox(
               height: .5.h,
             ),
@@ -414,13 +379,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Village",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "Village:"),
             SizedBox(
               height: .5.h,
             ),
@@ -456,7 +415,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   },
                   validator: (value) {
                     if (value == null) {
-                      return 'Select Your Village';
+                      return 'Select Your Village:';
                     }
 
                     return null;
@@ -467,13 +426,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Gender:",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "Gender:"),
             SizedBox(
               height: .5.h,
             ),
@@ -513,13 +466,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Household Unique Identifier:",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "Household Unique Identifier:"),
             SizedBox(
               height: .5.h,
             ),
@@ -545,7 +492,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            FormTitle( formtitle: "Name of Beneficiary/Recipient/Customer:",),
+            FormTitle(
+              formtitle: "Name of Beneficiary/Recipient/Customer:",
+            ),
             SizedBox(
               height: .5.h,
             ),
@@ -571,13 +520,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: EdgeInsets.only(left: 20),
-              child: Text(
-                "Education",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "Education:"),
             SizedBox(
               height: .5.h,
             ),
@@ -624,13 +567,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Primary Occupation :",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "Primary Occupation:"),
             SizedBox(
               height: .5.h,
             ),
@@ -677,13 +614,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Number of Household Members:",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "Number of Household Members:"),
             SizedBox(
               height: .5.h,
             ),
@@ -741,13 +672,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Aadhar Card:",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "Aadhar Card:"),
             SizedBox(
               height: .5.h,
             ),
@@ -773,13 +698,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Category:",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "Category:"),
             SizedBox(
               height: .5.h,
             ),
@@ -877,13 +796,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Household Members with Disability:",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "Household Members with Disability:"),
             SizedBox(
               height: .5.h,
             ),
@@ -937,13 +850,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "If Yes Number of Households Members with Disability:",
-                style: heading,
-              ),
-            ),
+            FormTitle(
+                formtitle:
+                    "If Yes Number of Households Members with Disability:"),
             SizedBox(
               height: .5.h,
             ),
@@ -969,13 +878,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Seasonal Migration:",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "Seasonal Migration:"),
             SizedBox(
               height: .5.h,
             ),
@@ -1029,13 +932,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "If Yes Seasonal Migration:",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "If Yes Seasonal Migration:"),
             SizedBox(
               height: .5.h,
             ),
@@ -1084,13 +981,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: EdgeInsets.only(left: 20),
-              child: Text(
-                "Photograph of Household",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "Photograph of Household:"),
             SizedBox(
               height: .5.h,
             ),
@@ -1128,13 +1019,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Distribution/Sale:",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "Distribution/Sale:"),
             SizedBox(
               height: .5.h,
             ),
@@ -1183,13 +1068,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Model of Project Technology:",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "Model of Project Technology:"),
             SizedBox(
               height: .5.h,
             ),
@@ -1239,13 +1118,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Type of Project Technology:",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "Type of Project Technology:"),
             SizedBox(
               height: .5.h,
             ),
@@ -1295,16 +1168,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Quantity of Project Technology received/sold:",
-                style: heading,
-              ),
-            ),
-            SizedBox(
-              height: .5.h,
-            ),
+            FormTitle(
+                formtitle: "TQuantity of Project Technology received/sold:"),
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
@@ -1327,13 +1192,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Quantity of equipment supplied (bottles/containers):",
-                style: heading,
-              ),
-            ),
+            FormTitle(
+                formtitle:
+                    "Quantity of equipment supplied (bottles/containers:"),
             SizedBox(
               height: .5.h,
             ),
@@ -1359,13 +1220,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Serial Number of Project Technology:",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "Serial Number of Project Technology:"),
             SizedBox(
               height: .5.h,
             ),
@@ -1391,13 +1246,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Date of distribution/Sale:",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "Date of distribution/Sale:"),
             SizedBox(
               height: .5.h,
             ),
@@ -1429,13 +1278,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Date of Technology Training:",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "Date of Technology Training:"),
             SizedBox(
               height: .5.h,
             ),
@@ -1557,4 +1400,3 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     }
   }
 }
-
