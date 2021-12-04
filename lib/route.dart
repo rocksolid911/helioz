@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:helioz/Auth/Login/Screen/loginscreen.dart';
 import 'package:helioz/Auth/Login/Screen/signupscreen.dart';
+import 'package:helioz/Home/Dashboard/Screen/dash_board.dart';
 import 'package:helioz/Home/Help/Screen/help_screen.dart';
 import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
 import 'package:helioz/Listing/Screen/listing_household_screen.dart';
@@ -64,6 +65,10 @@ class RouteGenerator {
       case '/help':
         return MaterialPageRoute(
           builder: (_) => const HelpScreen(),
+        );
+      case '/dash':
+        return MaterialPageRoute(
+          builder: (_) => const DashboardScreen(),
         );
 
         // If args is not of the correct type, return an error page.

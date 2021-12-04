@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ColorsRes{
+class ColorsRes {
   static const Color logoColor = Color(0xfff2a41e);
   static const Color newAppColor = Color(0xff173e6d);
   static const Color borderColor = Color(0xff2f527d);
@@ -23,7 +23,7 @@ class ColorsRes{
   static const Color tabItemColor = Color(0xff011738);
   static const Color firstgradientcolor = Color(0xff838aea);
   static const Color secondgradientcolor = Color(0xff796fc1);
-  static const Color red =  Color(0xFFc30014);
+  static const Color red = Color(0xFFc30014);
   static const Color green = Color(0xFF60aa00);
 
   static const MaterialColor appcolor_material = MaterialColor(

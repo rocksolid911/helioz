@@ -48,7 +48,6 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
   @override
   Widget build(BuildContext context) {
     TextStyle? textStyle = Theme.of(context).textTheme.headline6;
-
     return Scaffold(
       appBar: CustomAppBar("Project Technology"),
       drawer: const MainMenu(),

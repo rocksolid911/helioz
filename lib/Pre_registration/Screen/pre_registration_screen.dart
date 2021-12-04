@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
 import 'package:helioz/Pre_registration/Data/pre_reg_data.dart';
+
+import 'package:helioz/Registration/Widget/formtitle.dart';
 import 'package:helioz/common/AppBar/my_appBar.dart';
 import 'package:helioz/common/widgets/text_style.dart';
 
-import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:helioz/common/colorsres.dart';
 import 'package:sizer/sizer.dart';
 
@@ -20,7 +21,12 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
   String? genderItem = "";
   String? waterTreatmentRadioDry = "";
   String? waterTreatmentRadioRainy = "";
-
+  String? StateValue;
+  String? DistrictValue;
+  String? TehsilValue;
+  String? BlockValue;
+  String? PanchayatValue;
+  String? VillageValue;
   String? mainFuelSourceValue;
   String? mainWaterSourceDryValue;
   String? mainWaterSourceRainyValue;
@@ -117,33 +123,189 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
             SizedBox(
               height: 2.h,
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                "Address:",
-                style: heading,
-              ),
-            ),
+            FormTitle(formtitle: "State:"),
             SizedBox(
               height: .5.h,
             ),
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
-              child: TextFormField(
-                // validator: validateEmail(TexEd),
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
+              child: DropdownButtonHideUnderline(
+                child: DropdownButtonFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
                   ),
-                  // labelText: 'Full Name',
-                  hintText: 'Enter Address',
+                  focusColor: Colors.white,
+                  hint: const Text("Select State"),
+                  isExpanded: true,
+                  icon: const Align(
+                      alignment: Alignment.centerRight,
+                      child: Icon(Icons.arrow_drop_down,
+                          color: ColorsRes.buttoncolor)),
+                  items: state.map((String dropDownStringItem) {
+                    return DropdownMenuItem<String>(
+                      value: dropDownStringItem,
+                      child: Text(dropDownStringItem),
+                    );
+                  }).toList(),
+                  value: StateValue,
+                  onChanged: (valueSelected) {
+                    setState(
+                      () {
+                        StateValue = valueSelected as String?;
+                      },
+                    );
+                  },
+                  validator: (value) {
+                    if (value == null) {
+                      return 'Select Your State';
+                    }
+
+                    return null;
+                  },
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Enter Address';
-                  }
-                  return null;
-                },
+              ),
+            ),
+            SizedBox(
+              height: 2.h,
+            ),
+            FormTitle(formtitle: "District:"),
+            SizedBox(
+              height: .5.h,
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 20, right: 20),
+              child: DropdownButtonHideUnderline(
+                child: DropdownButtonFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                  ),
+                  focusColor: Colors.white,
+                  hint: const Text("Select District"),
+                  isExpanded: true,
+                  icon: const Align(
+                      alignment: Alignment.centerRight,
+                      child: Icon(Icons.arrow_drop_down,
+                          color: ColorsRes.buttoncolor)),
+                  items: district.map((String dropDownStringItem) {
+                    return DropdownMenuItem<String>(
+                      value: dropDownStringItem,
+                      child: Text(dropDownStringItem),
+                    );
+                  }).toList(),
+                  value: DistrictValue,
+                  onChanged: (valueSelected) {
+                    setState(
+                      () {
+                        DistrictValue = valueSelected as String?;
+                      },
+                    );
+                  },
+                  validator: (value) {
+                    if (value == null) {
+                      return 'Select Your District';
+                    }
+
+                    return null;
+                  },
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 2.h,
+            ),
+            FormTitle(formtitle: "Block:"),
+            SizedBox(
+              height: .5.h,
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 20, right: 20),
+              child: DropdownButtonHideUnderline(
+                child: DropdownButtonFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                  ),
+                  focusColor: Colors.white,
+                  hint: const Text("Select Block"),
+                  isExpanded: true,
+                  icon: const Align(
+                      alignment: Alignment.centerRight,
+                      child: Icon(Icons.arrow_drop_down,
+                          color: ColorsRes.buttoncolor)),
+                  items: block.map((String dropDownStringItem) {
+                    return DropdownMenuItem<String>(
+                      value: dropDownStringItem,
+                      child: Text(dropDownStringItem),
+                    );
+                  }).toList(),
+                  value: BlockValue,
+                  onChanged: (valueSelected) {
+                    setState(
+                      () {
+                        BlockValue = valueSelected as String?;
+                      },
+                    );
+                  },
+                  validator: (value) {
+                    if (value == null) {
+                      return 'Select Your Block';
+                    }
+
+                    return null;
+                  },
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 2.h,
+            ),
+            FormTitle(formtitle: "Village:"),
+            SizedBox(
+              height: .5.h,
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 20, right: 20),
+              child: DropdownButtonHideUnderline(
+                child: DropdownButtonFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                  ),
+                  focusColor: Colors.white,
+                  hint: const Text("Select Village"),
+                  isExpanded: true,
+                  icon: const Align(
+                      alignment: Alignment.centerRight,
+                      child: Icon(Icons.arrow_drop_down,
+                          color: ColorsRes.buttoncolor)),
+                  items: village.map((String dropDownStringItem) {
+                    return DropdownMenuItem<String>(
+                      value: dropDownStringItem,
+                      child: Text(dropDownStringItem),
+                    );
+                  }).toList(),
+                  value: VillageValue,
+                  onChanged: (valueSelected) {
+                    setState(
+                      () {
+                        VillageValue = valueSelected as String?;
+                      },
+                    );
+                  },
+                  validator: (value) {
+                    if (value == null) {
+                      return 'Select Your Village:';
+                    }
+
+                    return null;
+                  },
+                ),
               ),
             ),
             SizedBox(

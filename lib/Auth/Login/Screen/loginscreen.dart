@@ -92,6 +92,16 @@ class _WRLogin1State extends State<WRLogin1>
                                           3.8,
                                     ),
                                     const SizedBox(height: 10.0),
+                                    Center(
+                                      child: Text(
+                                        "Monitoring of Carbon Credit Project",
+                                        style: TextStyle(
+                                            color: ColorsRes.logoColor,
+                                            fontSize: 15.sp,
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: "Futura"),
+                                      ),
+                                    ),
                                     // const Text(
                                     //   "Music",
                                     //   style: TextStyle(
@@ -238,7 +248,7 @@ class _WRLogin1State extends State<WRLogin1>
             child:
                 // buildTextField("EMAIL ADDRESS", "test123@demo.com", false),
                 const BuildTextField(
-              labelText: "EMAIL ADDRESS",
+              labelText: "User Id",
               placeholder: "test123@demo.com",
               isPassword: false,
             ),
@@ -255,7 +265,7 @@ class _WRLogin1State extends State<WRLogin1>
             slideDirection: SlideDirection.fromRight,
             animationController: _animationController,
             child: const BuildTextField(
-              labelText: "PASSWORD",
+              labelText: "Password",
               placeholder: "please enter your password",
               isPassword: true,
             ),

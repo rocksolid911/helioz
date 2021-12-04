@@ -51,6 +51,8 @@ var waterTreatmentRainy = [
   'Leaving bottles in the sun (Solar Water Disinfection)',
   'Other: [Text Input]',
 ];
+var state = ['Bihar', 'Delhi'];
+var district = ['Madhubani', "Darbhanga", 'Patna'];
 var tehsil = ["A", "B", "C"];
 var block = ["A", "B", "C"];
 var panchayat = ["A", "B", "C"];
@@ -60,7 +62,7 @@ var education = [
   "Primary",
   "Higher Secondary",
   'Secondary',
-  'Graduation and above'
+  'Graduation & Above'
 ];
 var occupation = [
   "Farming",

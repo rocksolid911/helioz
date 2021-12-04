@@ -15,20 +15,21 @@ class _MainMenuState extends State<MainMenu> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        key: _drawerkey,
+        // key: _drawerkey,
         appBar: AppBar(
           elevation: 5,
           centerTitle: true,
           title: const Text(
             "MAIN MENU",
             style: TextStyle(
-              color: ColorsRes.newAppColor,
+                color: ColorsRes.newAppColor,
                 fontFamily: "Futura",
-              fontWeight: FontWeight.bold
-
-            ),
+                fontWeight: FontWeight.bold),
           ),
-          leading: Icon(Icons.menu),
+          leading: Icon(
+            Icons.menu,
+            color: Colors.transparent,
+          ),
           iconTheme: const IconThemeData(color: ColorsRes.newAppColor),
           backgroundColor: Colors.white,
           // elevation: 0.0,

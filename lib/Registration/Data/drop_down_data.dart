@@ -10,7 +10,7 @@ var education = [
   "Primary",
   "Higher Secondary",
   'Secondary',
-  'Graduation and above'
+  'Graduation & Above'
 ];
 var occupation = [
   "Farming",

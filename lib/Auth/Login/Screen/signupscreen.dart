@@ -6,6 +6,7 @@ import 'package:helioz/Auth/Login/widgets/buildtextfield.dart';
 import 'package:helioz/LocalDataBase/DatabaseHelper/db_helper.dart';
 import 'package:helioz/common/colorsres.dart';
 import 'package:helioz/common/widgets/slideanimation.dart';
+import 'package:sizer/sizer.dart';
 
 import 'loginscreen.dart';
 
@@ -88,7 +89,17 @@ class _WRSingup1State extends State<WRSingup1>
                                 color: ColorsRes.logoColor,
                                 width: MediaQuery.of(context).size.width / 3.8,
                               ),
-                              SizedBox(height: 10.0),
+                              const SizedBox(height: 5.0),
+                              Center(
+                                child: Text(
+                                  "Monitoring of Carbon Credit Project",
+                                  style: TextStyle(
+                                      color: ColorsRes.logoColor,
+                                      fontSize: 15.sp,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: "Futura"),
+                                ),
+                              ),
                               // Text(
                               //   "Music",
                               //   style: TextStyle(
@@ -110,7 +121,22 @@ class _WRSingup1State extends State<WRSingup1>
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 20.0),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        // Center(
+                        //   child: Text(
+                        //     "Monitoring of Carbon Credit Project",
+                        //     style: TextStyle(
+                        //         color: ColorsRes.logoColor,
+                        //         fontSize: 15.sp,
+                        //         fontWeight: FontWeight.bold,
+                        //         fontFamily: "Futura"),
+                        //   ),
+                        // ),
+                        SizedBox(
+                          height: 8,
+                        ),
                         SlideAnimation(
                           position: 1,
                           itemCount: 8,
@@ -226,7 +252,7 @@ class _WRSingup1State extends State<WRSingup1>
           animationController: _animationController,
           // child: buildTextField("USERNAME", "Demo", false),
           child: const BuildTextField(
-            labelText: "USERNAME",
+            labelText: "Username",
             placeholder: "Demo",
             isPassword: false,
           ),
@@ -241,7 +267,7 @@ class _WRSingup1State extends State<WRSingup1>
           animationController: _animationController,
           //child: buildTextField("EMAIL ADDRESS", "test123@demo.com", false),
           child: const BuildTextField(
-            labelText: "EMAIL ADDRESS",
+            labelText: "Email Address",
             placeholder: "test123@demo.com",
             isPassword: false,
           ),
@@ -256,7 +282,7 @@ class _WRSingup1State extends State<WRSingup1>
           animationController: _animationController,
           // child: buildTextField("PASSWORD", "***", true),
           child: const BuildTextField(
-            labelText: "PASSWORD",
+            labelText: "Password",
             placeholder: "***",
             isPassword: true,
           ),

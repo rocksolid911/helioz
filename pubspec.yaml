@@ -39,8 +39,10 @@ dependencies:
   flutter_lints: ^1.0.4
   sqflite: ^2.0.0+4
   image_picker: ^0.8.4+4
-
+  syncfusion_flutter_charts: ^19.3.56
   font_awesome_flutter: ^9.2.0
+  dependencies:
+  pie_chart: ^5.1.0
 
 
   flutter_svg: ^0.23.0+1
