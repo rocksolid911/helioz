@@ -1,7 +1,10 @@
+import 'dart:convert';
 import 'dart:io';
 //import 'package:helioz/Pre_registration/Data/pre_reg_data.dart';
 
 import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
+import 'package:helioz/LocalDataBase/DatabaseHelper/db_helper.dart';
+import 'package:helioz/LocalDataBase/Model/registration_model.dart';
 import 'package:helioz/Registration/Data/drop_down_data.dart';
 import 'package:helioz/Registration/Widget/formtitle.dart';
 import 'package:helioz/common/AppBar/my_appBar.dart';
@@ -26,11 +29,21 @@ class RegistrationScreen extends StatefulWidget {
 class _RegistrationScreenState extends State<RegistrationScreen> {
   final GlobalKey<ScaffoldState> _drawerkey = GlobalKey();
   File? imageFile;
+  late String _base64image;
   DateTime _date = DateTime.now();
   final DateFormat dateFormat = DateFormat("dd/MM/yyyy");
   TextEditingController distributionDateController = TextEditingController();
   TextEditingController trainningDateController = TextEditingController();
-
+  TextEditingController hh_unique_indetifyController = TextEditingController();
+  TextEditingController name_of_beneficiary_controller =
+      TextEditingController();
+  TextEditingController number_hh_controller = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController aadharController = TextEditingController();
+  TextEditingController numberDisabilityController = TextEditingController();
+  TextEditingController quantityProjectTechController = TextEditingController();
+  TextEditingController quantityEquipController = TextEditingController();
+  TextEditingController serialNumberProjectController = TextEditingController();
   _handerlDatePicker() async {
     final DateTime? date = await showDatePicker(
       context: context,
@@ -61,6 +74,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     }
   }
 
+  late DatabaseHelper databaseHelper;
   String? CountryValue;
   String? StateValue;
   String? DistrictValue;
@@ -74,9 +88,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   String? distributionValue;
   String? modelProjectTechnologyValue;
   String? typeProjectTechnologyValue;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    databaseHelper = DatabaseHelper();
+    databaseHelper.initDB();
+  }
 
   var _gender;
-  String radioItem = '';
+  String genderItem = '';
   String Category = '';
   String Disability = '';
   String Migration = '';
@@ -438,24 +459,24 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 children: [
                   Expanded(
                     child: RadioListTile(
-                      groupValue: radioItem,
+                      groupValue: genderItem,
                       title: const Text('Male'),
                       value: 'Male',
                       onChanged: (val) {
                         setState(() {
-                          radioItem = val as String;
+                          genderItem = val as String;
                         });
                       },
                     ),
                   ),
                   Expanded(
                     child: RadioListTile(
-                      groupValue: radioItem,
+                      groupValue: genderItem,
                       title: const Text('Female'),
                       value: 'Female',
                       onChanged: (val) {
                         setState(() {
-                          radioItem = val as String;
+                          genderItem = val as String;
                         });
                       },
                     ),
@@ -473,6 +494,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
+                controller: hh_unique_indetifyController,
                 // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -501,6 +523,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
+                controller: name_of_beneficiary_controller,
                 // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -621,6 +644,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
+                keyboardType: TextInputType.number,
+                controller: number_hh_controller,
                 // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -653,6 +678,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
+                controller: phoneController,
+                keyboardType: TextInputType.number,
                 // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -679,6 +706,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
+                controller: aadharController,
+                keyboardType: TextInputType.number,
                 // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -859,6 +888,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
+                controller: numberDisabilityController,
+                keyboardType: TextInputType.number,
                 // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -1169,10 +1200,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             FormTitle(
-                formtitle: "TQuantity of Project Technology received/sold:"),
+                formtitle: "Quantity of Project Technology received/sold:"),
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
+                controller: quantityEquipController,
+                keyboardType: TextInputType.number,
                 // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -1201,6 +1234,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
+                controller: quantityEquipController,
+                keyboardType: TextInputType.number,
                 // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -1227,6 +1262,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
+                controller: serialNumberProjectController,
+
                 // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -1307,27 +1344,32 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 },
               ),
             ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: Container(
-                margin: const EdgeInsets.only(right: 20, top: 20),
-                height: 6.h,
-                width: 20.h,
-                // alignment: Alignment.bottomRight,
-                decoration: const BoxDecoration(
-                  // border: Border.all(),
-                  color: ColorsRes.buttoncolor,
-                  shape: BoxShape.rectangle,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(25.0),
+            InkWell(
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: Container(
+                  margin: const EdgeInsets.only(right: 20, top: 20),
+                  height: 6.h,
+                  width: 20.h,
+                  // alignment: Alignment.bottomRight,
+                  decoration: const BoxDecoration(
+                    // border: Border.all(),
+                    color: ColorsRes.buttoncolor,
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(25.0),
+                    ),
                   ),
+                  child: Center(
+                      child: Text(
+                    "Submit",
+                    style: buttonTextStyle,
+                  )),
                 ),
-                child: Center(
-                    child: Text(
-                  "Submit",
-                  style: buttonTextStyle,
-                )),
               ),
+              onTap: () {
+                registerUser();
+              },
             ),
             SizedBox(
               height: 2.h,
@@ -1375,7 +1417,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     if (pickedFile != null) {
       setState(() {
         imageFile = File(pickedFile.path);
-        // _base64Profile = base64Encode(imageFile.readAsBytesSync());
+        _base64image = base64Encode(imageFile!.readAsBytesSync());
         String fileName = imageFile!.path.split("/").last;
         print(fileName);
       });
@@ -1392,11 +1434,46 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       if (pickedFile != null) {
         setState(() {
           imageFile = File(pickedFile.path);
-          // _base64Profile = base64Encode(imageFile.readAsBytesSync());
+          _base64image = base64Encode(imageFile!.readAsBytesSync());
         });
       }
     } catch (e) {
       print(e.toString());
     }
+  }
+
+  registerUser() {
+    UserRegisterModel userRegisterModel = UserRegisterModel(
+      country: CountryValue.toString(),
+      state: StateValue.toString(),
+      district: DistrictValue.toString(),
+      tehsil: TehsilValue.toString(),
+      block: BlockValue.toString(),
+      panchayat: PanchayatValue.toString(),
+      village: VillageValue.toString(),
+      gender: genderItem,
+      hh_uniqe_indefy: hh_unique_indetifyController.text.toString(),
+      name_of_beneficiary: name_of_beneficiary_controller.text.toString(),
+      education: EducationValue.toString(),
+      occupation: OccupationValue.toString(),
+      number_hh_member: int.parse(number_hh_controller.text),
+      phone_no: int.parse(phoneController.text),
+      aadhar: int.parse(aadharController.text),
+      caste_category: Category.toString(),
+      hh_disability: Disability.toString(),
+      hh_disability_number: int.parse(numberDisabilityController.text),
+      season_migration: migrationValue.toString(),
+      image: _base64image,
+      distribution: distributionValue.toString(),
+      model_project_tech: modelProjectTechnologyValue.toString(),
+      type_project_tech: typeProjectTechnologyValue.toString(),
+      quantity_project_tech: quantityProjectTechController.text.toString(),
+      quantity_equip: quantityEquipController.text.toString(),
+      serial_num_project: serialNumberProjectController.text.toString(),
+      date_of_sale: DateTime.parse(distributionDateController.text.toString()),
+      date_of_tech_training:
+          DateTime.parse(trainningDateController.text.toString()),
+    );
+    databaseHelper.insertData(userRegisterModel);
   }
 }
