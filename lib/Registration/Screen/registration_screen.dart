@@ -1,13 +1,11 @@
-import 'dart:convert';
 import 'dart:io';
 //import 'package:helioz/Pre_registration/Data/pre_reg_data.dart';
 
 import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
-import 'package:helioz/LocalDataBase/DatabaseHelper/db_helper.dart';
-import 'package:helioz/LocalDataBase/Model/registration_model.dart';
 import 'package:helioz/Registration/Data/drop_down_data.dart';
 import 'package:helioz/Registration/Widget/formtitle.dart';
-import 'package:helioz/common/AppBar/my_appBar.dart';
+import 'package:helioz/common/AppBar/myappbar.dart';
+import 'package:helioz/common/Validation/registrationvalidation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +13,7 @@ import 'package:helioz/common/widgets/text_style.dart';
 import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:helioz/common/colorsres.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 //final menuScreenKey = GlobalKey(debugLabel: 'MenuScreen');
@@ -29,21 +28,11 @@ class RegistrationScreen extends StatefulWidget {
 class _RegistrationScreenState extends State<RegistrationScreen> {
   final GlobalKey<ScaffoldState> _drawerkey = GlobalKey();
   File? imageFile;
-  late String _base64image;
   DateTime _date = DateTime.now();
   final DateFormat dateFormat = DateFormat("dd/MM/yyyy");
   TextEditingController distributionDateController = TextEditingController();
   TextEditingController trainningDateController = TextEditingController();
-  TextEditingController hh_unique_indetifyController = TextEditingController();
-  TextEditingController name_of_beneficiary_controller =
-      TextEditingController();
-  TextEditingController number_hh_controller = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController aadharController = TextEditingController();
-  TextEditingController numberDisabilityController = TextEditingController();
-  TextEditingController quantityProjectTechController = TextEditingController();
-  TextEditingController quantityEquipController = TextEditingController();
-  TextEditingController serialNumberProjectController = TextEditingController();
+
   _handerlDatePicker() async {
     final DateTime? date = await showDatePicker(
       context: context,
@@ -74,7 +63,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     }
   }
 
-  late DatabaseHelper databaseHelper;
   String? CountryValue;
   String? StateValue;
   String? DistrictValue;
@@ -88,22 +76,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   String? distributionValue;
   String? modelProjectTechnologyValue;
   String? typeProjectTechnologyValue;
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    databaseHelper = DatabaseHelper();
-    databaseHelper.initDB();
-  }
 
   var _gender;
-  String genderItem = '';
+  String radioItem = '';
   String Category = '';
   String Disability = '';
   String Migration = '';
 
   @override
   Widget build(BuildContext context) {
+    final validationService = Provider.of<SignupValidation>(context);
     return Scaffold(
       key: _drawerkey,
       appBar: CustomAppBar("Registration"),
@@ -161,7 +143,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   },
                 ),
               ),
-            ),
+            ),//country dropdown
             SizedBox(
               height: 2.h,
             ),
@@ -451,38 +433,35 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: .5.h,
             ),
-            Container(
-              // margin: EdgeInsets.only(left: 20, right: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: RadioListTile(
-                      groupValue: genderItem,
-                      title: const Text('Male'),
-                      value: 'Male',
-                      onChanged: (val) {
-                        setState(() {
-                          genderItem = val as String;
-                        });
-                      },
-                    ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: RadioListTile(
+                    groupValue: radioItem,
+                    title: const Text('Male'),
+                    value: 'Male',
+                    onChanged: (val) {
+                      setState(() {
+                        radioItem = val as String;
+                      });
+                    },
                   ),
-                  Expanded(
-                    child: RadioListTile(
-                      groupValue: genderItem,
-                      title: const Text('Female'),
-                      value: 'Female',
-                      onChanged: (val) {
-                        setState(() {
-                          genderItem = val as String;
-                        });
-                      },
-                    ),
+                ),
+                Expanded(
+                  child: RadioListTile(
+                    groupValue: radioItem,
+                    title: const Text('Female'),
+                    value: 'Female',
+                    onChanged: (val) {
+                      setState(() {
+                        radioItem = val as String;
+                      });
+                    },
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             SizedBox(
               height: 2.h,
@@ -494,7 +473,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
-                controller: hh_unique_indetifyController,
+                keyboardType: TextInputType.number,
                 // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -503,11 +482,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   // labelText: 'Full Name',
                   hintText: 'Household Unique Identifier',
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Enter Your Household Unique Identifier';
-                  }
-                  return null;
+                // validator: (value) {
+                //   if (value!.isEmpty) {
+                //     return 'Enter Your Household Unique Identifier';
+                //   }
+                //   return null;
+                // },
+                onChanged: (value){
+                  validationService.checkNo(value);
                 },
               ),
             ),
@@ -523,7 +505,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
-                controller: name_of_beneficiary_controller,
                 // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -531,12 +512,17 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                   // labelText: 'Full Name',
                   hintText: 'Name of Beneficiary/Recipient/Customer',
+                  errorText: validationService.firstName.error,
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Enter Name of Beneficiary/Recipient/Customer:';
-                  }
-                  return null;
+                // validator: (value) {
+                //   // if (value!.isEmpty) {
+                //   //   return 'Enter Name of Beneficiary/Recipient/Customer:';
+                //   // }
+                //   // return null;
+                //   validationService.changeFirstName(value!);
+                // },
+                onChanged: (value){
+                  validationService.changeFirstName(value);
                 },
               ),
             ),
@@ -644,21 +630,24 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
-                keyboardType: TextInputType.number,
-                controller: number_hh_controller,
                 // validator: validateEmail(TexEd),
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   // labelText: 'Full Name',
                   hintText: 'Number of Household Members',
+                  errorText: validationService.hhno.error,
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Enter Number of Household Members';
-                  }
-                  return null;
+                // validator: (value) {
+                //   if (value!.isEmpty) {
+                //     return 'Enter Number of Household Members';
+                //   }
+                //   return null;
+                // },
+                onChanged: (value){
+validationService.checkNo(value);
                 },
               ),
             ),
@@ -678,21 +667,24 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
-                controller: phoneController,
-                keyboardType: TextInputType.number,
                 // validator: validateEmail(TexEd),
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   // labelText: 'Full Name',
                   hintText: 'Phone Number',
+                  errorText: validationService.phno.error,
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Phone Number:';
-                  }
-                  return null;
+                // validator: (value) {
+                //   if (value!.isEmpty) {
+                //     return 'Phone Number:';
+                //   }
+                //   return null;
+                // },
+                onChanged: (value){
+                  validationService.checkPhoneNo(value);
                 },
               ),
             ),
@@ -706,21 +698,24 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
-                controller: aadharController,
-                keyboardType: TextInputType.number,
                 // validator: validateEmail(TexEd),
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   // labelText: 'Full Name',
                   hintText: 'Aadhar Card',
+                  errorText: validationService.aadhar.error
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Enter Number Aadhar Card Number';
-                  }
-                  return null;
+                // validator: (value) {
+                //   if (value!.isEmpty) {
+                //     return 'Enter Number Aadhar Card Number';
+                //   }
+                //   return null;
+                // },
+                onChanged: (value){
+                  validationService.checkAdhar(value);
                 },
               ),
             ),
@@ -888,8 +883,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
-                controller: numberDisabilityController,
-                keyboardType: TextInputType.number,
                 // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -1200,12 +1193,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 2.h,
             ),
             FormTitle(
-                formtitle: "Quantity of Project Technology received/sold:"),
+                formtitle: "TQuantity of Project Technology received/sold:"),
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
-                controller: quantityEquipController,
-                keyboardType: TextInputType.number,
                 // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -1234,8 +1225,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
-                controller: quantityEquipController,
-                keyboardType: TextInputType.number,
                 // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -1262,8 +1251,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
-                controller: serialNumberProjectController,
-
                 // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -1290,6 +1277,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
+                keyboardType: TextInputType.none,
                 controller: distributionDateController,
                 onTap: _handerlDatePicker,
                 // validator: validateEmail(TexEd),
@@ -1322,6 +1310,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
+                keyboardType: TextInputType.none,
                 controller: trainningDateController,
                 onTap: _handerlDatePickerTraining,
                 // validator: validateEmail(TexEd),
@@ -1344,32 +1333,27 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 },
               ),
             ),
-            InkWell(
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: Container(
-                  margin: const EdgeInsets.only(right: 20, top: 20),
-                  height: 6.h,
-                  width: 20.h,
-                  // alignment: Alignment.bottomRight,
-                  decoration: const BoxDecoration(
-                    // border: Border.all(),
-                    color: ColorsRes.buttoncolor,
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(25.0),
-                    ),
+            Align(
+              alignment: Alignment.centerRight,
+              child: Container(
+                margin: const EdgeInsets.only(right: 20, top: 20),
+                height: 6.h,
+                width: 20.h,
+                // alignment: Alignment.bottomRight,
+                decoration: const BoxDecoration(
+                  // border: Border.all(),
+                  color: ColorsRes.buttoncolor,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(25.0),
                   ),
-                  child: Center(
-                      child: Text(
-                    "Submit",
-                    style: buttonTextStyle,
-                  )),
                 ),
+                child: Center(
+                    child: Text(
+                  "Submit",
+                  style: buttonTextStyle,
+                )),
               ),
-              onTap: () {
-                registerUser();
-              },
             ),
             SizedBox(
               height: 2.h,
@@ -1417,7 +1401,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     if (pickedFile != null) {
       setState(() {
         imageFile = File(pickedFile.path);
-        _base64image = base64Encode(imageFile!.readAsBytesSync());
+        // _base64Profile = base64Encode(imageFile.readAsBytesSync());
         String fileName = imageFile!.path.split("/").last;
         print(fileName);
       });
@@ -1434,46 +1418,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       if (pickedFile != null) {
         setState(() {
           imageFile = File(pickedFile.path);
-          _base64image = base64Encode(imageFile!.readAsBytesSync());
+          // _base64Profile = base64Encode(imageFile.readAsBytesSync());
         });
       }
     } catch (e) {
       print(e.toString());
     }
-  }
-
-  registerUser() {
-    UserRegisterModel userRegisterModel = UserRegisterModel(
-      country: CountryValue.toString(),
-      state: StateValue.toString(),
-      district: DistrictValue.toString(),
-      tehsil: TehsilValue.toString(),
-      block: BlockValue.toString(),
-      panchayat: PanchayatValue.toString(),
-      village: VillageValue.toString(),
-      gender: genderItem,
-      hh_uniqe_indefy: hh_unique_indetifyController.text.toString(),
-      name_of_beneficiary: name_of_beneficiary_controller.text.toString(),
-      education: EducationValue.toString(),
-      occupation: OccupationValue.toString(),
-      number_hh_member: int.parse(number_hh_controller.text),
-      phone_no: int.parse(phoneController.text),
-      aadhar: int.parse(aadharController.text),
-      caste_category: Category.toString(),
-      hh_disability: Disability.toString(),
-      hh_disability_number: int.parse(numberDisabilityController.text),
-      season_migration: migrationValue.toString(),
-      image: _base64image,
-      distribution: distributionValue.toString(),
-      model_project_tech: modelProjectTechnologyValue.toString(),
-      type_project_tech: typeProjectTechnologyValue.toString(),
-      quantity_project_tech: quantityProjectTechController.text.toString(),
-      quantity_equip: quantityEquipController.text.toString(),
-      serial_num_project: serialNumberProjectController.text.toString(),
-      date_of_sale: DateTime.parse(distributionDateController.text.toString()),
-      date_of_tech_training:
-          DateTime.parse(trainningDateController.text.toString()),
-    );
-    databaseHelper.insertData(userRegisterModel);
   }
 }

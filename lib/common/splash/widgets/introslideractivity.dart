@@ -66,7 +66,7 @@ class IntroSliderState extends State<IntroSliderActivity> {
       ),
       child: Scaffold(
         //constraints: BoxConstraints.expand(),
-        backgroundColor: ColorsRes.buttoncolor,
+        backgroundColor: const Color(0xff173e6d),
         /*decoration: BoxDecoration(
           gradient: new RadialGradient(
             colors: [

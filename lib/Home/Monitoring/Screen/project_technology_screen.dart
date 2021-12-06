@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:helioz/Home/Monitoring/Data/project_tech_data.dart';
 import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
 import 'package:helioz/Pre_registration/Data/pre_reg_data.dart';
-import 'package:helioz/common/AppBar/my_appBar.dart';
+import 'package:helioz/common/AppBar/myappbar.dart';
 import 'package:helioz/common/colorsres.dart';
 
 import 'package:helioz/common/widgets/text_style.dart';

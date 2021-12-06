@@ -3,10 +3,12 @@ import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
 import 'package:helioz/Pre_registration/Data/pre_reg_data.dart';
 
 import 'package:helioz/Registration/Widget/formtitle.dart';
-import 'package:helioz/common/AppBar/my_appBar.dart';
+import 'package:helioz/common/AppBar/myappbar.dart';
+import 'package:helioz/common/Validation/preregvalidation.dart';
 import 'package:helioz/common/widgets/text_style.dart';
 
 import 'package:helioz/common/colorsres.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 class PreRegistrationScreen extends StatefulWidget {
@@ -34,6 +36,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
   String? treatmentWaterSourceDryValue;
   @override
   Widget build(BuildContext context) {
+    final validationService = Provider.of<PreRegValidation>(context);
     return Scaffold(
       key: _drawerkey,
       appBar: CustomAppBar("Pre-Registration"),
@@ -64,12 +67,16 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
                   ),
                   // labelText: 'Full Name',
                   hintText: 'Name of beneficiary',
+                  errorText: validationService.firstName.error
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Enter Name of beneficiary';
-                  }
-                  return null;
+                // validator: (value) {
+                //   if (value!.isEmpty) {
+                //     return 'Enter Name of beneficiary';
+                //   }
+                //   return null;
+                // },
+                onChanged: (value){
+                  validationService.changeFirstName(value);
                 },
               ),
             ),
@@ -325,18 +332,23 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
                 // validator: validateEmail(TexEd),
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   // labelText: 'Full Name',
                   hintText: 'Enter Phone Number',
+                  errorText: validationService.phno.error
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Enter Phone Number';
-                  }
-                  return null;
+                // validator: (value) {
+                //   if (value!.isEmpty) {
+                //     return 'Enter Phone Number';
+                //   }
+                //   return null;
+                // },
+                onChanged: (value){
+                  validationService.checkPhoneNo(value);
                 },
               ),
             ),
