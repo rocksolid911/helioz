@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:helioz/common/Validation/signinvalidation.dart';
 import 'package:helioz/common/colorsres.dart';
+import 'package:provider/provider.dart';
 
 class BuildTextField extends StatefulWidget {
   final String labelText;
   final String placeholder;
   final bool isPassword;
 
-  const BuildTextField(
-      {Key? key,
-      required this.labelText,
-      required this.placeholder,
-      required this.isPassword,
-
-      })
-      : super(key: key);
+  const BuildTextField({
+    Key? key,
+    required this.labelText,
+    required this.placeholder,
+    required this.isPassword,
+  }) : super(key: key);
 
   @override
   _BuildTextFieldState createState() => _BuildTextFieldState();
@@ -23,6 +23,7 @@ class _BuildTextFieldState extends State<BuildTextField> {
   bool _obscureText = true;
   @override
   Widget build(BuildContext context) {
+    final validationService = Provider.of<SignInValidation>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -31,12 +32,19 @@ class _BuildTextFieldState extends State<BuildTextField> {
           style: TextStyle(color: Colors.grey.shade500, fontSize: 12),
         ),
         TextField(
-
+          onChanged: widget.isPassword == false
+              ? (value) {
+                  validationService.ceckEmail(value);
+                }
+              : null,
           // obscuringCharacter: "*",
           style: const TextStyle(color: Color(0xFF5B81E8)),
           obscureText: widget.isPassword == true ? _obscureText : false,
           decoration: InputDecoration(
             hintText: widget.placeholder,
+            errorText: widget.isPassword == false
+                ? validationService.email.error
+                : null,
             focusedBorder: const UnderlineInputBorder(
               borderSide: BorderSide(color: Color(0xFF5B81E8)),
             ),

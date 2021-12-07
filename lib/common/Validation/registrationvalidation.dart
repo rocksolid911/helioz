@@ -3,7 +3,7 @@ import 'package:helioz/common/Validation/validationitem.dart';
 
 
 
-class SignupValidation with ChangeNotifier {
+class RegValidation with ChangeNotifier {
 
 
   static final RegExp nameRegExp =RegExp('[a-zA-Z]');

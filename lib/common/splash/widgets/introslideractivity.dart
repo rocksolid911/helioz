@@ -109,8 +109,8 @@ class IntroSliderState extends State<IntroSliderActivity> {
                       color: ColorsRes.blue,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    padding: EdgeInsets.symmetric(vertical: 13),
-                    margin: EdgeInsets.only(left: 12, right: 12, bottom: 20),
+                    padding: const EdgeInsets.symmetric(vertical: 13),
+                    margin: const EdgeInsets.only(left: 12, right: 12, bottom: 20),
                     child: Text(
                       "Get Started",
                       style: Theme.of(context).textTheme.subtitle1!.merge(

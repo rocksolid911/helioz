@@ -26,8 +26,8 @@ class UserRegisterModel {
   late String quantity_project_tech;
   late String quantity_equip;
   late String serial_num_project;
-  late DateTime date_of_sale;
-  late DateTime date_of_tech_training;
+  late String date_of_sale;
+  late String date_of_tech_training;
 
   UserRegisterModel(
 
@@ -116,6 +116,7 @@ class UserRegisterModel {
         "hh_disability_number": hh_disability_number,
         "season_migration": season_migration,
         "image": image,
+        "distribution": distribution,
         "model_project_tech": model_project_tech,
         "type_project_tech": type_project_tech,
         "quantity_project_tech": quantity_project_tech,

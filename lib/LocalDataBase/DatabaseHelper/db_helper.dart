@@ -38,8 +38,8 @@ class DatabaseHelper {
          quantity_project_tech TEXT NOT NULL,
          quantity_equip TEXT NOT NULL,
          serial_num_project TEXT NOT NULL,
-         date_of_sale DATETIME NOT NULL,
-         date_of_tech_training DATETIME NOT NULL
+         date_of_sale TEXT NOT NULL,
+         date_of_tech_training TEXT NOT NULL
         )
         """);
       },

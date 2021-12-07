@@ -4,8 +4,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:helioz/Auth/Login/Screen/signupscreen.dart';
 import 'package:helioz/Auth/Login/widgets/buildtextfield.dart';
+import 'package:helioz/common/Validation/signinvalidation.dart';
 import 'package:helioz/common/colorsres.dart';
 import 'package:helioz/common/widgets/slideanimation.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 String? groupValue = '';
@@ -48,6 +50,7 @@ class _WRLogin1State extends State<WRLogin1>
 
   @override
   Widget build(BuildContext context) {
+
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
         statusBarIconBrightness: Brightness.light,
@@ -116,7 +119,7 @@ class _WRLogin1State extends State<WRLogin1>
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(
+                          padding: const EdgeInsets.only(
                             left: 30,
                             right: 30,
                           ),
@@ -179,7 +182,7 @@ class _WRLogin1State extends State<WRLogin1>
                 ),
                 primary: ColorsRes.newAppColor,
                 elevation: 1.0,
-                padding: EdgeInsets.symmetric(horizontal: 70, vertical: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 12),
               ),
               onPressed: () {
                 Navigator.pushReplacementNamed(context, "/dashboard");
@@ -227,7 +230,7 @@ class _WRLogin1State extends State<WRLogin1>
                   ]),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
         ],
@@ -254,7 +257,7 @@ class _WRLogin1State extends State<WRLogin1>
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Padding(
