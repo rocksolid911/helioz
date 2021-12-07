@@ -8,7 +8,6 @@ import 'common/Validation/registrationvalidation.dart';
 import 'common/Validation/signinvalidation.dart';
 import 'common/splash/screen/splash.dart';
 import 'package:provider/provider.dart';
-
 import 'common/widgets/customanimation.dart';
 
 void main() {

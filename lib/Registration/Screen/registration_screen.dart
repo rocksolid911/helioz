@@ -714,12 +714,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   hintText: 'Phone Number',
                   errorText: validationService.phno.error,
                 ),
-                // validator: (value) {
-                //   if (value!.isEmpty) {
-                //     return 'Phone Number:';
-                //   }
-                //   return null;
-                // },
+
                 onChanged: (value){
                   validationService.checkPhoneNo(value);
                 },

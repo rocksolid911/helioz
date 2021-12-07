@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
 import 'package:helioz/common/AppBar/myappbar.dart';
 import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:helioz/common/colorsres.dart';
@@ -45,7 +46,7 @@ class _ReplaceTechnologyScreenState extends State<ReplaceTechnologyScreen> {
       key: _drawerkey,
       appBar: CustomAppBar("Household Details"),
 
-      drawer: const myDrawer(),
+      drawer: const MainMenu(),
       body: ListView(
         children: [
           Container(

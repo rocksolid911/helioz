@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helioz/Replace_of_Equipment%20/Widget/drop_down.dart';
+import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
 import 'package:helioz/common/AppBar/myappbar.dart';
 import 'package:helioz/common/colorsres.dart';
 import 'package:helioz/common/widgets/text_style.dart';
@@ -44,7 +44,7 @@ class _ReplaceEquipmentScreenState extends State<ReplaceEquipmentScreen> {
     return Scaffold(
       key: _drawerkey,
       appBar: CustomAppBar("Household Details"),
-      drawer: const myDrawer(),
+      drawer: const MainMenu(),
       body: ListView(
         children: [
           Container(
