@@ -19,6 +19,9 @@ class PreRegistrationScreen extends StatefulWidget {
 }
 
 class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
+  TextEditingController namebeneficiaryController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController numberProjectTechController = TextEditingController();
   final GlobalKey<ScaffoldState> _drawerkey = GlobalKey();
   String? genderItem = "";
   String? waterTreatmentRadioDry = "";
@@ -60,22 +63,22 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
+                controller: namebeneficiaryController,
                 // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                  ),
-                  // labelText: 'Full Name',
-                  hintText: 'Name of beneficiary',
-                  errorText: validationService.firstName.error
-                ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    // labelText: 'Full Name',
+                    hintText: 'Name of beneficiary',
+                    errorText: validationService.firstName.error),
                 // validator: (value) {
                 //   if (value!.isEmpty) {
                 //     return 'Enter Name of beneficiary';
                 //   }
                 //   return null;
                 // },
-                onChanged: (value){
+                onChanged: (value) {
                   validationService.changeFirstName(value);
                 },
               ),
@@ -331,24 +334,24 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
+                controller: phoneController,
                 maxLength: 10,
                 // validator: validateEmail(TexEd),
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                  ),
-                  // labelText: 'Full Name',
-                  hintText: 'Enter Phone Number',
-                  errorText: validationService.phno.error
-                ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    // labelText: 'Full Name',
+                    hintText: 'Enter Phone Number',
+                    errorText: validationService.phno.error),
                 // validator: (value) {
                 //   if (value!.isEmpty) {
                 //     return 'Enter Phone Number';
                 //   }
                 //   return null;
                 // },
-                onChanged: (value){
+                onChanged: (value) {
                   validationService.checkPhoneNo(value);
                 },
               ),
@@ -789,6 +792,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
+                controller: numberProjectTechController,
                 // validator: validateEmail(TexEd),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
