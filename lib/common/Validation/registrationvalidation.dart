@@ -6,7 +6,8 @@ import 'package:helioz/common/Validation/validationitem.dart';
 class RegValidation with ChangeNotifier {
 
 
-  static final RegExp nameRegExp =RegExp('[a-zA-Z]');
+  //static final RegExp nameRegExp =RegExp('[a-zA-Z]');
+  static final RegExp nameRegExp =RegExp(r"^\s*([A-Za-z]{1,}([\.,] |[-']| ))+[A-Za-z]+\.?\s*$");
   static final RegExp numberRegExp = RegExp(r'\d');
 
   ValidationItem _firstName = ValidationItem(null,null);
@@ -33,7 +34,7 @@ class RegValidation with ChangeNotifier {
 
 //Setters
   void changeFirstName(String value){
-    if (value.length >= 3 && nameRegExp.hasMatch(value)  ){
+    if ( nameRegExp.hasMatch(value)  ){
       _firstName=ValidationItem(value,null);
     } else {
       _firstName=ValidationItem(null, "Input Must be at least 3 characters and Letters");

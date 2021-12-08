@@ -703,6 +703,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
+                maxLength: 10,
                 controller: phoneController,
                 keyboardType: TextInputType.number,
                 // validator: validateEmail(TexEd),
@@ -730,6 +731,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
+                maxLength: 12,
                 controller: aadharController,
                 keyboardType: TextInputType.number,
                 // validator: validateEmail(TexEd),

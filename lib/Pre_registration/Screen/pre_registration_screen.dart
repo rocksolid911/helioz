@@ -331,6 +331,7 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
+                maxLength: 10,
                 // validator: validateEmail(TexEd),
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(

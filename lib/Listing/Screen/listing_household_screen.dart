@@ -23,7 +23,7 @@ class _ListHouseHoldScreenState extends State<ListHouseHoldScreen> {
       child: Scaffold(
         key: _drawerkey,
         drawer: const MainMenu(),
-        appBar: CustomAppBar("Listing House Hold"),
+        appBar: CustomAppBar("Listing Household"),
         body: ListView(
           children: [
             SizedBox(

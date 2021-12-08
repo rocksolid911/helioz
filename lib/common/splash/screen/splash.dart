@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:helioz/Auth/Login/Screen/loginscreen.dart';
 import 'package:helioz/common/colorsres.dart';
 import 'package:helioz/common/splash/widgets/introslideractivity.dart';
 import 'package:helioz/common/widgets/designconfig.dart';
@@ -29,7 +30,8 @@ class SplashScreenState extends State<SplashScreen> {
     Timer(const Duration(seconds: 3), () async {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const IntroSliderActivity()),
+       // MaterialPageRoute(builder: (context) => const IntroSliderActivity()),
+        MaterialPageRoute(builder: (context) => const WRLogin1()),
       );
     });
   }

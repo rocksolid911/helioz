@@ -79,7 +79,7 @@ Widget HouseHoldContainer(BuildContext context) {
                   )),
                 ),
                 onTap: () {
-                  Navigator.pop(context);
+                 // Navigator.pop(context);
                   Navigator.pushNamed(context, '/replace_techno');
                 },
               ),
@@ -106,7 +106,7 @@ Widget HouseHoldContainer(BuildContext context) {
                   )),
                 ),
                 onTap: () {
-                  Navigator.pop(context);
+                  //Navigator.pop(context);
                   Navigator.pushNamed(context, '/replace_equip');
                 },
               ),
