@@ -7,6 +7,7 @@ import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
 import 'package:helioz/LocalDataBase/DatabaseHelper/db_helper.dart';
 import 'package:helioz/LocalDataBase/Model/registration_model.dart';
 import 'package:helioz/Registration/Data/drop_down_data.dart';
+
 import 'package:helioz/Registration/Widget/formtitle.dart';
 import 'package:helioz/common/AppBar/myappbar.dart';
 import 'package:helioz/common/Validation/registrationvalidation.dart';
@@ -24,6 +25,8 @@ import 'package:sizer/sizer.dart';
 import '../../main.dart';
 
 //final menuScreenKey = GlobalKey(debugLabel: 'MenuScreen');
+
+enum Category { general, obc, sc, st }
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
@@ -115,7 +118,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
   var _gender;
   String genderItem = '';
-  String Category = '';
+  Category _category = Category.general;
+
   String Disability = '';
   String Migration = '';
 
@@ -764,92 +768,54 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               SizedBox(
                 height: .5.h,
               ),
-              Container(
-                margin: const EdgeInsets.only(left: 10, right: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Row(
-                  // mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Expanded(
-                      // flex: 2,
-                      child: RadioListTile(
-                        contentPadding: const EdgeInsets.all(
-                            // Add this
-                            0),
-                        dense: true,
-                        groupValue: Category,
-                        title: Text(
-                          'General',
-                          maxLines: 1,
-                          overflow: TextOverflow.fade,
-                          style: TextStyle(
-
-                              // maxLines: 1,
-
-                              ),
-                        ),
-                        value: 'General',
-                        onChanged: (val) {
-                          setState(() {
-                            Category = val as String;
-                          });
-                        },
-                      ),
+                    LabeledRadio(
+                      label: 'General',
+                      padding: const EdgeInsets.all(0),
+                      groupValue: _category,
+                      value: Category.general,
+                      onChanged: (newValue) {
+                        setState(() {
+                          _category = newValue;
+                        });
+                      },
                     ),
-                    Expanded(
-                      // flex: 1,
-                      child: RadioListTile(
-                        contentPadding: const EdgeInsets.all(0),
-                        dense: true,
-                        groupValue: Category,
-                        title: const Text(
-                          'OBC',
-                          maxLines: 1,
-                          overflow: TextOverflow.fade,
-                        ),
-                        value: 'OBC',
-                        onChanged: (val) {
-                          setState(() {
-                            Category = val as String;
-                          });
-                        },
-                      ),
+                    LabeledRadio(
+                      label: 'OBC',
+                      padding: const EdgeInsets.all(0),
+                      groupValue: _category,
+                      value: Category.obc,
+                      onChanged: (newValue) {
+                        setState(() {
+                          _category = newValue;
+                        });
+                      },
                     ),
-                    Expanded(
-                      child: RadioListTile(
-                        contentPadding: const EdgeInsets.all(0),
-                        dense: true,
-                        groupValue: Category,
-                        title: const Text(
-                          'SC',
-                          maxLines: 1,
-                          overflow: TextOverflow.fade,
-                        ),
-                        value: 'SC',
-                        onChanged: (val) {
-                          setState(() {
-                            Category = val as String;
-                          });
-                        },
-                      ),
+                    LabeledRadio(
+                      label: 'SC',
+                      padding: const EdgeInsets.all(0),
+                      groupValue: _category,
+                      value: Category.sc,
+                      onChanged: (newValue) {
+                        setState(() {
+                          _category = newValue;
+                        });
+                      },
                     ),
-                    Expanded(
-                      child: RadioListTile(
-                        contentPadding: const EdgeInsets.all(0),
-                        dense: true,
-                        groupValue: Category,
-                        title: const Text(
-                          'ST',
-                          maxLines: 1,
-                          overflow: TextOverflow.fade,
-                        ),
-                        value: 'ST',
-                        onChanged: (val) {
-                          setState(() {
-                            Category = val as String;
-                          });
-                        },
-                      ),
+                    LabeledRadio(
+                      label: 'ST',
+                      padding: const EdgeInsets.all(0),
+                      groupValue: _category,
+                      value: Category.st,
+                      onChanged: (newValue) {
+                        setState(() {
+                          _category = newValue;
+                        });
+                      },
                     ),
                   ],
                 ),
@@ -1505,7 +1471,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       number_hh_member: int.parse(number_hh_controller.text),
       phone_no: int.parse(phoneController.text),
       aadhar: int.parse(aadharController.text),
-      caste_category: Category.toString(),
+      caste_category: _category.toString(),
       hh_disability: Disability.toString(),
       hh_disability_number: int.parse(numberDisabilityController.text),
       season_migration: migrationValue.toString(),
@@ -1520,5 +1486,47 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       date_of_tech_training: trainningDateController.text.toString(),
     );
     // databaseHelper.insertData(userRegisterModel);
+  }
+}
+
+class LabeledRadio extends StatelessWidget {
+  final String label;
+  final EdgeInsets padding;
+  final Category groupValue;
+  final Category value;
+  final Function onChanged;
+
+  const LabeledRadio(
+      {Key? key,
+      required this.label,
+      required this.padding,
+      required this.groupValue,
+      required this.value,
+      required this.onChanged});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        if (value != groupValue) {
+          onChanged(value);
+        }
+      },
+      child: Padding(
+        padding: padding,
+        child: Row(
+          children: <Widget>[
+            Radio<Category>(
+              groupValue: groupValue,
+              value: value,
+              onChanged: (newValue) {
+                onChanged(newValue);
+              },
+            ),
+            Text(label),
+          ],
+        ),
+      ),
+    );
   }
 }
