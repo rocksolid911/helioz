@@ -527,7 +527,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 //   }
                 //   return null;
                 // },
-                onChanged: (value){
+                onChanged: (value) {
                   validationService.checkNo(value);
                 },
               ),
@@ -560,7 +560,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 //   }
                 //   return null;
                 // },
-                onChanged: (value){
+                onChanged: (value) {
                   validationService.changeFirstName(value);
                 },
               ),
@@ -716,7 +716,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   errorText: validationService.phno.error,
                 ),
 
-                onChanged: (value){
+                onChanged: (value) {
                   validationService.checkPhoneNo(value);
                 },
               ),
@@ -749,7 +749,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 //   }
                 //   return null;
                 // },
-                onChanged: (value){
+                onChanged: (value) {
                   validationService.checkAdhar(value);
                 },
               ),
@@ -770,18 +770,17 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   Expanded(
                     // flex: 2,
                     child: RadioListTile(
-                      contentPadding: const EdgeInsets.only(
+                      contentPadding: const EdgeInsets.all(
                           // Add this
-                          left: 0,
-                          right: 0,
-                          bottom: 0,
-                          top: 0),
+                          0),
+                      dense: true,
                       groupValue: Category,
-                      title: const Text(
+                      title: Text(
                         'General',
                         maxLines: 1,
                         overflow: TextOverflow.fade,
                         style: TextStyle(
+
                             // maxLines: 1,
 
                             ),
@@ -797,14 +796,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   Expanded(
                     // flex: 1,
                     child: RadioListTile(
-                      contentPadding: const EdgeInsets.only(
-                          // Add this
-                          left: 0,
-                          right: 0,
-                          bottom: 0,
-                          top: 0),
+                      contentPadding: const EdgeInsets.all(0),
+                      dense: true,
                       groupValue: Category,
-                      title: const Text('OBC'),
+                      title: const Text(
+                        'OBC',
+                        maxLines: 1,
+                        overflow: TextOverflow.fade,
+                      ),
                       value: 'OBC',
                       onChanged: (val) {
                         setState(() {
@@ -815,14 +814,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                   Expanded(
                     child: RadioListTile(
-                      contentPadding: const EdgeInsets.only(
-                          // Add this
-                          left: 0,
-                          right: 0,
-                          bottom: 0,
-                          top: 0),
+                      contentPadding: const EdgeInsets.all(0),
+                      dense: true,
                       groupValue: Category,
-                      title: const Text('SC'),
+                      title: const Text(
+                        'SC',
+                        maxLines: 1,
+                        overflow: TextOverflow.fade,
+                      ),
                       value: 'SC',
                       onChanged: (val) {
                         setState(() {
@@ -833,14 +832,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                   Expanded(
                     child: RadioListTile(
-                      contentPadding: const EdgeInsets.only(
-                          // Add this
-                          left: 0,
-                          right: 0,
-                          bottom: 0,
-                          top: 0),
+                      contentPadding: const EdgeInsets.all(0),
+                      dense: true,
                       groupValue: Category,
-                      title: const Text('ST'),
+                      title: const Text(
+                        'ST',
+                        maxLines: 1,
+                        overflow: TextOverflow.fade,
+                      ),
                       value: 'ST',
                       onChanged: (val) {
                         setState(() {
@@ -1264,7 +1263,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextFormField(
-
                 controller: quantityEquipController,
                 keyboardType: TextInputType.number,
                 // validator: validateEmail(TexEd),

@@ -85,6 +85,7 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
+              keyboardType: TextInputType.number,
               textAlign: TextAlign.center,
               decoration: InputDecoration(
                   // fillColor: const Color(0xff5b81e8),
