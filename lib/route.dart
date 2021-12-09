@@ -26,10 +26,10 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (_) => const WRLogin1(),
         );
-      case '/signup':
-        return MaterialPageRoute(
-          builder: (_) => WRSingup1(),
-        );
+      // case '/signup':
+      //   return MaterialPageRoute(
+      //     builder: (_) => WRSingup1(),
+      //   );
       case '/dashboard':
         return MaterialPageRoute(
           builder: (_) => const MainMenu(),

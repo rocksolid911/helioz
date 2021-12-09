@@ -42,6 +42,28 @@ class DatabaseHelper {
          date_of_tech_training TEXT NOT NULL
         )
         """);
+        await database.execute("""
+        CREATE TABLE PreRegistration(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name_of_beneficiary TEXT NOT NULL,
+        gender TEXT NOT NULL,
+        state TEXT NOT NULL,
+        district TEXT NOT NULL,
+        block TEXT NOT NULL,
+        village TEXT NOT NULL,
+         phone_no INTEGER NOT NULL,
+         main_fuel_source TEXT NOT NUL,
+         main_fuel_source_dry TEXT NOT NUL,
+         main_fuel_source_rainy TEXT NOT NUL,
+         water_treatment_dry TEXT,
+         water_treatment_dry_method TEXT,
+         water_treatment_rainy TEXT,
+         water_treatment_rainy_method TEXT,
+         type_project_tech  TEXT NOT NUL,
+         number_project_tech  TEXT NOT NUL
+        
+        )
+        """);
       },
       version: 1,
     );

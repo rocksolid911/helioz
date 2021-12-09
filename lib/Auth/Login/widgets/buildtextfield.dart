@@ -7,10 +7,12 @@ class BuildTextField extends StatefulWidget {
   final String labelText;
   final String placeholder;
   final bool isPassword;
+  final TextEditingController controller;
 
   const BuildTextField({
     Key? key,
     required this.labelText,
+    required this.controller,
     required this.placeholder,
     required this.isPassword,
   }) : super(key: key);
@@ -32,6 +34,7 @@ class _BuildTextFieldState extends State<BuildTextField> {
           style: TextStyle(color: Colors.grey.shade500, fontSize: 12),
         ),
         TextField(
+          controller: widget.controller,
           onChanged: widget.isPassword == false
               ? (value) {
                   validationService.ceckEmail(value);

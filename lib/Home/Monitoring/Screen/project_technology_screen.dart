@@ -1125,13 +1125,14 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
+              keyboardType: TextInputType.number,
               // validator: validateEmail(TexEd),
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 ),
                 // labelText: 'Full Name',
-                hintText: '1to5',
+                hintText: '1 to 5',
               ),
               validator: (value) {
                 if (value!.isEmpty) {

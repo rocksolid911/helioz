@@ -8,6 +8,7 @@ import 'package:helioz/common/Validation/signinvalidation.dart';
 import 'package:helioz/common/colorsres.dart';
 import 'package:helioz/common/widgets/slideanimation.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 
 String? groupValue = '';
@@ -47,10 +48,11 @@ class _WRLogin1State extends State<WRLogin1>
   }
 
   AnimationController? _animationController;
+  TextEditingController userIdConttroller = TextEditingController();
+  TextEditingController passwordConttroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
         statusBarIconBrightness: Brightness.light,
@@ -182,10 +184,11 @@ class _WRLogin1State extends State<WRLogin1>
                 ),
                 primary: ColorsRes.newAppColor,
                 elevation: 1.0,
-                padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 12),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 70, vertical: 12),
               ),
               onPressed: () {
-                Navigator.pushReplacementNamed(context, "/dashboard");
+                LoginUser();
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -250,7 +253,8 @@ class _WRLogin1State extends State<WRLogin1>
             animationController: _animationController,
             child:
                 // buildTextField("EMAIL ADDRESS", "test123@demo.com", false),
-                const BuildTextField(
+                BuildTextField(
+              controller: userIdConttroller,
               labelText: "User Id",
               placeholder: "test123@demo.com",
               isPassword: false,
@@ -267,7 +271,8 @@ class _WRLogin1State extends State<WRLogin1>
             itemCount: 8,
             slideDirection: SlideDirection.fromRight,
             animationController: _animationController,
-            child: const BuildTextField(
+            child: BuildTextField(
+              controller: passwordConttroller,
               labelText: "Password",
               placeholder: "please enter your password",
               isPassword: true,
@@ -314,5 +319,12 @@ class _WRLogin1State extends State<WRLogin1>
         )
       ],
     );
+  }
+
+  LoginUser() async {
+    final SharedPreferences sharedPreferences =
+        await SharedPreferences.getInstance();
+    sharedPreferences.setString("userId", userIdConttroller.text);
+    Navigator.pushReplacementNamed(context, "/dashboard");
   }
 }
