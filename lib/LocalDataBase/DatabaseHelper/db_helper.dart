@@ -1,3 +1,4 @@
+import 'package:helioz/LocalDataBase/Model/pre_registration_model.dart';
 import 'package:helioz/LocalDataBase/Model/registration_model.dart';
 import 'package:helioz/LocalDataBase/Model/signup_user_model.dart';
 import 'package:sqflite/sqflite.dart';
@@ -85,5 +86,19 @@ class DatabaseHelper {
     final Database db = await initDB();
     await db.update("Registration", userRegisterModel.toMap(),
         where: "id=?", whereArgs: [id]);
+  }
+
+  Future<int> insertPreRegestrationData(
+      UserPreRegisterModel userPreRegisterModel) async {
+    final Database db = await initDB();
+    int result =
+        await db.insert("PreRegistration", userPreRegisterModel.toMap());
+    return result;
+  }
+
+  Future<List<UserPreRegisterModel>> getPreRegestrationData() async {
+    final Database db = await initDB();
+    final List<Map<String, Object?>> datas = await db.query("PreRegistration");
+    return datas.map((e) => UserPreRegisterModel.fromMap(e)).toList();
   }
 }
