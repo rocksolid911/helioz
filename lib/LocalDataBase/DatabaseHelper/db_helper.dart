@@ -53,6 +53,7 @@ class DatabaseHelper {
         block TEXT NOT NULL,
         village TEXT NOT NULL,
          phone_no INTEGER NOT NULL,
+          aadhar INTEGER NOT NULL,
          main_fuel_source TEXT NOT NUL,
          main_fuel_source_dry TEXT NOT NUL,
          main_fuel_source_rainy TEXT NOT NUL,
@@ -86,6 +87,20 @@ class DatabaseHelper {
     final Database db = await initDB();
     await db.update("Registration", userRegisterModel.toMap(),
         where: "id=?", whereArgs: [id]);
+  }
+
+  Future<void> deleteUser(int id) async {
+    final Database db = await initDB();
+    await db.delete("Registration", where: "id=?", whereArgs: [id]);
+  }
+
+  Future<UserPreRegisterModel> getProfile(String aadharNo) async {
+    print(aadharNo);
+    String whereString = '${'DatabaseHelper.email=$aadharNo'}';
+    final Database db = await initDB();
+    final List<Map<String, Object?>> datas = await db.rawQuery(
+        'SELECT * FROM PreRegistration WHERE aadhar = ?', ['$aadharNo']);
+    return datas.map((e) => UserPreRegisterModel.fromMap(e)).toList().first;
   }
 
   Future<int> insertPreRegestrationData(

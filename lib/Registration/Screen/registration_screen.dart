@@ -41,7 +41,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   File? imageFile;
   late String _base64image;
   DateTime _date = DateTime.now();
-  final DateFormat dateFormat = DateFormat("dd/MM/yyyy");
+  final DateFormat dateFormat = DateFormat("dd/MMM/yyyy");
   TextEditingController distributionDateController = TextEditingController();
   TextEditingController trainningDateController = TextEditingController();
   TextEditingController hh_unique_indetifyController = TextEditingController();
@@ -87,9 +87,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   List<UserRegisterModel> detsils = [];
   getinfo() async {
     detsils = await databaseHelper.getData();
-
-    print(detsils.first.image);
-    print(detsils.first.date_of_tech_training);
   }
 
   late DatabaseHelper databaseHelper;
@@ -1454,7 +1451,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     if (!isValid) {
       return;
     }
-    isLoading = false;
+
+
     UserRegisterModel userRegisterModel = UserRegisterModel(
       country: CountryValue.toString(),
       state: StateValue.toString(),
@@ -1485,7 +1483,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       date_of_sale: distributionDateController.text.toString(),
       date_of_tech_training: trainningDateController.text.toString(),
     );
-    // databaseHelper.insertData(userRegisterModel);
+    databaseHelper.insertData(userRegisterModel);
+    isLoading = false;
+    print(userRegisterModel);
   }
 }
 

@@ -22,6 +22,8 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
   TextEditingController namebeneficiaryController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController numberProjectTechController = TextEditingController();
+  TextEditingController aadharController = TextEditingController();
+
   final GlobalKey<ScaffoldState> _drawerkey = GlobalKey();
   String? genderItem = "";
   String? waterTreatmentRadioDry = "";
@@ -353,6 +355,34 @@ class _PreRegistrationScreenState extends State<PreRegistrationScreen> {
                 // },
                 onChanged: (value) {
                   validationService.checkPhoneNo(value);
+                },
+              ),
+            ),
+            SizedBox(
+              height: 2.h,
+            ),
+            FormTitle(formtitle: "Aadhar Card:"),
+            SizedBox(
+              height: .5.h,
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 20, right: 20),
+              child: TextFormField(
+                maxLength: 12,
+                controller: aadharController,
+                keyboardType: TextInputType.number,
+                // validator: validateEmail(TexEd),
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  // labelText: 'Full Name',
+                  hintText: 'Aadhar Card',
+                  errorText: validationService.aadhar.error,
+                ),
+
+                onChanged: (value) {
+                  validationService.checkAdhar(value);
                 },
               ),
             ),

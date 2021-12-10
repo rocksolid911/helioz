@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:helioz/common/Validation/signinvalidation.dart';
 import 'package:helioz/common/colorsres.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class BuildTextField extends StatefulWidget {
   final String labelText;
@@ -75,8 +76,17 @@ class _BuildTextFieldState extends State<BuildTextField> {
       ],
     );
   }
+  // loginUser() async {
+  //   final SharedPreferences sharedPreferences =
+  //   await SharedPreferences.getInstance();
+  //   sharedPreferences.setString("userId", widget.controller.text);
+  //
+  //   if(widget.controller.text.isNotEmpty){
+  //     Navigator.pushReplacementNamed(context, "/dashboard");
+  //   }else{
+  //     print("no user");
+  //   }
+  //
+  // }
 }
-// Container buildTextField(
-//     String labelText, String placeholder, bool isPassword) {
-//
-//   );
+

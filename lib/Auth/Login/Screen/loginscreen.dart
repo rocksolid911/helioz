@@ -188,7 +188,7 @@ class _WRLogin1State extends State<WRLogin1>
                     const EdgeInsets.symmetric(horizontal: 70, vertical: 12),
               ),
               onPressed: () {
-                LoginUser();
+                loginUser();
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -321,10 +321,16 @@ class _WRLogin1State extends State<WRLogin1>
     );
   }
 
-  LoginUser() async {
+  loginUser() async {
     final SharedPreferences sharedPreferences =
         await SharedPreferences.getInstance();
     sharedPreferences.setString("userId", userIdConttroller.text);
-    Navigator.pushReplacementNamed(context, "/dashboard");
+
+    if(userIdConttroller.text.isNotEmpty){
+      Navigator.pushReplacementNamed(context, "/dashboard");
+    }else{
+print("no user");
+    }
+
   }
 }

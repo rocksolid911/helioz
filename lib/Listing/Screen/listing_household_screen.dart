@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
+import 'package:helioz/LocalDataBase/DatabaseHelper/db_helper.dart';
+import 'package:helioz/LocalDataBase/Model/registration_model.dart';
 import 'package:helioz/common/AppBar/myappbar.dart';
 
 import 'package:helioz/common/colorsres.dart';
@@ -7,6 +9,7 @@ import 'package:helioz/common/widgets/text_style.dart';
 import 'package:helioz/Listing/Widget/householdwidget.dart';
 import 'package:helioz/common/Drawer/widgets/drawer.dart';
 import 'package:sizer/sizer.dart';
+import 'package:sqflite/sqflite.dart';
 
 class ListHouseHoldScreen extends StatefulWidget {
   const ListHouseHoldScreen({Key? key}) : super(key: key);
@@ -17,6 +20,24 @@ class ListHouseHoldScreen extends StatefulWidget {
 
 class _ListHouseHoldScreenState extends State<ListHouseHoldScreen> {
   final GlobalKey<ScaffoldState> _drawerkey = GlobalKey();
+
+  List<UserRegisterModel> detsils = [];
+  late DatabaseHelper databaseHelper;
+
+  getinfo() async {
+    detsils = await databaseHelper.getData();
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    databaseHelper = DatabaseHelper();
+    databaseHelper.initDB();
+    getinfo();
+    updateListView();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -24,7 +45,7 @@ class _ListHouseHoldScreenState extends State<ListHouseHoldScreen> {
         key: _drawerkey,
         drawer: const MainMenu(),
         appBar: CustomAppBar("Listing Household"),
-        body: ListView(
+        body: Column(
           children: [
             SizedBox(
               height: 2.h,
@@ -87,13 +108,43 @@ class _ListHouseHoldScreenState extends State<ListHouseHoldScreen> {
                 color: ColorsRes.buttoncolor,
               ),
             ),
-            HouseHoldContainer(context),
-            HouseHoldContainer(context),
-            HouseHoldContainer(context),
-            HouseHoldContainer(context),
+            Expanded(
+              child: ListView.builder(
+                  itemCount: detsils.length,
+                  itemBuilder: (context, index) {
+                    var position = detsils[index];
+                    return HouseHoldContainer(
+                        context,
+                        position.name_of_beneficiary,
+                        position.village,
+                        position.panchayat,
+                        position.state,
+                        position.date_of_sale,
+                        position.date_of_tech_training, () {
+                      databaseHelper.deleteUser(position.id!);
+                      updateListView();
+                    });
+                  }),
+            )
+            // HouseHoldContainer(context),
+            // HouseHoldContainer(context),
+            // HouseHoldContainer(context),
+            // HouseHoldContainer(context),
           ],
         ),
       ),
     );
+  }
+
+  void updateListView() {
+    final Future<Database> database = databaseHelper.initDB();
+    database.then((database) {
+      Future<List<UserRegisterModel>> userListFuture = databaseHelper.getData();
+      userListFuture.then((userList) {
+        setState(() {
+          detsils = userList;
+        });
+      });
+    });
   }
 }

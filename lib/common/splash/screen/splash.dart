@@ -22,14 +22,15 @@ class SplashScreen extends StatefulWidget {
 class SplashScreenState extends State<SplashScreen> {
   String? finalEmail;
 
+  @override
   void initState() {
     super.initState();
     getvalidationData().whenComplete(() async {
       Timer(
-          Duration(seconds: 3),
+          const Duration(seconds: 3),
           () => Navigator.of(context).pushReplacement(MaterialPageRoute(
               builder: (BuildContext context) =>
-                  finalEmail == null ? WRLogin1() : MainMenu())));
+                  finalEmail == null ? const WRLogin1() : const MainMenu())));
     });
   }
 
