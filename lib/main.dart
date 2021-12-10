@@ -26,10 +26,11 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) =>  SignInValidation()),
       ],
       child: Sizer(builder: (context, orientation, deviceType) {
-        return const MaterialApp(
+        return  MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: SplashScreen(),
+          home: const SplashScreen(),
           onGenerateRoute: RouteGenerator.generateRoute,
+          builder: EasyLoading.init(),
         );
       }),
     );
