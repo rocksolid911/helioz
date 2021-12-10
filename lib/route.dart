@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:helioz/Auth/Login/Screen/loginscreen.dart';
+
 import 'package:helioz/Auth/Login/Screen/signupscreen.dart';
 import 'package:helioz/Home/Dashboard/Screen/dash_board.dart';
 import 'package:helioz/Home/Help/Screen/help_screen.dart';
 import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
 import 'package:helioz/Listing/Screen/listing_household_screen.dart';
+import 'Auth/Login/Screen/newlogin.dart';
+import 'Auth/Logout/widgets/logoutalert.dart';
 import 'Home/Monitoring/Screen/project_technology_screen.dart';
 import 'Listing/Replace_of_Equipment /Screen/replace_equipment.dart';
 import 'Listing/Replace_of_Technology/Screen/replace_technology.dart';
@@ -24,7 +26,7 @@ class RouteGenerator {
         );
       case '/login':
         return MaterialPageRoute(
-          builder: (_) => const WRLogin1(),
+          builder: (_) => const WRLogin2(),
         );
       // case '/signup':
       //   return MaterialPageRoute(
@@ -70,6 +72,11 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (_) => const DashboardScreen(),
         );
+      case '/logout':
+        return MaterialPageRoute(
+          builder: (_) => const LogoutAlert(),
+        );
+
 
         // If args is not of the correct type, return an error page.
         // You can also throw an exception while in development.

@@ -4,7 +4,10 @@ import 'package:helioz/common/colorsres.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+typedef void ValidCallback (bool val);
+
 class BuildTextField extends StatefulWidget {
+  final ValidCallback func;
   final String labelText;
   final String placeholder;
   final bool isPassword;
@@ -16,6 +19,7 @@ class BuildTextField extends StatefulWidget {
     required this.controller,
     required this.placeholder,
     required this.isPassword,
+    required this.func,
   }) : super(key: key);
 
   @override
@@ -34,7 +38,8 @@ class _BuildTextFieldState extends State<BuildTextField> {
           widget.labelText,
           style: TextStyle(color: Colors.grey.shade500, fontSize: 12),
         ),
-        TextField(
+        TextFormField(
+
           controller: widget.controller,
           onChanged: widget.isPassword == false
               ? (value) {
@@ -72,6 +77,19 @@ class _BuildTextFieldState extends State<BuildTextField> {
                 //: Container(),
                 : null,
           ),
+          validator: (value){
+
+            validationService.ceckEmail(value!);
+
+          },
+          onEditingComplete: (){
+            if(validationService.email.error==null){
+              widget.func(true);
+            }else{
+              widget.func(false);
+            }
+
+          },
         ),
       ],
     );

@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'common/widgets/customanimation.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 

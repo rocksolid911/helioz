@@ -88,7 +88,7 @@ class _MainMenuState extends State<MainMenu> {
             ),
             GridMenu(
               img: 'assets/helioz-menu-icons/logout.png',
-              path: '/login',
+              path: '/logout',
               title: 'Logout',
             ),
           ],
