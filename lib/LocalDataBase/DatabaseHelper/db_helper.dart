@@ -44,6 +44,34 @@ class DatabaseHelper {
         )
         """);
         await database.execute("""
+        CREATE TABLE ProjectTech(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        condition_of_project TEXT NOT NULL,
+        project_tech_use_visit TEXT NOT NULL,
+        demonstration_of_project TEXT NOT NULL,
+        average_num_tech_week TEXT NOT NULL,
+        reason_of_not_use TEXT NOT NULL,
+        type_of_treat_method TEXT NOT NULL,
+        average_water_treated_per_day TEXT NOT NULL,
+        average_water_treated_per_day_person TEXT NOT NULL,
+        boil_drinking_water TEXT NOT NULL,
+        store_treated_water TEXT NOT NULL,
+        ability_drinking_water TEXT NOT NULL,
+        reduction_of_waterborne TEXT NOT NULL,
+        reduction_of_sick_day TEXT NOT NULL,
+        reduction_of_medical_cost TEXT NOT NULL,
+        reduction_of_boiling_drinking_water TEXT NOT NULL,
+        reduction_of_boiling_firewood TEXT NOT NULL,
+        reduction_of_time_firewood TEXT NOT NULL,
+        store_water_project_tech TEXT NOT NULL,
+        how_long_store_water TEXT NOT NULL,
+        untreated_water_health TEXT NOT NULL,
+        like_project_tech TEXT NOT NULL,
+        like_project_activity TEXT NOT NULL
+        
+        )
+        """);
+        await database.execute("""
         CREATE TABLE PreRegistration(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name_of_beneficiary TEXT NOT NULL,
