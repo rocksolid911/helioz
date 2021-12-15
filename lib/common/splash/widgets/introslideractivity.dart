@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:helioz/Auth/Login/Screen/newlogin.dart';
 
-import 'package:helioz/Auth/Login/Screen/loginscreen.dart';
+
 import 'package:helioz/common/widgets/colorsres.dart';
 import 'package:helioz/common/widgets/stringsres.dart';
 
@@ -100,7 +101,7 @@ class IntroSliderState extends State<IntroSliderActivity> {
               child: GestureDetector(
                 onTap: () {
                   Navigator.of(context).pushReplacement(CupertinoPageRoute(
-                      builder: (context) => const WRLogin1()));
+                      builder: (context) => const WRLogin2()));
                 },
                 child: Container(
                     width: double.maxFinite,

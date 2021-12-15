@@ -3,7 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:helioz/Auth/Login/Screen/loginscreen.dart';
+
+import 'package:helioz/Auth/Login/Screen/newlogin.dart';
 import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
 import 'package:helioz/common/colorsres.dart';
 import 'package:helioz/common/splash/widgets/introslideractivity.dart';
@@ -30,7 +31,7 @@ class SplashScreenState extends State<SplashScreen> {
           const Duration(seconds: 3),
           () => Navigator.of(context).pushReplacement(MaterialPageRoute(
               builder: (BuildContext context) =>
-                  finalEmail == null ? const WRLogin1() : const MainMenu())));
+                  finalEmail == null ? const WRLogin2() : const MainMenu())));
     });
   }
 
