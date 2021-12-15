@@ -1451,8 +1451,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     if (!isValid) {
       return;
     }
-
-
     UserRegisterModel userRegisterModel = UserRegisterModel(
       country: CountryValue.toString(),
       state: StateValue.toString(),
