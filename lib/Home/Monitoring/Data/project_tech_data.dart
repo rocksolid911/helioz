@@ -25,6 +25,7 @@ var Type_of_treatment_method = [
   'Cloth Filter',
   ' Album',
   'Membrane Filter (RO System, etc.)',
+  'Leaving bottles in the sun (Solar Water Disinfection)',
   'Other'
 ];
 

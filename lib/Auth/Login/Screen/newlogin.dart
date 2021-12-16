@@ -325,7 +325,8 @@ class _WRLogin2State extends State<WRLogin2>
                   ),
                   onPressed: () {
                     if (loginformkey.currentState!.validate()) {
-                      Navigator.pushReplacementNamed(context, '/dashboard');
+                      loginUser();
+
                     }
                   },
                   child: Row(
@@ -349,28 +350,28 @@ class _WRLogin2State extends State<WRLogin2>
               const SizedBox(
                 height: 15,
               ),
-              SlideAnimation(
-                position: 7,
-                itemCount: 8,
-                slideDirection: SlideDirection.fromBottom,
-                animationController: _animationController,
-                child: RichText(
-                  text: TextSpan(
-                      text: "Don't have an account? ",
-                      style: const TextStyle(
-                          color: Colors.black, fontFamily: "Futura"),
-                      children: [
-                        TextSpan(
-                            text: "Sign Up",
-                            recognizer: _tapGestureRecognizer,
-                            style: const TextStyle(
-                                decoration: TextDecoration.underline,
-                                color: ColorsRes.newAppColor,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: "Futura"))
-                      ]),
-                ),
-              ),
+              // SlideAnimation(
+              //   position: 7,
+              //   itemCount: 8,
+              //   slideDirection: SlideDirection.fromBottom,
+              //   animationController: _animationController,
+              //   child: RichText(
+              //     text: TextSpan(
+              //         text: "Don't have an account? ",
+              //         style: const TextStyle(
+              //             color: Colors.black, fontFamily: "Futura"),
+              //         children: [
+              //           TextSpan(
+              //               text: "Sign Up",
+              //               recognizer: _tapGestureRecognizer,
+              //               style: const TextStyle(
+              //                   decoration: TextDecoration.underline,
+              //                   color: ColorsRes.newAppColor,
+              //                   fontWeight: FontWeight.bold,
+              //                   fontFamily: "Futura"))
+              //         ]),
+              //   ),
+              // ),
               const SizedBox(
                 height: 20,
               ),

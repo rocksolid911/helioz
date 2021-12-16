@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:helioz/Home/Monitoring/Data/project_tech_data.dart';
 import 'package:helioz/Home/mainmenu/screens/mainmenu.dart';
+import 'package:helioz/LocalDataBase/DatabaseHelper/db_helper.dart';
+import 'package:helioz/LocalDataBase/Model/project_tech_model.dart';
 import 'package:helioz/Pre_registration/Data/pre_reg_data.dart';
 import 'package:helioz/common/AppBar/myappbar.dart';
 import 'package:helioz/common/colorsres.dart';
-
 import 'package:helioz/common/widgets/text_style.dart';
-
 import 'package:sizer/sizer.dart';
 
 class TechnologyScreen extends StatefulWidget {
@@ -18,45 +18,62 @@ class TechnologyScreen extends StatefulWidget {
 
 class _TechnologyScreenState extends State<TechnologyScreen> {
   final GlobalKey<ScaffoldState> _drawerkey = GlobalKey();
-  TextEditingController titleController = TextEditingController();
-  TextEditingController descriptionController = TextEditingController();
-  TextEditingController nameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController aadharController = TextEditingController();
-  TextEditingController telePhoneNoController = TextEditingController();
-  TextEditingController confrimPasswordController = TextEditingController();
-  //NoteDetailState(this.note, this.appBarTitle);
 
-  String? genderItem = "";
+  // controller
+  TextEditingController averageLiterWaterPerDayController =
+      TextEditingController();
+  TextEditingController averageLiterWaterPerDayPersonController =
+      TextEditingController();
+  TextEditingController grievancesProjectController = TextEditingController();
+  TextEditingController grievancesProjectTechController =
+      TextEditingController();
+
+  //Radio
+  String? projectTechItem = "";
+  String? waterTreatedProjectTechItem = "";
+  String? waterUnTreatedWaterItem = "";
   String? waterTreatmentRadioDry = "";
   String? waterTreatmentRadioRainy = "";
 
-  // ignore: non_constant_identifier_names
-  String? Con_of_Project_Technology_Value;
-  String? tehsil_value;
-  String? Reason_for_not_daily_use_Value;
-  String? Demonstration_of_Technology_Use_Value;
-  String? Avg_num_days_value;
-  String? Type_of_treatment_method_Value;
-  String? How_long_store_treated_water_Value;
-  String? How_long_store_treated_water_Value2;
-  String? How_long_store_treated_water_Value3;
-  String? like_Project_Technology_Value;
-  String? like_Project_Activities_Value;
-  String? Influence_of_Project_Technology_on_value;
-  String? education_value;
-  String? Reduction_of_waterborne_Value;
-  String? Reduction_of_boiling_water_Value;
-  String? Reduction_of_time_spent_Value;
-  String? Reduction_of_firewood_Value;
-  String? Reduction_of_diseases_value;
-  String? Reduction_of_sickday_value;
+  //dropDownValues
+  String? conOfProjectTechnologyValue;
+  String? demonstrationOfTechnologyUseValue;
+  String? avgNumDaysValue;
+  String? reasonForNotDailyUseValue;
+  String? typeOfTreatmentMethodValue;
+  String? boilDrinkingWaterValue;
+  String? boilDrinkingWaterTreatmentValue;
+  String? availabilitySafeDrinkingWaterValue;
+  String? reductionWaterDiseaseValue;
+  String? reductionSickDayValue;
+  String? reductionMedicalCostValue;
+  String? reductionBoilingDrinkingWaterValue;
+  String? reductionTImeSpendFirewoodValue;
+  String? reduceWaterDisease;
+  String? howLongStoreTreatedWaterValue;
+  String? likeProjectTechValue;
+  String? likeProjectActivity;
+
+  //localDataBase
+  late DatabaseHelper databaseHelper;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    databaseHelper = DatabaseHelper();
+    databaseHelper.initDB();
+    getData();
+    super.initState();
+  }
+  List<ProjectTechModel> detsils = [];
+  getData() async {
+    detsils = await databaseHelper.getProjectTechData();
+    print(detsils.map((e) => e.id));
+  }
 
   @override
   Widget build(BuildContext context) {
     TextStyle? textStyle = Theme.of(context).textTheme.headline6;
-
     return Scaffold(
       appBar: CustomAppBar("Project Technology"),
       drawer: const MainMenu(),
@@ -100,12 +117,11 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                     child: Text(dropDownStringItem),
                   );
                 }).toList(),
-                value: Con_of_Project_Technology_Value,
+                value: conOfProjectTechnologyValue,
                 onChanged: (valueSelected) {
                   setState(
                     () {
-                      Con_of_Project_Technology_Value =
-                          valueSelected as String?;
+                      conOfProjectTechnologyValue = valueSelected as String?;
 
                       // debugPrint('User selected $treatmentWaterSourceDryValue');
                     },
@@ -142,24 +158,24 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
               children: [
                 Expanded(
                   child: RadioListTile(
-                    groupValue: genderItem,
+                    groupValue: projectTechItem,
                     title: const Text('Yes'),
                     value: 'Yes',
                     onChanged: (val) {
                       setState(() {
-                        genderItem = val as String;
+                        projectTechItem = val as String;
                       });
                     },
                   ),
                 ),
                 Expanded(
                   child: RadioListTile(
-                    groupValue: genderItem,
+                    groupValue: projectTechItem,
                     title: const Text('No'),
                     value: 'No',
                     onChanged: (val) {
                       setState(() {
-                        genderItem = val as String;
+                        projectTechItem = val as String;
                       });
                     },
                   ),
@@ -205,11 +221,11 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                     child: Text(dropDownStringItem),
                   );
                 }).toList(),
-                value: Demonstration_of_Technology_Use_Value,
+                value: demonstrationOfTechnologyUseValue,
                 onChanged: (valueSelected) {
                   setState(
                     () {
-                      Demonstration_of_Technology_Use_Value =
+                      demonstrationOfTechnologyUseValue =
                           valueSelected as String?;
 
                       // debugPrint('User selected $CountryValue');
@@ -264,11 +280,11 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                     child: Text(dropDownStringItem),
                   );
                 }).toList(),
-                value: Avg_num_days_value,
+                value: avgNumDaysValue,
                 onChanged: (valueSelected) {
                   setState(
                     () {
-                      Avg_num_days_value = valueSelected as String?;
+                      avgNumDaysValue = valueSelected as String?;
 
                       // debugPrint('User selected $CountryValue');
                     },
@@ -289,7 +305,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: Text(
-              "IF lower than 5 Reason for not daily use:",
+              "If lower than 5 Reason for not daily use:",
               style: heading,
             ),
           ),
@@ -321,11 +337,11 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                     child: Text(dropDownStringItem),
                   );
                 }).toList(),
-                value: Reason_for_not_daily_use_Value,
+                value: reasonForNotDailyUseValue,
                 onChanged: (valueSelected) {
                   setState(
                     () {
-                      Reason_for_not_daily_use_Value = valueSelected as String?;
+                      reasonForNotDailyUseValue = valueSelected as String?;
 
                       // debugPrint('User selected $mainFuelSourceValue');
                     },
@@ -379,11 +395,11 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                     child: Text(dropDownStringItem),
                   );
                 }).toList(),
-                value: Reduction_of_waterborne_Value,
+                value: typeOfTreatmentMethodValue,
                 onChanged: (valueSelected) {
                   setState(
                     () {
-                      Reduction_of_waterborne_Value = valueSelected as String?;
+                      typeOfTreatmentMethodValue = valueSelected as String?;
 
                       // debugPrint('User selected $treatmentWaterSourceDryValue');
                     },
@@ -414,6 +430,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
+              controller: averageLiterWaterPerDayController,
               // validator: validateEmail(TexEd),
               decoration: InputDecoration(
                 border: OutlineInputBorder(
@@ -421,11 +438,11 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                 ),
                 // labelText: 'Full Name',
                 hintText:
-                    'Select Average liters of water treated with project technology per day',
+                    'Enter Average liters of water treated with project technology per day',
               ),
               validator: (value) {
                 if (value!.isEmpty) {
-                  return 'Please Select Average liters of water treated with project technology per day';
+                  return 'Enter Average liters of water treated with project technology per day';
                 }
                 return null;
               },
@@ -437,7 +454,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: Text(
-              "Average liters of water  Per Person per day::",
+              "Average liters of water  Per Person per day:",
               style: heading,
             ),
           ),
@@ -447,17 +464,18 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
+              controller: averageLiterWaterPerDayPersonController,
               // validator: validateEmail(TexEd),
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 ),
                 // labelText: 'Full Name',
-                hintText: 'Select Average liters of water Per Person per day:',
+                hintText: 'Enter liters of water Per Person per day:',
               ),
               validator: (value) {
                 if (value!.isEmpty) {
-                  return 'Please Select Average liters of water Per Person per day';
+                  return 'Please Enter Average liters of water Per Person per day';
                 }
                 return null;
               },
@@ -469,51 +487,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: Text(
-              "Do you Boil drinking water in addition to use of the Project",
-              style: heading,
-            ),
-          ),
-          SizedBox(
-            height: 5.h,
-            // margin: EdgeInsets.only(left: 20, right: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: RadioListTile(
-                    groupValue: waterTreatmentRadioDry,
-                    title: const Text('Yes'),
-                    value: 'Yes',
-                    onChanged: (val) {
-                      setState(() {
-                        waterTreatmentRadioDry = val as String;
-                      });
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: RadioListTile(
-                    groupValue: waterTreatmentRadioDry,
-                    title: const Text('No'),
-                    value: 'No',
-                    onChanged: (val) {
-                      setState(() {
-                        waterTreatmentRadioDry = val as String;
-                      });
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 2.h,
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 20, right: 20),
-            child: Text(
-              "How long do you store the treated water?:",
+              "Do you boil drinking water after treatment with the Project Technology?",
               style: heading,
             ),
           ),
@@ -530,8 +504,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                   ),
                 ),
                 focusColor: Colors.white,
-                hint: const Text(
-                    "Select How long do you store the trated water?"),
+                hint: const Text("Do you boil drinking water after treatment."),
                 isExpanded: true,
                 icon: const Align(
                     alignment: Alignment.centerRight,
@@ -539,27 +512,87 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                       Icons.arrow_drop_down,
                       color: ColorsRes.buttoncolor,
                     )),
-                items: How_long_store_treated_water.map(
+                items: Demonstration_of_Technology_Use.map(
                     (String dropDownStringItem) {
                   return DropdownMenuItem<String>(
                     value: dropDownStringItem,
                     child: Text(dropDownStringItem),
                   );
                 }).toList(),
-                value: How_long_store_treated_water_Value,
+                value: boilDrinkingWaterValue,
                 onChanged: (valueSelected) {
                   setState(
                     () {
-                      How_long_store_treated_water_Value =
-                          valueSelected as String?;
-                      // debugPrint('User selected $treatmentWaterSourceDryValue');
+                      boilDrinkingWaterValue = valueSelected as String?;
+
+                      // debugPrint('User selected $CountryValue');
                     },
                   );
                 },
                 validator: (value) {
                   if (value == null) {
-                    return 'Please Select How long do you store the trated water?';
+                    return 'Please Select';
                   }
+
+                  return null;
+                },
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 2.h,
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 20, right: 20),
+            child: Text(
+              "Do you Boil drinking water in addition to use of the Project Technology?",
+              style: heading,
+            ),
+          ),
+          SizedBox(
+            height: .5.h,
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 20, right: 20),
+            child: DropdownButtonHideUnderline(
+              child: DropdownButtonFormField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                ),
+                focusColor: Colors.white,
+                hint: const Text("Do you boil drinking water after treatment."),
+                isExpanded: true,
+                icon: const Align(
+                    alignment: Alignment.centerRight,
+                    child: Icon(
+                      Icons.arrow_drop_down,
+                      color: ColorsRes.buttoncolor,
+                    )),
+                items: Demonstration_of_Technology_Use.map(
+                    (String dropDownStringItem) {
+                  return DropdownMenuItem<String>(
+                    value: dropDownStringItem,
+                    child: Text(dropDownStringItem),
+                  );
+                }).toList(),
+                value: boilDrinkingWaterTreatmentValue,
+                onChanged: (valueSelected) {
+                  setState(
+                    () {
+                      boilDrinkingWaterTreatmentValue =
+                          valueSelected as String?;
+
+                      // debugPrint('User selected $CountryValue');
+                    },
+                  );
+                },
+                validator: (value) {
+                  if (value == null) {
+                    return 'Please Select';
+                  }
+
                   return null;
                 },
               ),
@@ -602,11 +635,12 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                     child: Text(dropDownStringItem),
                   );
                 }).toList(),
-                value: education_value,
+                value: availabilitySafeDrinkingWaterValue,
                 onChanged: (valueSelected) {
                   setState(
                     () {
-                      education_value = valueSelected as String?;
+                      availabilitySafeDrinkingWaterValue =
+                          valueSelected as String?;
 
                       // debugPrint('User selected $treatmentWaterSourceDryValue');
                     },
@@ -653,17 +687,18 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                       Icons.arrow_drop_down,
                       color: ColorsRes.buttoncolor,
                     )),
-                items: like_Project_Technology.map((String dropDownStringItem) {
+                items: Influence_of_Project_Technology_on.map(
+                    (String dropDownStringItem) {
                   return DropdownMenuItem<String>(
                     value: dropDownStringItem,
                     child: Text(dropDownStringItem),
                   );
                 }).toList(),
-                value: Reduction_of_diseases_value,
+                value: reductionWaterDiseaseValue,
                 onChanged: (valueSelected) {
                   setState(
                     () {
-                      like_Project_Technology_Value = valueSelected as String?;
+                      reductionWaterDiseaseValue = valueSelected as String?;
 
                       // debugPrint('User selected $treatmentWaterSourceDryValue');
                     },
@@ -710,17 +745,18 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                       Icons.arrow_drop_down,
                       color: ColorsRes.buttoncolor,
                     )),
-                items: like_Project_Technology.map((String dropDownStringItem) {
+                items: Influence_of_Project_Technology_on.map(
+                    (String dropDownStringItem) {
                   return DropdownMenuItem<String>(
                     value: dropDownStringItem,
                     child: Text(dropDownStringItem),
                   );
                 }).toList(),
-                value: Reduction_of_sickday_value,
+                value: reductionSickDayValue,
                 onChanged: (valueSelected) {
                   setState(
                     () {
-                      Reduction_of_sickday_value = valueSelected as String?;
+                      reductionSickDayValue = valueSelected as String?;
 
                       // debugPrint('User selected $treatmentWaterSourceDryValue');
                     },
@@ -767,17 +803,18 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                       Icons.arrow_drop_down,
                       color: ColorsRes.buttoncolor,
                     )),
-                items: waterTreatmentDry.map((String dropDownStringItem) {
+                items: Influence_of_Project_Technology_on.map(
+                    (String dropDownStringItem) {
                   return DropdownMenuItem<String>(
                     value: dropDownStringItem,
                     child: Text(dropDownStringItem),
                   );
                 }).toList(),
-                value: like_Project_Activities_Value,
+                value: reductionMedicalCostValue,
                 onChanged: (valueSelected) {
                   setState(
                     () {
-                      like_Project_Activities_Value = valueSelected as String?;
+                      reductionMedicalCostValue = valueSelected as String?;
 
                       // debugPrint('User selected $treatmentWaterSourceDryValue');
                     },
@@ -824,17 +861,18 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                       Icons.arrow_drop_down,
                       color: ColorsRes.buttoncolor,
                     )),
-                items: waterTreatmentDry.map((String dropDownStringItem) {
+                items: Influence_of_Project_Technology_on.map(
+                    (String dropDownStringItem) {
                   return DropdownMenuItem<String>(
                     value: dropDownStringItem,
                     child: Text(dropDownStringItem),
                   );
                 }).toList(),
-                value: Reduction_of_boiling_water_Value,
+                value: reductionBoilingDrinkingWaterValue,
                 onChanged: (valueSelected) {
                   setState(
                     () {
-                      Reduction_of_boiling_water_Value =
+                      reductionBoilingDrinkingWaterValue =
                           valueSelected as String?;
 
                       // debugPrint('User selected $treatmentWaterSourceDryValue');
@@ -844,63 +882,6 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                 validator: (value) {
                   if (value == null) {
                     return 'Please Select Reduction of boiling drinking water ';
-                  }
-
-                  return null;
-                },
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 2.h,
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 20, right: 20),
-            child: Text(
-              "Reduction of boiling firewood usage:",
-              style: heading,
-            ),
-          ),
-          SizedBox(
-            height: .5.h,
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 20, right: 20),
-            child: DropdownButtonHideUnderline(
-              child: DropdownButtonFormField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                  ),
-                ),
-                focusColor: Colors.white,
-                hint: const Text("Select Reduction of boiling firewood usage"),
-                isExpanded: true,
-                icon: const Align(
-                    alignment: Alignment.centerRight,
-                    child: Icon(
-                      Icons.arrow_drop_down,
-                      color: ColorsRes.buttoncolor,
-                    )),
-                items: waterTreatmentDry.map((String dropDownStringItem) {
-                  return DropdownMenuItem<String>(
-                    value: dropDownStringItem,
-                    child: Text(dropDownStringItem),
-                  );
-                }).toList(),
-                value: Reduction_of_firewood_Value,
-                onChanged: (valueSelected) {
-                  setState(
-                    () {
-                      Reduction_of_firewood_Value = valueSelected as String?;
-
-                      // debugPrint('User selected $treatmentWaterSourceDryValue');
-                    },
-                  );
-                },
-                validator: (value) {
-                  if (value == null) {
-                    return 'Please Select Reduction of boiling firewood usage ';
                   }
 
                   return null;
@@ -940,17 +921,19 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                       Icons.arrow_drop_down,
                       color: ColorsRes.buttoncolor,
                     )),
-                items: waterTreatmentDry.map((String dropDownStringItem) {
+                items: Influence_of_Project_Technology_on.map(
+                    (String dropDownStringItem) {
                   return DropdownMenuItem<String>(
                     value: dropDownStringItem,
                     child: Text(dropDownStringItem),
                   );
                 }).toList(),
-                value: Reduction_of_time_spent_Value,
+                value: reductionTImeSpendFirewoodValue,
                 onChanged: (valueSelected) {
                   setState(
                     () {
-                      Reduction_of_time_spent_Value = valueSelected as String?;
+                      reductionTImeSpendFirewoodValue =
+                          valueSelected as String?;
                       // debugPrint('User selected $treatmentWaterSourceDryValue');
                     },
                   );
@@ -984,24 +967,24 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
               children: [
                 Expanded(
                   child: RadioListTile(
-                    groupValue: waterTreatmentRadioRainy,
+                    groupValue: waterTreatedProjectTechItem,
                     title: const Text('Yes'),
                     value: 'Yes',
                     onChanged: (val) {
                       setState(() {
-                        waterTreatmentRadioRainy = val as String;
+                        waterTreatedProjectTechItem = val as String;
                       });
                     },
                   ),
                 ),
                 Expanded(
                   child: RadioListTile(
-                    groupValue: waterTreatmentRadioRainy,
+                    groupValue: waterTreatedProjectTechItem,
                     title: const Text('No'),
                     value: 'No',
                     onChanged: (val) {
                       setState(() {
-                        waterTreatmentRadioRainy = val as String;
+                        waterTreatedProjectTechItem = val as String;
                       });
                     },
                   ),
@@ -1015,8 +998,7 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: Text(
-              "How long do you store the trated water?",
-              //"How long do you think that drinking untreated water is bad for your heath?",
+              "How long do you store the treated water?:",
               style: heading,
             ),
           ),
@@ -1042,26 +1024,25 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                       Icons.arrow_drop_down,
                       color: ColorsRes.buttoncolor,
                     )),
-                items: waterTreatmentDry.map((String dropDownStringItem) {
+                items: How_long_store_treated_water.map(
+                    (String dropDownStringItem) {
                   return DropdownMenuItem<String>(
                     value: dropDownStringItem,
                     child: Text(dropDownStringItem),
                   );
                 }).toList(),
-                value: How_long_store_treated_water_Value2,
+                value: howLongStoreTreatedWaterValue,
                 onChanged: (valueSelected) {
                   setState(
                     () {
-                      How_long_store_treated_water_Value2 =
-                          valueSelected as String?;
-
+                      howLongStoreTreatedWaterValue = valueSelected as String?;
                       // debugPrint('User selected $treatmentWaterSourceDryValue');
                     },
                   );
                 },
                 validator: (value) {
                   if (value == null) {
-                    return 'Please Select How long do you store the trated water?';
+                    return 'Select How long do you store the water?';
                   }
                   return null;
                 },
@@ -1087,24 +1068,24 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
               children: [
                 Expanded(
                   child: RadioListTile(
-                    groupValue: waterTreatmentRadioRainy,
+                    groupValue: waterUnTreatedWaterItem,
                     title: const Text('Yes'),
                     value: 'Yes',
                     onChanged: (val) {
                       setState(() {
-                        waterTreatmentRadioRainy = val as String;
+                        waterUnTreatedWaterItem = val as String;
                       });
                     },
                   ),
                 ),
                 Expanded(
                   child: RadioListTile(
-                    groupValue: waterTreatmentRadioRainy,
+                    groupValue: waterUnTreatedWaterItem,
                     title: const Text('No'),
                     value: 'No',
                     onChanged: (val) {
                       setState(() {
-                        waterTreatmentRadioRainy = val as String;
+                        waterUnTreatedWaterItem = val as String;
                       });
                     },
                   ),
@@ -1143,17 +1124,17 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
                       Icons.arrow_drop_down,
                       color: ColorsRes.buttoncolor,
                     )),
-                items: waterTreatmentDry.map((String dropDownStringItem) {
+                items: like_Project_Technology.map((String dropDownStringItem) {
                   return DropdownMenuItem<String>(
                     value: dropDownStringItem,
                     child: Text(dropDownStringItem),
                   );
                 }).toList(),
-                value: education_value,
+                value: likeProjectTechValue,
                 onChanged: (valueSelected) {
                   setState(
                     () {
-                      education_value = valueSelected as String?;
+                      likeProjectTechValue = valueSelected as String?;
 
                       // debugPrint('User selected $treatmentWaterSourceDryValue');
                     },
@@ -1175,7 +1156,64 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: Text(
-              "Do you like the Project Activities:",
+              "Do you like the Project Activities?",
+              style: heading,
+            ),
+          ),
+          SizedBox(
+            height: .5.h,
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 20, right: 20),
+            child: DropdownButtonHideUnderline(
+              child: DropdownButtonFormField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                ),
+                focusColor: Colors.white,
+                hint: const Text("Select Do you like the Project Activities"),
+                isExpanded: true,
+                icon: const Align(
+                    alignment: Alignment.centerRight,
+                    child: Icon(
+                      Icons.arrow_drop_down,
+                      color: ColorsRes.buttoncolor,
+                    )),
+                items: like_Project_Technology.map((String dropDownStringItem) {
+                  return DropdownMenuItem<String>(
+                    value: dropDownStringItem,
+                    child: Text(dropDownStringItem),
+                  );
+                }).toList(),
+                value: likeProjectActivity,
+                onChanged: (valueSelected) {
+                  setState(
+                    () {
+                      likeProjectActivity = valueSelected as String?;
+
+                      // debugPrint('User selected $treatmentWaterSourceDryValue');
+                    },
+                  );
+                },
+                validator: (value) {
+                  if (value == null) {
+                    return 'Select Do you like the Project Activities';
+                  }
+
+                  return null;
+                },
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 2.h,
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 20, right: 20),
+            child: Text(
+              "Do you have any grievances regarding the Project Technology?",
               style: heading,
             ),
           ),
@@ -1185,42 +1223,83 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
             child: TextFormField(
+              controller: grievancesProjectTechController,
               // validator: validateEmail(TexEd),
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 ),
                 // labelText: 'Full Name',
-                hintText: '1to5',
+                hintText:
+                    'Enter any grievances regarding the Project Technology:',
               ),
               validator: (value) {
                 if (value!.isEmpty) {
-                  return '1to5';
+                  return 'Please Enter any grievances regarding the Project Technology';
                 }
                 return null;
               },
             ),
           ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Container(
-              margin: const EdgeInsets.only(right: 20, top: 20),
-              height: 6.h,
-              width: 20.h,
-              // alignment: Alignment.bottomRight,
-              decoration: const BoxDecoration(
-                color: ColorsRes.buttoncolor,
-                shape: BoxShape.rectangle,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(25.0),
+          SizedBox(
+            height: 2.h,
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 20, right: 20),
+            child: Text(
+              "Do you have any grievances regarding the Project ?",
+              style: heading,
+            ),
+          ),
+          SizedBox(
+            height: .5.h,
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 20, right: 20),
+            child: TextFormField(
+              controller: grievancesProjectController,
+              // validator: validateEmail(TexEd),
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+                // labelText: 'Full Name',
+                hintText: 'Enter any grievances regarding the Project:',
+              ),
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Please Enter any grievances regarding the Project';
+                }
+                return null;
+              },
+            ),
+          ),
+          InkWell(
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: Container(
+                margin: const EdgeInsets.only(right: 20, top: 20),
+                height: 6.h,
+                width: 20.h,
+                // alignment: Alignment.bottomRight,
+                decoration: const BoxDecoration(
+                  color: ColorsRes.buttoncolor,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(25.0),
+                  ),
+                ),
+                child: Center(
+                  child: Text(
+                    "Submit",
+                    style: buttonTextStyle,
+                  ),
                 ),
               ),
-              child: Center(
-                  child: Text(
-                "Submit",
-                style: buttonTextStyle,
-              )),
             ),
+            onTap: () {
+              insertProjectTechData();
+            },
           ),
           SizedBox(
             height: 2.h,
@@ -1228,5 +1307,38 @@ class _TechnologyScreenState extends State<TechnologyScreen> {
         ],
       ),
     );
+  }
+
+  insertProjectTechData() {
+    ProjectTechModel projectTechModel = ProjectTechModel(
+        conditionOfProject: conOfProjectTechnologyValue.toString(),
+        projectTechUseVisit: projectTechItem.toString(),
+        demonstrationProject: demonstrationOfTechnologyUseValue.toString(),
+        averageNumTechWeek: avgNumDaysValue.toString(),
+        reasonOfNotUse: reasonForNotDailyUseValue.toString(),
+        typeOfTreatMethod: typeOfTreatmentMethodValue.toString(),
+        averageWaterTreatedPerDay:
+            averageLiterWaterPerDayController.text.toString(),
+        averageWaterTreatedPerDayPerson:
+            averageLiterWaterPerDayPersonController.text.toString(),
+        boilDrinkingWater: boilDrinkingWaterTreatmentValue.toString(),
+        boilDrinkingWaterAddition: boilDrinkingWaterTreatmentValue.toString(),
+        availabilityDrinkingWater:
+            availabilitySafeDrinkingWaterValue.toString(),
+        reductionOfWaterBorne: reductionWaterDiseaseValue.toString(),
+        reductionOfSickDay: reductionSickDayValue.toString(),
+        reductionOfMedicalCost: reductionMedicalCostValue.toString(),
+        reductionOfBoilingDrinkingWater:
+            reductionBoilingDrinkingWaterValue.toString(),
+        reductionSpendTimeFirewood: reductionTImeSpendFirewoodValue.toString(),
+        storeWaterProjectTech: waterTreatedProjectTechItem.toString(),
+        howLongStoreWater: howLongStoreTreatedWaterValue.toString(),
+        untreatedWaterHealth: waterUnTreatedWaterItem.toString(),
+        likeProjectTech: likeProjectTechValue.toString(),
+        likeProjectActivity: likeProjectActivity.toString(),
+        grievanceProjectTech: grievancesProjectTechController.toString(),
+        grievanceProjectActivity: grievancesProjectController.toString());
+    databaseHelper.insertProjectTech(projectTechModel);
+    print(projectTechModel.toMap().toString());
   }
 }

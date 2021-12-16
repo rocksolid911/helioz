@@ -1,6 +1,6 @@
 import 'package:helioz/LocalDataBase/Model/pre_registration_model.dart';
+import 'package:helioz/LocalDataBase/Model/project_tech_model.dart';
 import 'package:helioz/LocalDataBase/Model/registration_model.dart';
-import 'package:helioz/LocalDataBase/Model/signup_user_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -55,19 +55,20 @@ class DatabaseHelper {
         average_water_treated_per_day TEXT NOT NULL,
         average_water_treated_per_day_person TEXT NOT NULL,
         boil_drinking_water TEXT NOT NULL,
-        store_treated_water TEXT NOT NULL,
-        ability_drinking_water TEXT NOT NULL,
+        boil_drinking_addition TEXT NOT NULL,
+        availability_drinking_water TEXT NOT NULL,
         reduction_of_waterborne TEXT NOT NULL,
         reduction_of_sick_day TEXT NOT NULL,
         reduction_of_medical_cost TEXT NOT NULL,
         reduction_of_boiling_drinking_water TEXT NOT NULL,
-        reduction_of_boiling_firewood TEXT NOT NULL,
-        reduction_of_time_firewood TEXT NOT NULL,
+        reduction_spend_time_firewood TEXT NOT NULL,
         store_water_project_tech TEXT NOT NULL,
         how_long_store_water TEXT NOT NULL,
         untreated_water_health TEXT NOT NULL,
         like_project_tech TEXT NOT NULL,
-        like_project_activity TEXT NOT NULL
+        like_project_activity TEXT NOT NULL,
+        grievances_project_tech TEXT NOT NULL,
+        grievances_project_activity TEXT NOT NULL
         
         )
         """);
@@ -98,6 +99,7 @@ class DatabaseHelper {
       version: 1,
     );
   }
+//<------------------RegistrationMethods-------------------->
 
   Future<int> insertData(UserRegisterModel userRegisterModel) async {
     final Database db = await initDB();
@@ -130,6 +132,7 @@ class DatabaseHelper {
         'SELECT * FROM PreRegistration WHERE aadhar = ?', ['$aadharNo']);
     return datas.map((e) => UserPreRegisterModel.fromMap(e)).toList().first;
   }
+//<------------------preRegistrationMethods-------------------->
 
   Future<int> insertPreRegestrationData(
       UserPreRegisterModel userPreRegisterModel) async {
@@ -143,5 +146,31 @@ class DatabaseHelper {
     final Database db = await initDB();
     final List<Map<String, Object?>> datas = await db.query("PreRegistration");
     return datas.map((e) => UserPreRegisterModel.fromMap(e)).toList();
+  }
+
+//<------------------ProjectTechMethods------------>
+
+  Future<int> insertProjectTech(ProjectTechModel projectTechModel) async {
+    final Database db = await initDB();
+    int result = await db.insert("ProjectTech", projectTechModel.toMap());
+    return result;
+  }
+
+  Future<List<ProjectTechModel>> getProjectTechData() async {
+    final Database db = await initDB();
+    final List<Map<String, Object?>> datas = await db.query("ProjectTech");
+    return datas.map((e) => ProjectTechModel.fromMap(e)).toList();
+  }
+
+  Future<void> updateProjectTechData(
+      ProjectTechModel projectTechModel, int id) async {
+    final Database db = await initDB();
+    await db.update("ProjectTech", projectTechModel.toMap(),
+        where: "id=?", whereArgs: [id]);
+  }
+
+  Future<void> deleteProjectTechData(int id) async {
+    final Database db = await initDB();
+    await db.delete("ProjectTech", where: "id=?", whereArgs: [id]);
   }
 }
