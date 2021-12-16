@@ -82,15 +82,15 @@ class DatabaseHelper {
         village TEXT NOT NULL,
          phone_no INTEGER NOT NULL,
           aadhar INTEGER NOT NULL,
-         main_fuel_source TEXT NOT NUL,
-         main_fuel_source_dry TEXT NOT NUL,
-         main_fuel_source_rainy TEXT NOT NUL,
+         main_fuel_source TEXT NOT NULL,
+         main_fuel_source_dry TEXT NOT NULL,
+         main_fuel_source_rainy TEXT NOT NULL,
          water_treatment_dry TEXT,
          water_treatment_dry_method TEXT,
          water_treatment_rainy TEXT,
          water_treatment_rainy_method TEXT,
-         type_project_tech  TEXT NOT NUL,
-         number_project_tech  TEXT NOT NUL
+         type_project_tech  TEXT NOT NULL,
+         number_project_tech  TEXT NOT NULL
         
         )
         """);
